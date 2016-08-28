@@ -123,7 +123,6 @@ t.text :body
     0: {
       title: STRING,
       body: TEXT
-
     }
   }
   }
