@@ -39,13 +39,13 @@ AirBmC will be developed using the following stack:
 The following images detail the layout of AirBmC.
 
 **Figure 1: Landing Page**
-![alt text](/wireframes/LandingPage.png "Landing Page")
+![alt text](/docs/wireframes/LandingPage.png "Landing Page")
 
 **Figure 2: Search Results**
-![alt text](/wireframes/SearchResults.png "Search Results")
+![alt text](/docs/wireframes/SearchResults.png "Search Results")
 
 **Figure 3: Show Page**
-![alt text](/wireframes/ShowPage.png "Show Page")
+![alt text](/docs/wireframes/ShowPage.png "Show Page")
 
 ### Database Schema
 users:
