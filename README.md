@@ -48,42 +48,42 @@ The following images detail the layout of AirBmC.
 ![alt text](/wireframes/ShowPage.png "Show Page")
 
 ### Database Schema
-users:
-has_many: listings
-has_many: reservations
-has_many: comments
-t.string :username
+users:  
+has_many: listings  
+has_many: reservations  
+has_many: comments  
+t.string :username  
 t.string :password_digest
-t.string :session_token
+t.string :session_token  
 
-listings:
-belongs_to: user
-has_many: reservations
+listings:  
+belongs_to: user  
+has_many: reservations  
 t.float :overall_rating
-t.integer :user_id
-t.string :title
-t.text :description
-t.string :image_url
-t.float :lat
-t.float :long
+t.integer :user_id  
+t.string :title  
+t.text :description  
+t.string :image_url  
+t.float :lat  
+t.float :long  
 
-reservations:
-belongs_to: user
-belongs_to: listing
-t.integer :user_id
-t.integer :listing_id
-t.string :start_date
-t.string :end_date
-t.text :description
+reservations:  
+belongs_to: user  
+belongs_to: listing  
+t.integer :user_id  
+t.integer :listing_id  
+t.string :start_date  
+t.string :end_date  
+t.text :description  
 
-t.comments:
-belongs_to: user
-belongs_to: listing
-t.integer :user_id
-t.integer :listing_id
-t.integer :rating
-t.string :title
-t.text :body
+t.comments:  
+belongs_to: user  
+belongs_to: listing  
+t.integer :user_id  
+t.integer :listing_id  
+t.integer :rating  
+t.string :title  
+t.text :body  
 
 ### React Components
 * Header Component
@@ -142,8 +142,8 @@ It is estimated a total of 72 hours will be available for the development of Air
 
 
 Front End - styling of header component - 6 hours
-  * Ensure logo appears
-  * Ensure text input field is there
+  * Ensure logo appears  
+  * Ensure text input field is there  
 
 Back End - search functionality - 6 hours
   * Seed database with 25 car postings randomly located in SF
@@ -152,7 +152,7 @@ Back End - search functionality - 6 hours
   * Ensure information is returned as a JSON.
 
 
-Front End - Display Results - 6 hours
+Front End - Display Results - 6 hours  
   * Ensure front end can create a GET request front server
   * Develop react component which will display the list of cars
   * Develop middleware which will request information from backend
