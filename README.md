@@ -5,7 +5,7 @@
 AirBmC is a marketplace to connect people willing to rent their cars to people who do not own and require the use of one. Currently, AirBmC is limited to the San Francisco metropolitan area.
 
 ### Features
-By September 9th 2016 at 12pm, AirBmC shall at the very least include in the following features:
+By September 9th 2016 at 12pm, AirBmC shall at the very least include in the following features:  
 1. A persistent header across all pages which contains:
   1. The AirBmC logo
   2. A search function for cars in the area
@@ -121,6 +121,8 @@ t.text :body
 
   Comments: {
     0: {
+      title: STRING,
+      body: TEXT
 
     }
   }
@@ -150,7 +152,6 @@ Back End - search functionality - 6 hours
   * Implement google geocoding API [reference link](https://developers.google.com/maps/documentation/javascript/geocoding)
   * Ensure cars in a 10 mile radius can be found (use 10 miles for now)
   * Ensure information is returned as a JSON.
-
 
 Front End - Display Results - 6 hours
   * Ensure front end can create a GET request front server
@@ -203,3 +204,6 @@ Back End - new comment functionality - 8 hours
 Front End - show comments - 8 hours
   * Develop react component to display comments
   * Develop middleware to request all comments
+
+### Additional Features
+As time permits, additional features will be added to the website. They will be documented here.
