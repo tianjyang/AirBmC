@@ -1,14 +1,23 @@
 ### API Endpoints
-
+** Root **
 Root: Redirects to static homepage
-GET /api/cars/popular
-GET /api/cars/byLocation
 
-GET /api/session
-POST /api/session
-DELETE /api/session
+** Cars Api **  
+* `GET /api/cars/popular`  
+* `GET /api/cars/byLocation  `
 
-GET /api/comments
-POST /api/comments
 
-GET /api/listings
+** Sessions Api **  
+* `GET /api/session  `
+* `POST /api/session  `
+* `DELETE /api/session  `
+
+
+** Comments Api **  
+* `GET /api/comments  `
+* `POST /api/comments  `
+* `DELETE /api/comments  `
+* `PATCH /api/comments  `
+
+** Listings Api **  
+* `GET /api/listings  `
