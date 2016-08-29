@@ -45,7 +45,7 @@ The following images detail the layout of AirBmC.
 ![alt text](/docs/wireframes/ShowPage.png "Show Page")
 
 ### Database Schema
-[Database Schema](/docs/schema.md "Schema)  
+[Database Schema](/docs/schema.md "Schema")  
 
 ### React Components
 [React Components](/docs/component-hierarchy.md "React Components")  
