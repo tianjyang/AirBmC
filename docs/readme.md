@@ -111,7 +111,7 @@ t.text :body
   * Other considerations
   * New reservation form
 
-### React Structure and State
+### Redux Structure and State
 
 The front end will have the following elements:
 * Middleware
