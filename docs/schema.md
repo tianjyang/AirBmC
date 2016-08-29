@@ -1,6 +1,6 @@
 ### Database Schema
 
-** Users **
+** Users **  
 
 column name     | data type | details
 ----------------|-----------|-----------------------
@@ -13,7 +13,7 @@ has_many: listings
 has_many: reservations  
 has_many: comments  
 
-** Lisings **
+** Lisings **  
 
 column name | data type | details
 ------------|-----------|-----------------------
