@@ -133,39 +133,12 @@ The front end will have the following elements:
     * SuccessfulReservation: Updates the state with the newest reservation request
     * FailedReservation: Updates the state with the error messages
 
-<pre>
-{
-  MatchingCars: {
-    0: {
-      lat: FLOAT,
-      long: FLOAT,
-      title: STRING,
-      image_url: STRING
-    }
 
-  Comments: {
-    0: {
-      title: STRING,
-      body: TEXT
-    }
-  }
-  }
-  SearchField: {
-    destination: STRING
-    start_date: STRING
-    end_date: STRING
-  }
-  CurrentUser: {
-    username: STRING
-    logged_in: BOOLEAN
-  }
-}
-  </pre>
 
 ### Development Schedule
 It is estimated a total of 72 hours will be available for the development of AirBmC. The development schedule is as follows.
 
-**New account/session creation - 8 hours**
+**New account/session creation - 8/30**
 * Back End - Add account creation and session token functionality to back end
   * Generate model and controllers
 * Front End - add login/signup form to header
@@ -175,7 +148,7 @@ It is estimated a total of 72 hours will be available for the development of Air
   * Develop routes which will choose to display login/logout form based on state
   * Develop front end functionality to login as guest/demo
 
-**Ability to Display Local Cars - 16 hours**
+**Ability to Display Local Cars - 9/1**
 * Back End - Add car MVCs to back end
   * Generate model for cars
   * Generate seed data (25 car postings randomly located in SF)
@@ -189,7 +162,7 @@ It is estimated a total of 72 hours will be available for the development of Air
   * Develop reducers which will update state of the site with searched cars
   * Ensure hash history is updated with lat/long coordinates
 
-** Ability to create new bookings - 16 hours **
+**Ability to create new bookings - 9/5**
 * Back End - develop functionality for show page
   * Modify cars controller to find a car by id and return car details as JSON.
   * Create a model for new reservations
@@ -205,7 +178,7 @@ It is estimated a total of 72 hours will be available for the development of Air
   * Develop middleware for form submission
   * Ensure css style matches the wireframe.
 
-** Ability to Search for Cars - 16 hours **
+**Ability to Search for Cars - 9/7**
 * Back End - modify api controllers
   * modify api controllers to accept distance from location
   * modify car models to be able to search by availability
@@ -214,7 +187,7 @@ It is estimated a total of 72 hours will be available for the development of Air
   * Develop react component which will house the maps element displayed on the search results page
   * Develop functionality to request more cars based on the coordinates of the map
 
-** Ability to post and view existing reviews - 16 hours**
+**Ability to post and view existing reviews - 9/9**
 * Back End - reviews functionality
   * Create a model for new reviews
   * Develop controller to create a new comment
