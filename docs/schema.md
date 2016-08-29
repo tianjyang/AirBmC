@@ -1,6 +1,6 @@
 ### Database Schema
 
-** Users **  
+**Users**  
 
 column name     | data type | details
 ----------------|-----------|-----------------------
@@ -13,7 +13,7 @@ has_many: listings
 has_many: reservations  
 has_many: comments  
 
-** Lisings **  
+**Listings**  
 
 column name | data type | details
 ------------|-----------|-----------------------
@@ -29,7 +29,7 @@ long        | float     | not null
 belongs_to: user  
 has_many: reservations  
 
-** Reservations **
+**Reservations**
 
 column name | data type | details
 ------------|-----------|-----------------------
@@ -43,7 +43,7 @@ end_date    | string    | not null
 belongs_to: user  
 belongs_to: listing  
 
-** Comments **
+**Comments**
 
 column name | data type | details
 ------------|-----------|-----------------------
