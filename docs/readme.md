@@ -4,6 +4,9 @@
 
 AirBmC is a marketplace to connect people willing to rent their cars to people who do not own and require the use of one. Currently, AirBmC is limited to the San Francisco metropolitan area.
 
+AirBmC can be found at
+[https://airbmc.herokuapp.com/](https://airbmc.herokuapp.com/)
+
 ### Features
 By September 9th 2016 at 12pm, AirBmC shall at the very least include in the following features:  
 1. A persistent header across all pages which contains:
@@ -107,7 +110,11 @@ t.text :body
   * Other considerations
   * New reservation form
 
-### React State
+### React Structure and State
+
+The front end will have the following elements:
+* Middleware
+  ** asdf
 
 <pre>
 {
