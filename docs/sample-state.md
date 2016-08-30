@@ -2,7 +2,7 @@
 ```json
 
 {
-  MatchingCars: {
+  matchingCars: {
     1: {
       id: 1
       lat: 12.3456789,
@@ -11,7 +11,7 @@
       image_url: "http://blog.caranddriver.com/wp-content/uploads/2016/01/BMW-i8-Mirrorless-cameras-101-876x535.jpg"
     }
 
-  Reviews: {
+  reviews: {
     1: {
       id: 1
       listing_id: 1
@@ -20,12 +20,12 @@
     }
   }
   }
-  SearchField: {
+  searchField: {
     location: "San Francisco"
     start_date: "Jan 11 1987"
     end_date: "Jan 25 1987"
   }
-  CurrentUser: {
+  session: {
     username: "myusername"
     logged_in: true
   }
