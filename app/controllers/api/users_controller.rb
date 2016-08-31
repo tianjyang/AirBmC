@@ -6,6 +6,7 @@ class Api::UsersController < ApplicationController
     new_user.username = username
     new_user.password = password
     if new_user.save
+      sign_in(new_user)
       reply = {username: username, logged_in: true}
       render json: reply
     else
