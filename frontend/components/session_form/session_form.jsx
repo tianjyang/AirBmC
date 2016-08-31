@@ -40,18 +40,17 @@ class SessionForm extends React.Component {
     // debugger
     let loginFormClass, submitButtonClass, logoutButtonClass;
     if ( this.props.loggedIn ){
-      loginFormClass = "hidden_form";
-      submitButtonClass = "hidden_button";
-      logoutButtonClass = "visible_button";
+      loginFormClass = "hidden";
+      submitButtonClass = "hidden";
+      logoutButtonClass = "";
     } else {
-      loginFormClass = "visible_form";
-      submitButtonClass = "visible_button";
-      logoutButtonClass = "hidden_button";
+      loginFormClass = "";
+      submitButtonClass = "";
+      logoutButtonClass = "hidden";
     }
 
     return(
-      <span>
-        <form>
+        <form className={"session_form"}>
           <span className={loginFormClass}>
             <label>Username
               <input type="text" name="user[username]" placeholder="Username"></input>
@@ -61,13 +60,12 @@ class SessionForm extends React.Component {
             </label>
           </span>
           <span>
-            <input type="submit" onClick={this.handleClick} value="Log In" className={submitButtonClass}></input>
-            <input type="submit" onClick={this.handleClick} value="Sign Up" className={submitButtonClass}></input>
-            <input type="submit" onClick={this.handleClick} value="Guest" className={submitButtonClass}></input>
-            <input type="submit" onClick={this.handleClick} value="Log Out" className={logoutButtonClass}></input>
+            <input type="submit" onClick={this.handleClick} value="Log In" className={"session_button " + submitButtonClass}></input>
+            <input type="submit" onClick={this.handleClick} value="Sign Up" className={"session_button " + submitButtonClass}></input>
+            <input type="submit" onClick={this.handleClick} value="Guest" className={"session_button " + submitButtonClass}></input>
+            <input type="submit" onClick={this.handleClick} value="Log Out" className={"session_button " + logoutButtonClass}></input>
           </span>
         </form>
-      </span>
     );
   }
 

@@ -23,6 +23,11 @@ ol, ul {
 	list-style: none;
 }
 
+form.session_form{
+	float:right;
+	display:inline-block;
+	width: 165px;
+}
 
 * {
 	border: 1px solid red;
@@ -36,10 +41,6 @@ ol, ul {
 	height: 100px;
 }
 
-.hidden_form {
-	display: none;
-}
-
-.hidden_button {
+.hidden {
 	display: none;
 }
