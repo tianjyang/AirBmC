@@ -30,7 +30,4 @@ const destroySession = (creds,successCallback) => {
     error: fail
   });
 };
-
-
-window.signUpUser = signUpUser;
 export { signUpUser, newSession, destroySession };

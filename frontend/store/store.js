@@ -2,12 +2,14 @@ import { createStore } from 'redux';
 import reducer from '../reducers/root_reducer';
 import middleware from '../middleware/root_middleware';
 
-const preloadedState = {
-    // MatchingCars: {},
-    // Reviews: {},
-    // SearchField: {},
+const defaultPreloadedState = () => {
+  let output = {
     session: {}
+  };
+  return output;
 };
 
 
-export default createStore(reducer,preloadedState,middleware);
+export default (preloadedState = defaultPreloadedState) => {
+  return createStore(reducer,preloadedState,middleware);
+};

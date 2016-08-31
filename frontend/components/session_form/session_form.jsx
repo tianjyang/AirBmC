@@ -23,6 +23,11 @@ class SessionForm extends React.Component {
       case "Sign Up":
         this.props.onSignUpClick(creds);
         break;
+      case "Guest":
+        creds.username = "guest";
+        creds.password = "password";
+        this.props.onLoginClick(creds);
+        break;
       case "Log Out":
         this.props.onLogoutClick(creds);
         break;
@@ -58,6 +63,7 @@ class SessionForm extends React.Component {
           <span>
             <input type="submit" onClick={this.handleClick} value="Log In" className={submitButtonClass}></input>
             <input type="submit" onClick={this.handleClick} value="Sign Up" className={submitButtonClass}></input>
+            <input type="submit" onClick={this.handleClick} value="Guest" className={submitButtonClass}></input>
             <input type="submit" onClick={this.handleClick} value="Log Out" className={logoutButtonClass}></input>
           </span>
         </form>

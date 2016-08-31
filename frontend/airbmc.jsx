@@ -7,8 +7,17 @@ import Router from './router';
 
 const initiateReactRouter = () => {
   let node = document.getElementById("root");
-  let storeHolder = store;
+  let preloadedState = {
+    session: {}
+  };
+  if (window.currentUser) {
+    preloadedState.session.username = window.currentUser;
+    preloadedState.session.logged_in = true;
+  }
+
+  let storeHolder = store(preloadedState);
   window.store = storeHolder;
+
   ReactDOM.render(<Provider store={storeHolder}><Router store={storeHolder}/></Provider>,node);
 };
 

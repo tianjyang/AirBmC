@@ -25,8 +25,9 @@ class User < ActiveRecord::Base
   end
 
   def self.find_by_credentials(username, password)
-    possible_user = self.find_by_username(username)
-    return possible_user if possible_user.is_password?(password)
+    if possible_user = self.find_by_username(username)
+      return possible_user if possible_user.is_password?(password)
+    end
     return nil
   end
 
