@@ -7,7 +7,9 @@ import Router from './router';
 
 const initiateReactRouter = () => {
   let node = document.getElementById("root");
-  ReactDOM.render(<Provider store={store}><Router/></Provider>,node);
+  let storeHolder = store;
+  window.store = storeHolder;
+  ReactDOM.render(<Provider store={storeHolder}><Router store={storeHolder}/></Provider>,node);
 };
 
 window.addEventListener("DOMContentLoaded",initiateReactRouter);

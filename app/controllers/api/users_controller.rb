@@ -1,14 +1,16 @@
 class Api::UsersController < ApplicationController
   def create
-    username = params[:user][:username]
-    password = params[:user][:password]
+    username = params[:username]
+    password = params[:password]
     new_user = User.new
     new_user.username = username
     new_user.password = password
     if new_user.save
-      render json: {username: username, logged_in: true}
+      reply = {username: username, logged_in: true}
+      render json: reply
     else
-      render json: {new_user.errors}
+      reply = [new_user.errors]
+      render json: reply
     end
   end
 end

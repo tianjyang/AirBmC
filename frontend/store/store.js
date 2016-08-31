@@ -1,5 +1,6 @@
 import { createStore } from 'redux';
 import reducer from '../reducers/root_reducer';
+import middleware from '../middleware/root_middleware';
 
 const preloadedState = {
     // MatchingCars: {},
@@ -9,4 +10,4 @@ const preloadedState = {
 };
 
 
-export default createStore(reducer,preloadedState);
+export default createStore(reducer,preloadedState,middleware);
