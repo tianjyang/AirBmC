@@ -21,6 +21,16 @@ const newSession = (creds,successCallback) => {
   });
 };
 
+const destroySession = (creds,successCallback) => {
+  $.ajax({
+    method: "DELETE",
+    url: "api/sessions",
+    data: creds,
+    success: successCallback,
+    error: fail
+  });
+};
+
 
 window.signUpUser = signUpUser;
-export { signUpUser, newSession };
+export { signUpUser, newSession, destroySession };

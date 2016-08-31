@@ -1,5 +1,5 @@
 import { SESSION_CONSTANTS, updateUser } from '../actions/session_actions';
-import { signUpUser, newSession } from '../utils/ajax_util';
+import { signUpUser, newSession, destroySession } from '../utils/ajax_util';
 
 const SessionMiddleware = (store) => (next) => (action) => {
   const success = (reply) => {
@@ -20,6 +20,7 @@ const SessionMiddleware = (store) => (next) => (action) => {
     case SESSION_CONSTANTS.DESTROY_SESSION:
       console.log("LOGGING OUT USER");
       console.log(action);
+      destroySession(action.creds,success);
       break;
     default:
       return next(action);

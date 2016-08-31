@@ -14,5 +14,6 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     sign_out(current_user)
+    render json: {username:"", logged_in: false}
   end
 end

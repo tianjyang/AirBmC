@@ -11,9 +11,11 @@ class SessionForm extends React.Component {
 
   handleClick (e) {
     e.preventDefault();
-    let creds = {}
+    let creds = {};
     creds.username = e.currentTarget.form[0].value;
     creds.password = e.currentTarget.form[1].value;
+    e.currentTarget.form[0].value = "";
+    e.currentTarget.form[1].value = "";
     switch (e.currentTarget.value) {
       case "Log In":
         this.props.onLoginClick(creds);
@@ -22,7 +24,7 @@ class SessionForm extends React.Component {
         this.props.onSignUpClick(creds);
         break;
       case "Log Out":
-        this.props.onLogoutClick();
+        this.props.onLogoutClick(creds);
         break;
       default:
       console.log("Nothing happened");
