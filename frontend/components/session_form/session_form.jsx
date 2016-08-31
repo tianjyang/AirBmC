@@ -43,25 +43,23 @@ class SessionForm extends React.Component {
     }
 
     return(
-      <div>
+      <span>
         <form>
-          <div className={loginFormClass}>
+          <span className={loginFormClass}>
             <label>Username
               <input type="text" name="user[username]" placeholder="Username"></input>
             </label>
-          </div>
-          <div className={submitButtonClass}>
             <label>Password
               <input type="text" name="user[password]" placeholder="Password"></input>
             </label>
-          </div>
-          <div>
+          </span>
+          <span>
             <input type="submit" onClick={this.handleClick} value="Log In" className={submitButtonClass}></input>
             <input type="submit" onClick={this.handleClick} value="Sign Up" className={submitButtonClass}></input>
             <input type="submit" onClick={this.handleClick} value="Log Out" className={logoutButtonClass}></input>
-          </div>
+          </span>
         </form>
-      </div>
+      </span>
     );
   }
 
