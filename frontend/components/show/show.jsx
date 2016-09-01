@@ -12,7 +12,7 @@ class Show extends React.Component {
   }
 
   render() {
-    debugger
+
     return(
       <p> you hit the sho page!</p>
     );

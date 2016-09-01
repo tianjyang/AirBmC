@@ -12,8 +12,7 @@ class ResultItem extends React.Component {
     hashHistory.push("show/" + this.props.listing.id);
   }
 
-  render() {
-    debugger
+  render() {  
     return(
       <div onClick={this.handleClick}>
 
