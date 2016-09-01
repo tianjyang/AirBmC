@@ -8,10 +8,16 @@ import ResultItem from './result_item';
 class Results extends React.Component {
   constructor () {
     super();
+    this.handleClick = this.handleClick.bind(this);
+    this.setShowCar = this.setShowCar.bind(this)
   }
 
   handleClick (e) {
     e.preventDefault();
+  }
+
+  setShowCar (e) {
+
   }
 
   render() {
@@ -23,7 +29,7 @@ class Results extends React.Component {
                 <input className="results_search_field" type="text" name="search[location]" placeholder="Where are you?"></input>
                 <input className="results_search_field" type="text" name="search[distance]" placeholder="Search area?"></input>
             <span>
-              <input className="results_search_submit" type="submit" onClick={this.handleClick} value="Find Your Car"></input>
+              <input className="results_search_submit" type="submit" value="Find Your Car"></input>
             </span>
           </form>
         </div>
