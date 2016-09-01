@@ -15,7 +15,12 @@ class Results extends React.Component {
   render() {
 
     return(
-      <h3>hit the search results!</h3>
+      <div>
+        <div className="results-searchForm">
+
+        </div>
+
+      </div>
     );
   }
 

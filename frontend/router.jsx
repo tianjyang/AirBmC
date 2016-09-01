@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, hashHistory, Route} from 'react-router';
 import Header from './components/header/header';
 import Search from './components/search_form/search_form_container';
-import Results from './components/results/results_container'
+import Results from './components/results/results_container';
 
 class Base extends React.Component {
   constructor(){

@@ -1,6 +1,7 @@
 import React from 'react';
 import { GoogleGeocoding } from '../../utils/search_ajax_util';
 import { withRouter } from 'react-router';
+import SearchMap from '../map/map';
 
 class SearchForm extends React.Component {
   constructor () {
@@ -28,25 +29,23 @@ class SearchForm extends React.Component {
   render() {
 
     return(
+    <div>
       <div className="landingPage">
         <div className="search_form_container">
         <form className={"search_form"}>
-            <label>
-              <input type="text" name="search[location]" placeholder="Where are you?"></input>
-            </label>
-            <label>
-              <input type="text" name="search[distance]" placeholder="Distance in miles?"></input>
-            </label>
+              <input className="search_field" type="text" name="search[location]" placeholder="Where are you?"></input>
+              <input className="search_field" type="text" name="search[distance]" placeholder="Search area?"></input>
           <span>
-            <input type="submit" onClick={this.handleClick} value="Find Your Car"></input>
+            <input className="search_submit" type="submit" onClick={this.handleClick} value="Find Your Car"></input>
           </span>
         </form>
         </div>
       </div>
-
+      <SearchMap/>
+    </div>
     );
   }
 
 }
 
-export default withRouter(SearchForm)
+export default withRouter(SearchForm);
