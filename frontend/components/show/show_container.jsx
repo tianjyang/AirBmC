@@ -4,7 +4,6 @@ import Show from './show';
 import {  } from '../../actions/session_actions';
 
 const mapStateToProps = (state) => ({
-
 });
 
 const mapDispatchToProps = (dispatch) => ({
