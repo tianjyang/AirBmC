@@ -1,5 +1,5 @@
 import { SESSION_CONSTANTS, updateUser } from '../actions/session_actions';
-import { signUpUser, newSession, destroySession } from '../utils/ajax_util';
+import { signUpUser, newSession, destroySession } from '../utils/session_ajax_util';
 
 const SessionMiddleware = (store) => (next) => (action) => {
   const success = (reply) => {

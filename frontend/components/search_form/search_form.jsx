@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleGeocoding } from '../../utils/ajax_util';
+import { GoogleGeocoding } from '../../utils/search_ajax_util';
 
 
 class SearchForm extends React.Component {
@@ -29,6 +29,7 @@ class SearchForm extends React.Component {
 
     return(
       <div className="landingPage">
+        <div className="search_form_container">
         <form className={"search_form"}>
             <label>
               <input type="text" name="search[location]" placeholder="Where are you?"></input>
@@ -40,6 +41,7 @@ class SearchForm extends React.Component {
             <input type="submit" onClick={this.handleClick} value="Find Your Car"></input>
           </span>
         </form>
+        </div>
       </div>
 
     );
