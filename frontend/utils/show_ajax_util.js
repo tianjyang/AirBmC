@@ -1,12 +1,26 @@
 const success = (data) => {console.log(data);};
 const fail = (data) => {console.log(data);};
 
-// const fetchCar = (creds,successCallback = success) => {
-//   $.ajax({
-//     method: "GET",
-//     url: "api/user",
-//     data: creds,
-//     success: successCallback,
-//     error: fail
-//   });
-// };
+const newReservation = (listingId,reservation,successCallback = success) => {
+  $.ajax({
+    method: "POST",
+    url: `api/listings/${listingId}/reservations`,
+    data: reservation,
+    success: successCallback,
+    error: fail
+  });
+};
+
+const cancelReservation = (listingId,reservationId,successCallback = success) => {
+  $.ajax({
+    method: "DELETE",
+    url: `api/listings/${listingId}/reservations/${reservationId}`,
+    success: successCallback,
+    error: fail
+  });
+};
+
+
+
+
+export { signUpUser, newSession, destroySession };

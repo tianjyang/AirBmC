@@ -15,7 +15,6 @@ class Show extends React.Component {
 
     return(
       <div>
-        <Image
 
 
       </div>

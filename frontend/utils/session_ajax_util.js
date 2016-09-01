@@ -1,11 +1,10 @@
 const success = (data) => {console.log(data);};
 const fail = (data) => {console.log(data);};
 
-const signUpUser = (creds,successCallback = success) => {
+const fetchCar = (id,successCallback = success) => {
   $.ajax({
     method: "POST",
-    url: "api/user",
-    data: creds,
+    url: `api/listings/${id}`,
     success: successCallback,
     error: fail
   });
