@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import { SHOW_CONSTANTS, receiveListing } from '../actions/session_actions';
+import { SHOW_CONSTANTS, receiveListing } from '../actions/show_actions';
 
 const showReducer = (state = {}, action) => {
   switch (action.type) {
@@ -12,4 +12,4 @@ const showReducer = (state = {}, action) => {
   }
 };
 
-export default sessionReducer;
+export default showReducer;

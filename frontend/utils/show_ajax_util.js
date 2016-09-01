@@ -1,7 +1,16 @@
 const success = (data) => {console.log(data);};
 const fail = (data) => {console.log(data);};
 
-const newReservation = (listingId,reservation,successCallback = success) => {
+export const requestListing = (listingId,successCallback = success) => {
+  $.ajax({
+    method: "GET",
+    url: `api/listings/${listingId}`,
+    success: successCallback,
+    error: fail
+  });
+};
+
+export const newReservation = (listingId,reservation,successCallback = success) => {
   $.ajax({
     method: "POST",
     url: `api/listings/${listingId}/reservations`,
@@ -11,7 +20,7 @@ const newReservation = (listingId,reservation,successCallback = success) => {
   });
 };
 
-const cancelReservation = (listingId,reservationId,successCallback = success) => {
+export const cancelReservation = (listingId,reservationId,successCallback = success) => {
   $.ajax({
     method: "DELETE",
     url: `api/listings/${listingId}/reservations/${reservationId}`,
@@ -19,8 +28,3 @@ const cancelReservation = (listingId,reservationId,successCallback = success) =>
     error: fail
   });
 };
-
-
-
-
-export { signUpUser, newSession, destroySession };

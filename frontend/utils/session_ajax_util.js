@@ -1,7 +1,7 @@
 const success = (data) => {console.log(data);};
 const fail = (data) => {console.log(data);};
 
-const fetchCar = (id,successCallback = success) => {
+const signUpUser = (id,successCallback = success) => {
   $.ajax({
     method: "POST",
     url: `api/listings/${id}`,
