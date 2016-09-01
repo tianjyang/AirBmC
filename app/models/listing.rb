@@ -10,8 +10,8 @@ class Listing < ActiveRecord::Base
     self.where(" price_per_day >= ? ",arg)
   end
 
-  def self.find_by_distance(lat,long,conditions)
-    delta_lat = (conditions/2.0)*(1/68.792)
+  def self.find_by_distance(lat,long,distance)
+    delta_lat = (distance/2.0)*(1/68.792)
     min_lat = lat-delta_lat
     max_lat = lat+delta_lat
     delta_long = (Math::PI * 3959.0 * Math.cos(lat))/180.0

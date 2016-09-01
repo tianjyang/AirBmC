@@ -1,12 +1,11 @@
 class Api::ListingsController < ApplicationController
   def index
     location = params[:location]
-    criteria = params[:criteria]
-    debugger
-    puts "location is #{location}"
-    puts "critiera is #{criteria}"
-
-    render json: "you hit the index controller"
+    lat = location[:lat].to_f
+    long = location[:lng].to_f
+    distance = params[:criteria].to_f
+    listings = Listing.find_by_distance(lat,long,distance);
+    render json: listings
   end
 
 end
