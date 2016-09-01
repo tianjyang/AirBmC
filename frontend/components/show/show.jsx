@@ -14,7 +14,11 @@ class Show extends React.Component {
   render() {
 
     return(
-      <p> you hit the sho page!</p>
+      <div>
+        <Image
+
+
+      </div>
     );
   }
 
