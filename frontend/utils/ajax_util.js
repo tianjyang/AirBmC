@@ -30,4 +30,15 @@ const destroySession = (creds,successCallback) => {
     error: fail
   });
 };
-export { signUpUser, newSession, destroySession };
+
+const GoogleGeocoding = (address,successCallback) => {
+  $.ajax({
+    method: "GET",
+    dataType: "json",
+    url: "http://maps.googleapis.com/maps/api/geocode/json",
+    data: address,
+    success: successCallback,
+    error: fail
+  });
+};
+export { signUpUser, newSession, destroySession, GoogleGeocoding };

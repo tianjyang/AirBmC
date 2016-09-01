@@ -37,7 +37,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    // debugger
     let loginFormClass, submitButtonClass, logoutButtonClass;
     if ( this.props.loggedIn ){
       loginFormClass = "hidden";

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, hashHistory, Route} from 'react-router';
 import Header from './components/header/header';
+import Search from './components/search_form/search_form_container';
 
 class base extends React.Component {
   constructor(){
@@ -9,9 +10,13 @@ class base extends React.Component {
 
   render(){
     return (
-    <Router history={hashHistory}>
-      <Route path="/" component={Header}/>
-    </Router>
+      <div>
+        <Header/>
+        <Router history={hashHistory}>
+          <Route path="/" component={Search}/>
+        </Router>
+      </div>
+
     );
   }
 }
