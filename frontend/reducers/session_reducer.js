@@ -4,7 +4,6 @@ import { SESSION_CONSTANTS } from '../actions/session_actions';
 const sessionReducer = (state = {}, action) => {
   switch (action.type) {
     case SESSION_CONSTANTS.UPDATE_USER:
-    // debugger
       return merge({},state,action.userInfo);
     default:
     return state;

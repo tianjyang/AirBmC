@@ -2,8 +2,9 @@ import React from 'react';
 import { Router, hashHistory, Route} from 'react-router';
 import Header from './components/header/header';
 import Search from './components/search_form/search_form_container';
+import Results from './components/results/results_container'
 
-class base extends React.Component {
+class Base extends React.Component {
   constructor(){
     super();
   }
@@ -14,6 +15,7 @@ class base extends React.Component {
         <Header/>
         <Router history={hashHistory}>
           <Route path="/" component={Search}/>
+          <Route path="/results" component={Results}/>
         </Router>
       </div>
 
@@ -21,4 +23,4 @@ class base extends React.Component {
   }
 }
 
-export default base;
+export default Base;
