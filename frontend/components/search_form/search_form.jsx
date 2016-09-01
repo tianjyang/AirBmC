@@ -13,6 +13,7 @@ class SearchForm extends React.Component {
     e.preventDefault();
     const criteria = e.currentTarget.form[1].value;
     let success = (data) => {
+          this.props.router.push("/results");
       let location = data.results[0].geometry.location;
       let searchParams = {
         location: location,
@@ -23,7 +24,7 @@ class SearchForm extends React.Component {
     let query = {};
     query.address = e.currentTarget.form[0].value;
     GoogleGeocoding(query,success);
-    this.props.router.push("/results");
+
   }
 
   render() {

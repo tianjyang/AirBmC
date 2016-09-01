@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SearchMap extends React.Component {
+class Map extends React.Component {
   constructor () {
     super();
   }
@@ -20,4 +20,4 @@ class SearchMap extends React.Component {
 
 }
 
-export default SearchMap;
+export default Map;
