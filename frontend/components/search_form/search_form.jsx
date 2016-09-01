@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoogleGeocoding } from '../../utils/search_ajax_util';
-
+import { withRouter } from 'react-router';
 
 class SearchForm extends React.Component {
   constructor () {
@@ -22,7 +22,7 @@ class SearchForm extends React.Component {
     let query = {};
     query.address = e.currentTarget.form[0].value;
     GoogleGeocoding(query,success);
-
+    this.props.router.push("/results");
   }
 
   render() {
@@ -49,4 +49,4 @@ class SearchForm extends React.Component {
 
 }
 
-export default SearchForm
+export default withRouter(SearchForm)

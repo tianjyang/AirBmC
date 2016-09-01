@@ -1,5 +1,6 @@
 const SEARCH_CONSTANTS = {
-  FIND_LISTINGS: "FIND_LISTINGS"
+  FIND_LISTINGS: "FIND_LISTINGS",
+  RECEIVE_LISTINGS: "RECEIVE_LISTINGS"
 };
 
 const findListings = (searchParams) => ({
@@ -7,4 +8,8 @@ const findListings = (searchParams) => ({
   searchParams
 });
 
-export {SEARCH_CONSTANTS, findListings};
+const receiveListings = (receivedListings) => ({
+  type: SEARCH_CONSTANTS.RECEIVE_LISTINGS,
+  receivedListings
+});
+export {SEARCH_CONSTANTS, findListings, receiveListings};
