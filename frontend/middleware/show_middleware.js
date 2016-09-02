@@ -1,5 +1,5 @@
 import { SHOW_CONSTANTS, receiveListing } from '../actions/show_actions';
-import { requestListing } from '../utils/show_ajax_util';
+import { requestListing, newReservation } from '../utils/show_ajax_util';
 
 const SessionMiddleware = (store) => (next) => (action) => {
 
@@ -14,6 +14,19 @@ const SessionMiddleware = (store) => (next) => (action) => {
 
       break;
     case SHOW_CONSTANTS.POST_RESERVATION:
+      console.log("posting a reservation!");
+      const successfulReservation = (data) => {
+        console.log(data);
+      }
+
+      const unseuccesfulReservation = (data) => {
+        console.log(data);
+      }
+      newReservation(action.listingId,action.reservationInfo,successfulReservation)
+
+      break;
+
+      newReservation(action.reservationInfo,successfulReservation)
 
       break;
     default:

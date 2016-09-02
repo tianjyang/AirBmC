@@ -27,9 +27,10 @@ export const receiveComments = (receivedComments) => ({
   receivedComments
 });
 
-export const postReservation = (reservationInfo) => ({
+export const postReservation = (listingId, reservationInfo) => ({
   type: SHOW_CONSTANTS.POST_RESERVATION,
-  reservationInfo
+  reservationInfo,
+  listingId
 });
 
 export const cancelReservation = (reservationInfo) => ({

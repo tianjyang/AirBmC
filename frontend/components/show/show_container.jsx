@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Show from './show';
-import { requestListing, requestComments} from '../../actions/show_actions';
+import { requestListing,
+  requestComments,
+  postReservation } from '../../actions/show_actions';
 
 const mapStateToProps = (state) => ({
   title: state.currentListing.listingInfo.title,
@@ -11,6 +13,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 requestListing: (data) => {dispatch(requestListing(data));},
+// newReservation: (data) => {dispatch(postReservation(data));},
 requestComments: (data) => {dispatch(requestComments(data));}
 });
 

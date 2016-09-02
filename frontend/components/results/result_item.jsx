@@ -12,13 +12,14 @@ class ResultItem extends React.Component {
     hashHistory.push("show/" + this.props.listing.id);
   }
 
-  render() {  
+  render() {
+    //iumage tag taken out because it takes a long time to load.
+    // <img src={this.props.listing.image_url} className="listing-thumbnail"/>
     return(
-      <div onClick={this.handleClick}>
+      <div className="displayListing" onClick={this.handleClick}>
 
-        <p> you mad eit here! </p>
-        <p> {JSON.stringify(this.props.listing)}</p>
 
+        <p> {(this.props.listing.title)}</p>
       </div>
     );
   }
