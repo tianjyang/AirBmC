@@ -9,16 +9,16 @@ class Results extends React.Component {
   constructor () {
     super();
     this.handleClick = this.handleClick.bind(this);
-    this.setShowCar = this.setShowCar.bind(this)
+    // this.setShowCar = this.setShowCar.bind(this)
   }
 
   handleClick (e) {
     e.preventDefault();
   }
 
-  setShowCar (e) {
-
-  }
+  // setShowCar (e) {
+  //
+  // }
 
   render() {
     let listingsArray = objToArray(this.props.listings)

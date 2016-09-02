@@ -1,7 +1,11 @@
 const success = (data) => {console.log(data);};
-const fail = (data) => {console.log(data);};
+const fail = (data) => {
+  console.log("you failed");
+  console.log(data);
+};
 
 export const requestListing = (listingId,successCallback = success) => {
+  console.log("requestlisting");
   $.ajax({
     method: "GET",
     url: `api/listings/${listingId}`,
@@ -11,6 +15,7 @@ export const requestListing = (listingId,successCallback = success) => {
 };
 
 export const newReservation = (listingId,reservation,successCallback = success) => {
+  console.log("newReservation");
   $.ajax({
     method: "POST",
     url: `api/listings/${listingId}/reservations`,
@@ -21,6 +26,7 @@ export const newReservation = (listingId,reservation,successCallback = success) 
 };
 
 export const cancelReservation = (listingId,reservationId,successCallback = success) => {
+  console.log("cancelReservation");
   $.ajax({
     method: "DELETE",
     url: `api/listings/${listingId}/reservations/${reservationId}`,

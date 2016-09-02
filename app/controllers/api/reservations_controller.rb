@@ -17,7 +17,7 @@ class Api::ReservationsController < ApplicationController
 
   def ensure_logged_in
     unless current_user
-      render json: "you must be logged in!"
+      render text: "You must be logged in!", status: :bad_request
     end
   end
 

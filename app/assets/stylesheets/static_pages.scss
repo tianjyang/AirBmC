@@ -149,3 +149,17 @@ form.reservation-form {
 	background: white;
 	right: 50px
 }
+div.listing-container {
+    max-width: 900px;
+    margin: 0px auto;
+    background-position: center;
+		background-repeat:no-repeat;
+		position:relative;
+}
+
+div.listing-title {
+	font-size: 32px;
+	position:absolute;
+	bottom:10px;
+	left:10px;
+}

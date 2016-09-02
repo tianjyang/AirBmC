@@ -16,19 +16,14 @@ const SessionMiddleware = (store) => (next) => (action) => {
     case SHOW_CONSTANTS.POST_RESERVATION:
       console.log("posting a reservation!");
       const successfulReservation = (data) => {
-        console.log(data);
-      }
-
+        console.log("success",data);
+      };
       const unseuccesfulReservation = (data) => {
         console.log(data);
-      }
-      newReservation(action.listingId,action.reservationInfo,successfulReservation)
-
+      };
+      newReservation(action.listingId,action.reservationInfo,successfulReservation);
       break;
 
-      newReservation(action.reservationInfo,successfulReservation)
-
-      break;
     default:
       return next(action);
 

@@ -13,7 +13,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 requestListing: (data) => {dispatch(requestListing(data));},
-// newReservation: (data) => {dispatch(postReservation(data));},
 requestComments: (data) => {dispatch(requestComments(data));}
 });
 

@@ -24,10 +24,13 @@ class Show extends React.Component {
     }
 
     return(
-      <div style={currentPostingBG}>
-        <p>{this.props.title}</p>
+      <div>
+        <div style={currentPostingBG} className="listing-container">
+          <div className="listing-title">{this.props.title}</div>
+          <NewReservationForm listingId={this.props.params.id}/>
+        </div>
 
-        <NewReservationForm listingId={this.props.params.id}/>
+
       </div>
     );
   }
