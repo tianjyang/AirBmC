@@ -7,6 +7,7 @@ class SearchForm extends React.Component {
   constructor () {
     super();
     this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleClick (e) {
@@ -17,14 +18,24 @@ class SearchForm extends React.Component {
       let location = data.results[0].geometry.location;
       let searchParams = {
         location: location,
-        criteria: criteria
+        criteria: this.props.searchParams.distance
       };
       this.props.onSearchClick(searchParams);
     };
     let query = {};
-    query.address = e.currentTarget.form[0].value;
+    query.address = this.props.searchParams.location;
     GoogleGeocoding(query,success);
 
+  }
+
+  handleChange (e) {
+    console.log("handling change");
+    e.preventDefault();
+    let searchParams = {
+      location: e.currentTarget.form[0].value,
+      distance: e.currentTarget.form[1].value
+    };
+    this.props.updateSearchParams(searchParams);
   }
 
   render() {
@@ -34,8 +45,8 @@ class SearchForm extends React.Component {
       <div className="landingPage">
         <div className="search_form_container">
         <form className={"search_form"}>
-              <input className="search_field" type="text" name="search[location]" placeholder="Where are you?"></input>
-              <input className="search_field" type="text" name="search[distance]" placeholder="Search area?"></input>
+              <input className="search_field" type="text" name="search[location]" onChange={this.handleChange} placeholder="Where are you?"></input>
+              <input className="search_field" type="text" name="search[distance]" onChange={this.handleChange} placeholder="Search area?"></input>
           <span>
             <input className="search_submit" type="submit" onClick={this.handleClick} value="Find Your Car"></input>
           </span>
