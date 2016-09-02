@@ -7,6 +7,7 @@ class SearchForm extends React.Component {
   constructor () {
     super();
     this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleClick (e) {
@@ -24,8 +25,16 @@ class SearchForm extends React.Component {
     let query = {};
     query.address = e.currentTarget.form[0].value;
     GoogleGeocoding(query,success);
-
   }
+
+handleChange (e) {
+  let searchParams = {
+    location: e.currentTarget.form[0].value,
+    criteira: e.currentTarget.form[1].value
+  };
+  this.props.updateSearchParams(searchParams);
+  console.log("handling change!");
+}
 
   render() {
 
@@ -34,8 +43,8 @@ class SearchForm extends React.Component {
       <div className="landingPage">
         <div className="search_form_container">
         <form className={"search_form"}>
-              <input className="search_field" type="text" name="search[location]" placeholder="Where are you?"></input>
-              <input className="search_field" type="text" name="search[distance]" placeholder="Search area?"></input>
+              <input className="search_field" type="text" name="search[location]" placeholder="Where are you?" onChange={this.handleChange}></input>
+              <input className="search_field" type="text" name="search[distance]" placeholder="Search area?" onChange={this.handleChange}></input>
           <span>
             <input className="search_submit" type="submit" onClick={this.handleClick} value="Find Your Car"></input>
           </span>

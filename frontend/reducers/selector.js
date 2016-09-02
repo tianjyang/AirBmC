@@ -1,8 +1,10 @@
-const objToArray = (obj) => {
+const extractMatchingCars = (obj) => {
   let keys = Object.keys(obj);
   return keys.map((idx) => {
-    return obj[idx];
+    if (!idx==="searchParams") {
+      return obj[idx];
+    }
   });
 };
-window.objToArray = objToArray;
-export {objToArray};
+window.extractMatchingCars = extractMatchingCars;
+export {extractMatchingCars};

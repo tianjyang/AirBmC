@@ -2,7 +2,7 @@ import React from 'react';
 import { GoogleGeocoding } from '../../utils/search_ajax_util';
 import { withRouter } from 'react-router';
 import ResultsMap from "../map/map";
-import {objToArray} from '../../reducers/selector';
+import {extractMatchingCars} from '../../reducers/selector';
 import ResultItem from './result_item';
 
 class Results extends React.Component {
@@ -21,7 +21,7 @@ class Results extends React.Component {
   // }
 
   render() {
-    let listingsArray = objToArray(this.props.listings)
+    let listingsArray = extractMatchingCars(this.props.listings)
     return(
       <div>
         <div className="results_search">

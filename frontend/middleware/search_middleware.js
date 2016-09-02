@@ -11,7 +11,6 @@ const SearchMiddleware = (store) => (next) => (action) => {
       console.log("finding listings");
       console.log(action.searchParams);
       requestListings(action.searchParams,success);
-
       break;
     default:
       return next(action);
