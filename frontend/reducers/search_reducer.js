@@ -8,9 +8,11 @@ const sessionReducer = (state = {}, action) => {
 
     case SEARCH_CONSTANTS.UPDATE_SEARCH_PARAMS:
       return merge({},state,{searchParams:action.searchParams});
+
     default:
     return state;
   }
 };
 
 export default sessionReducer;
+//FUCK THIS BRANCH
