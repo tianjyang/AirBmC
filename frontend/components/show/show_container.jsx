@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 requestListing: (data) => {dispatch(requestListing(data));}
+requestComments:
 });
 
 export default connect(
