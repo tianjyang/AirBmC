@@ -4,6 +4,7 @@ import SearchForm from './search_form';
 import { findListings, updateSearchParams } from '../../actions/search_actions';
 
 const mapStateToProps = (state) => ({
+  searchParams: state.matchingCars.searchParams
 });
 
 const mapDispatchToProps = (dispatch) => ({
