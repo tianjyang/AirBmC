@@ -17,9 +17,9 @@ export const requestComments = (searchParams) => ({
   searchParams
 });
 
-export const receiveListings = (receivedListings) => ({
+export const receiveListing = (receivedListing) => ({
   type: SHOW_CONSTANTS.RECEIVE_LISTING,
-  receivedListings
+  receivedListing
 });
 
 export const receiveComments = (receivedComments) => ({

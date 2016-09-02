@@ -6,5 +6,5 @@ import showReducer from './show_reducer';
 export default combineReducers({
   session: sessionReducer,
   matchingCars: searchReducer,
-  currentCar: showReducer
+  currentListing: showReducer
 });
