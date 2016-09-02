@@ -8,8 +8,7 @@ class Show extends React.Component {
     super();
   }
 
-  componentDidMount() {
-    debugger
+  componentWillMount() {
     this.props.requestListing(this.props.params.id);
   }
 
@@ -19,8 +18,14 @@ class Show extends React.Component {
 
   render() {
 
+    let currentPostingBG = {
+      backgroundImage: 'url('+ this.props.image_url + ')',
+      height: 500,
+    }
+
     return(
-      <div>
+      <div style={currentPostingBG}>
+        <p>{this.props.title}</p>
 
 
       </div>

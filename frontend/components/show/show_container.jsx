@@ -4,6 +4,9 @@ import Show from './show';
 import { requestListing } from '../../actions/show_actions';
 
 const mapStateToProps = (state) => ({
+  title: state.currentListing.listingInfo.title,
+  description: state.currentListing.listingInfo.description,
+  image_url: state.currentListing.listingInfo.image_url
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,7 +1,12 @@
 import { merge } from 'lodash';
 import { SHOW_CONSTANTS, receiveListing } from '../actions/show_actions';
 
-const showReducer = (state = {}, action) => {
+const defaultState = {
+  listingInfo: {},
+  commentInfo: {}
+};
+
+const showReducer = (state = defaultState, action) => {
   switch (action.type) {
     case SHOW_CONSTANTS.RECEIVE_LISTING:
       return merge({},state,{listingInfo: action.receivedListing});
