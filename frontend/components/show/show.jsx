@@ -10,6 +10,8 @@ class Show extends React.Component {
 
   componentWillMount() {
     this.props.requestListing(this.props.params.id);
+    this.props.requestComments
+
   }
 
   handleClick (e) {

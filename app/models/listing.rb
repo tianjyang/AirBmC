@@ -1,5 +1,5 @@
 class Listing < ActiveRecord::Base
-  belongs_to :users
+  belongs_to :user
   has_many :reservations
   validates :title, :description, :user_id, :price_per_day, :lat, :long, presence: true
 
@@ -22,4 +22,5 @@ class Listing < ActiveRecord::Base
     (lat >= ?) AND (lat <= ?) AND long >= ? AND long <= ?
     SQL
   end
+
 end
