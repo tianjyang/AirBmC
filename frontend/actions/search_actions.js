@@ -1,7 +1,8 @@
 const SEARCH_CONSTANTS = {
   FIND_LISTINGS: "FIND_LISTINGS",
   RECEIVE_LISTINGS: "RECEIVE_LISTINGS",
-  UPDATE_SEARCH_PARAMS: "UPDATE_SEARCH_PARAMS"
+  UPDATE_SEARCH_PARAMS: "UPDATE_SEARCH_PARAMS",
+  SEARCH_BY_BOUNDS: "SEARCH_BY_BOUNDS"
 };
 
 const findListings = (searchParams) => ({
@@ -18,4 +19,15 @@ const updateSearchParams = (searchParams) => ({
   type: SEARCH_CONSTANTS.UPDATE_SEARCH_PARAMS,
   searchParams
 });
-export {SEARCH_CONSTANTS, findListings, receiveListings, updateSearchParams};
+
+const searchByBounds = (searchParams) => ({
+  type: SEARCH_CONSTANTS.SEARCH_BY_BOUNDS,
+  searchParams
+});
+
+
+export {SEARCH_CONSTANTS,
+  findListings,
+  receiveListings,
+  updateSearchParams,
+  searchByBounds};

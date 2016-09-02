@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :listings, only: [:index,:show], defaults: {format: 'json'} do
       resources :reservations, only:[:index, :create, :destroy], defaults: {format: 'json'}
     end
+    get 'listings/by_bounds' => 'listings#index_by_map'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

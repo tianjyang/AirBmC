@@ -22,4 +22,14 @@ const requestListings = (searchParams,successCallback = success) => {
   });
 };
 
-export { GoogleGeocoding, requestListings };
+const searchListingsByBound = (searchParams,successCallback = success) => {
+  $.ajax({
+    method: "GET",
+    url: "/api/listings/by_bounds",
+    data: searchParams,
+    success: successCallback,
+    error: fail
+  });
+};
+
+export { GoogleGeocoding, requestListings, searchListingsByBound };

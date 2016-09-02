@@ -18,9 +18,12 @@ class Listing < ActiveRecord::Base
     delta_long = (Math::PI * 3959.0 * Math.cos(lat))/180.0
     min_long = long-delta_long
     max_long = long+delta_long
+    self.find_by_bound(min_lat,max_lat,min_long,max_long)
+  end
+
+  def self.find_by_bound(min_lat,max_lat,min_long, max_long)
     self.where(<<-SQL,min_lat, max_lat, min_long, max_long)
     (lat >= ?) AND (lat <= ?) AND long >= ? AND long <= ?
     SQL
   end
-
 end
