@@ -34,7 +34,7 @@ class Results extends React.Component {
           </form>
         </div>
         <div className="results-map">
-          <ResultsMap/>
+          <ResultsMap listings={this.props.listings}/>
         </div>
         {listingsArray.map((element) => {
           return(<ResultItem listing={element} key={element.id + "-listing"}/>);

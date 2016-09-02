@@ -1,8 +1,10 @@
 import React from 'react';
-
+import { objToArray } from '../../reducers/selector'
 class Map extends React.Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
+    this.placeMarkersFromProp  = this.placeMarkersFromProp .bind(this);
+    this.markers = [];
   }
 
   componentDidMount() {
@@ -10,11 +12,38 @@ class Map extends React.Component {
       center: {lat: 37.7578881, lng: -122.5780261},
       zoom: 8
     });
+    // this.placeMarkersFromProp();
+  }
+
+  componentDidUpdate() {
+    console.log("componentWillUpdate");
+    this.markers = [];
+    this.placeMarkersFromProp();
+  }
+
+  placeMarkersFromProp () {
+    let markerArray = objToArray(this.props.listings);
+    let latlong = {};
+    let bounds = new google.maps.LatLngBounds()
+    markerArray.forEach((el)=>{
+      latlong.lat = el.lat;
+      latlong.lng = el.long;
+      this.markers.push(new google.maps.Marker({
+        position: latlong,
+        map: this.map,
+        title: el.title
+      }));
+      bounds.extend(latlong);
+    });
+    this.map.fitBounds(bounds);
+
   }
 
   render() {
+    console.log("rednering");
+
     return(
-      <div id="map" className="mapContainer-search"> <p>hit the map!</p> </div>
+      <div id="map" className="mapContainer-search"></div>
     );
   }
 

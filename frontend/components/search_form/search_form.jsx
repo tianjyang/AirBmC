@@ -53,7 +53,6 @@ class SearchForm extends React.Component {
         </form>
         </div>
       </div>
-      <SearchMap/>
     </div>
     );
   }
