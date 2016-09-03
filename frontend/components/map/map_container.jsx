@@ -1,16 +1,18 @@
-// import React from 'react';
-// import { connect } from 'react-redux';
-// import Map from './map';
-// // import { findListings } from '../../actions/search_actions';
-//
-// const mapStateToProps = (state) => ({
-// });
-//
-// const mapDispatchToProps = (dispatch) => ({
-//   // onSearchClick: (searchParams) => dispatch(findListings(searchParams))
-// });
-//
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Map);
+import React from 'react';
+import { connect } from 'react-redux';
+import Map from './map';
+import { searchByBounds } from '../../actions/search_actions';
+
+
+const mapStateToProps = (state) => ({
+  listings: state.matchingCars
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  searchByBounds: (searchParams) => dispatch(searchByBounds(searchParams)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Map);

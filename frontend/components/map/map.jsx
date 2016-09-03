@@ -1,9 +1,10 @@
 import React from 'react';
-import { objToArray } from '../../reducers/selector'
+import { objToArray } from '../../reducers/selector';
 class Map extends React.Component {
   constructor (props) {
     super(props);
-    this.placeMarkersFromProp  = this.placeMarkersFromProp .bind(this);
+    this.placeMarkersFromProp  = this.placeMarkersFromProp.bind(this);
+    this.updateMarkersByBounds = this.updateMarkersByBounds.bind(this);
     this.markers = [];
   }
 
@@ -12,7 +13,13 @@ class Map extends React.Component {
       center: {lat: 37.7578881, lng: -122.5780261},
       zoom: 8
     });
+    this.map.addListener("idle",this.updateMarkersByBounds);
     // this.placeMarkersFromProp();
+  }
+
+  updateMarkersByBounds() {
+    let bounds = this.map.getBounds().toJSON();
+    this.props.searchByBounds(bounds);
   }
 
   componentDidUpdate() {
@@ -24,7 +31,7 @@ class Map extends React.Component {
   placeMarkersFromProp () {
     let markerArray = objToArray(this.props.listings);
     let latlong = {};
-    let bounds = new google.maps.LatLngBounds()
+    let bounds = new google.maps.LatLngBounds();
     markerArray.forEach((el)=>{
       latlong.lat = el.lat;
       latlong.lng = el.long;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { GoogleGeocoding } from '../../utils/search_ajax_util';
 import { withRouter } from 'react-router';
-import ResultsMap from "../map/map";
+import ResultsMap from "../map/map_container";
 import {objToArray} from '../../reducers/selector';
 import ResultItem from './result_item';
 
@@ -34,7 +34,7 @@ class Results extends React.Component {
           </form>
         </div>
         <div className="results-map">
-          <ResultsMap listings={this.props.listings}/>
+          <ResultsMap/>
         </div>
         {listingsArray.map((element) => {
           return(<ResultItem listing={element} key={element.id + "-listing"}/>);
