@@ -57,7 +57,8 @@ class SessionForm extends React.Component {
             <input type="submit" onClick={this.handleClick} value="Sign Up" className={"session_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Guest" className={"session_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Log Out" className={"session_button " + showIfLoggedIn}></input>
-          </span>
+            <p> {JSON.stringify(this.props.currentUser)}</p>
+        </span>
         </form>
     );
   }
