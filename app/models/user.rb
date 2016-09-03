@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
     return nil
   end
 
+  def has_no_reservations?
+    self.reservations.length == 0
+  end
+
 end

@@ -10,6 +10,6 @@ const defaultPreloadedState = () => {
 };
 
 
-export default (preloadedState = defaultPreloadedState) => {
+export default (preloadedState = {}) => {
   return createStore(reducer,preloadedState,middleware);
 };

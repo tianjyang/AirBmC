@@ -5,8 +5,16 @@ class SessionForm extends React.Component {
   constructor () {
     super();
     this.handleClick = this.handleClick.bind(this);
+  }
 
-
+  componentWillMount() {
+    if (window.currentUser) {
+      let userInfo = {
+        username: window.currentUser,
+        logged_in: true
+      };
+      this.props.setInitialState(userInfo);
+    }
   }
 
   handleClick (e) {
@@ -57,7 +65,6 @@ class SessionForm extends React.Component {
             <input type="submit" onClick={this.handleClick} value="Sign Up" className={"session_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Guest" className={"session_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Log Out" className={"session_button " + showIfLoggedIn}></input>
-            <p> {JSON.stringify(this.props.currentUser)}</p>
         </span>
         </form>
     );

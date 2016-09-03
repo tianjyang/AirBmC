@@ -6,15 +6,15 @@ import Router from './router';
 
 const initiateReactRouter = () => {
   let node = document.getElementById("root");
-  let preloadedState = {
-    session: {}
-  };
-  if (window.currentUser) {
-    preloadedState.session.username = window.currentUser;
-    preloadedState.session.logged_in = true;
-  }
+  // let preloadedState = {
+  //   session: {}
+  // };
+  // if (window.currentUser) {
+  //   preloadedState.session.username = window.currentUser;
+  //   preloadedState.session.logged_in = true;
+  // }
 
-  let storeHolder = store(preloadedState);
+  let storeHolder = store();
   window.store = storeHolder;
   window.state = window.store.getState();
   ReactDOM.render(<Provider store={storeHolder}><Router store={storeHolder}/></Provider>,node);

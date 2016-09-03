@@ -10,7 +10,6 @@ class Header extends React.Component {
 
         <img className="logo" src={"http://res.cloudinary.com/drf8botsi/image/upload/v1472588478/logo.png"}/>
 
-
         <SessionFormContainer/>
       </div>
 
