@@ -15,13 +15,14 @@ class Listing < ActiveRecord::Base
     delta_lat = (distance/2.0)*(1/68.792)
     min_lat = lat-delta_lat
     max_lat = lat+delta_lat
-    delta_long = (Math::PI * 3959.0 * Math.cos(lat))/180.0
+    lat_radians = lat*Math::PI/180
+    delta_long = (Math::PI * 3959.0 * Math.cos(lat_radians))/180.0
     min_long = long-delta_long
     max_long = long+delta_long
-    self.find_by_bound(min_lat,max_lat,min_long,max_long)
+    self.find_within_bounds(min_lat,max_lat,min_long,max_long)
   end
 
-  def self.find_by_bound(min_lat,max_lat,min_long, max_long)
+  def self.find_within_bounds(min_lat,max_lat,min_long, max_long)
     self.where(<<-SQL,min_lat, max_lat, min_long, max_long)
     (lat >= ?) AND (lat <= ?) AND long >= ? AND long <= ?
     SQL

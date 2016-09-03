@@ -42,7 +42,7 @@ class Map extends React.Component {
       }));
       bounds.extend(latlong);
     });
-    this.map.fitBounds(bounds);
+    // this.map.fitBounds(bounds);
 
   }
 

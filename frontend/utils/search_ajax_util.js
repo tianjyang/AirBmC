@@ -25,7 +25,7 @@ const requestListings = (searchParams,successCallback = success) => {
 const searchListingsByBound = (searchParams,successCallback = success) => {
   $.ajax({
     method: "GET",
-    url: "/api/listings/by_bounds",
+    url: "/api/map_listings",
     data: searchParams,
     success: successCallback,
     error: fail

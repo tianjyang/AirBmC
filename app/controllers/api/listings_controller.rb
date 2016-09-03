@@ -14,8 +14,12 @@ class Api::ListingsController < ApplicationController
   end
 
   def index_by_map
-    current_listing = Listing.find_by_bound(min_lat,max_lat,min_long, max_long)
-    render json: current_listing
+    min_lat = params[:south]
+    max_lat = params[:north]
+    min_long = params[:west]
+    max_long = params[:east]
+    current_listings = Listing.find_within_bounds(min_lat,max_lat,min_long, max_long)
+    render json: current_listings
   end
 
 end
