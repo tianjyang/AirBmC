@@ -1,5 +1,8 @@
 const successCallback = (data) => {console.log(data);};
-const errorCallback = (data) => {console.log(data);};
+const errorCallback = (data) => {
+  console.log("you failed");
+  console.log(data);
+};
 
 const signUpUser = (id,success = successCallback,fail = errorCallback) => {
   $.ajax({
