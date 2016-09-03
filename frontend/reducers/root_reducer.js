@@ -3,10 +3,12 @@ import sessionReducer from './session_reducer';
 import searchReducer from './search_reducer';
 import showReducer from './show_reducer';
 import formReducer from './form_reducer';
+import errorsReducer from './errors_reducer';
 
 export default combineReducers({
   session: sessionReducer,
   matchingCars: searchReducer,
   currentListing: showReducer,
-  searchParams: formReducer
+  searchParams: formReducer,
+  errors: errorsReducer
 });
