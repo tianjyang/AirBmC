@@ -1,33 +1,36 @@
-const fail = (data) => {console.log(data);};
-const success = (data) => {console.log(data);};
+const successCallback = (data) => {console.log(data);};
+const errorCallback = (data) => {
+  console.log("you failed");
+  console.log(data);
+};
 
-const GoogleGeocoding = (address,successCallback = success) => {
+const GoogleGeocoding = (address,success = successCallback,fail = errorCallback) => {
   $.ajax({
     method: "GET",
     dataType: "json",
     url: "http://maps.googleapis.com/maps/api/geocode/json",
     data: address,
-    success: successCallback,
+    success: success,
     error: fail
   });
 };
 
-const requestListings = (searchParams,successCallback = success) => {
+const requestListings = (searchParams,success = successCallback,fail = errorCallback) => {
   $.ajax({
     method: "GET",
     url: "api/listings",
     data: searchParams,
-    success: successCallback,
+    success: success,
     error: fail
   });
 };
 
-const searchListingsByBound = (searchParams,successCallback = success) => {
+const searchListingsByBound = (searchParams,success = successCallback,fail = errorCallback) => {
   $.ajax({
     method: "GET",
     url: "/api/map_listings",
     data: searchParams,
-    success: successCallback,
+    success: success,
     error: fail
   });
 };
