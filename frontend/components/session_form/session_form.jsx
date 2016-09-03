@@ -7,15 +7,15 @@ class SessionForm extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillMount() {
-    if (window.currentUser) {
-      let userInfo = {
-        username: window.currentUser,
-        logged_in: true
-      };
-      this.props.setInitialState(userInfo);
-    }
-  }
+  // componentWillMount() {
+  //   if (window.currentUser) {
+  //     let userInfo = {
+  //       username: window.currentUser,
+  //       logged_in: true,
+  //     };
+  //     this.props.setInitialState(userInfo);
+  //   }
+  // }
 
   handleClick (e) {
     e.preventDefault();

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import Router from './router';
+import { merge } from 'lodash';
+window.merge = merge;
 
 const initiateReactRouter = () => {
   let node = document.getElementById("root");
@@ -16,7 +18,6 @@ const initiateReactRouter = () => {
 
   let storeHolder = store();
   window.store = storeHolder;
-  window.state = window.store.getState();
   ReactDOM.render(<Provider store={storeHolder}><Router store={storeHolder}/></Provider>,node);
 };
 

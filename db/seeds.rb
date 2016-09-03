@@ -16,6 +16,8 @@ User.create!(username: "Snorkeldink Crackersprout", password: "password")
 User.create!(username: "Bentobox Crimpysnitch", password: "password")
 User.create!(username: "Barnoldswick Crumplesack", password: "password")
 User.create!(username: "Snozzlebert Kryptonite", password: "password")
+# User.create!(username: "ManyRes", password: "password")
+
 
 Listing.create!(title:"Experience Embarcadero!", description:"I have a Tesla Model S which I hardly use. I am open to letting people use this to commute around the bay area. It is important to remember that this car has limited range and will require a long time to recharge",user_id:2,price_per_day:120,
 image_url:"http://placehold.it/1440x500",lat:37.7936684,long:-122.3957547)
@@ -78,4 +80,14 @@ long:-122.422)
 Reservation.create!(user_id: 2, listing_id: 3,description: "short trip",
 start_date: Date.parse("2016/10/1"),end_date: Date.parse("2016/10/3"))
 Reservation.create(user_id: 4, listing_id: 3,description: "short trip",
+start_date: Date.parse("2016/09/30"),end_date: Date.parse("2016/10/2"))
+
+
+Reservation.create(user_id: 11, listing_id: 4,description: "short trip",
+start_date: Date.parse("2016/09/30"),end_date: Date.parse("2016/10/2"))
+Reservation.create(user_id: 11, listing_id: 5,description: "short trip",
+start_date: Date.parse("2016/09/30"),end_date: Date.parse("2016/10/2"))
+Reservation.create(user_id: 11, listing_id: 6,description: "short trip",
+start_date: Date.parse("2016/09/30"),end_date: Date.parse("2016/10/2"))
+Reservation.create(user_id: 11, listing_id: 7,description: "short trip",
 start_date: Date.parse("2016/09/30"),end_date: Date.parse("2016/10/2"))

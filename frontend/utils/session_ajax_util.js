@@ -33,5 +33,14 @@ const destroySession = (creds,success = successCallback,fail = errorCallback) =>
   });
 };
 
+const getReservations = (success = successCallback,fail = errorCallback) => {
+  $.ajax({
+    method: "GET",
+    url: "api/reservations",
+    success: success,
+    error: fail
+  });
+};
 
-export { signUpUser, newSession, destroySession };
+
+export { signUpUser, newSession, destroySession, getReservations };

@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => ({
   onLoginClick: (creds) => {dispatch(createSession(creds));},
   onSignUpClick: (creds) => {dispatch(createUser(creds));},
   onLogoutClick: (creds) => {dispatch(destroySession(creds));},
-  setInitialState: (userInfo) => {dispatch(updateUser(userInfo));}
+  // setInitialState: (userInfo) => {dispatch(updateUser(userInfo));}
 });
 
 export default connect(

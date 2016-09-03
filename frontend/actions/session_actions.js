@@ -2,7 +2,9 @@ const SESSION_CONSTANTS = {
   CREATE_USER: "CREATE_USER",
   CREATE_SESSION: "CREATE_SESSION",
   DESTROY_SESSION: "DESTROY_SESSION",
-  UPDATE_USER: "UPDATE_USER"
+  UPDATE_USER: "UPDATE_USER",
+  REQUEST_RESERVATIONS: "REQUEST_RESERVATIONS",
+  RECEIVE_RESERVATIONS: "RECEIVE_RESERVATIONS"
 };
 
 const createUser = (creds) => ({
@@ -24,4 +26,13 @@ const updateUser = (userInfo) => ({
   userInfo
 });
 
-export {SESSION_CONSTANTS, createUser, createSession, destroySession, updateUser};
+const requestReservations = () => ({
+  type: SESSION_CONSTANTS.REQUEST_RESERVATIONS,
+});
+
+const receiveReservations = (reservationInfo) => ({
+  type: SESSION_CONSTANTS.RECEIVE_RESERVATIONS,
+  reservationInfo
+});
+
+export {SESSION_CONSTANTS, createUser, createSession, destroySession, updateUser, receiveReservations, requestReservations};

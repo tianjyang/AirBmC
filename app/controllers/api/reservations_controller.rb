@@ -1,5 +1,5 @@
 class Api::ReservationsController < ApplicationController
-  before_action :ensure_logged_in, only:[:create]
+  before_action :ensure_logged_in, only:[:create, :index]
 
   def create
     new_reservation = Reservation.new
@@ -13,6 +13,15 @@ class Api::ReservationsController < ApplicationController
     else
       render json: new_reservation.errors.full_messages
     end
+  end
+
+  def index
+    if current_user.has_no_reservations?
+      render json: {reservations: ["No Reservations Yet!"]}
+    else
+      render json: {reservations: current_user.reservations}
+    end
+
   end
 
   def ensure_logged_in

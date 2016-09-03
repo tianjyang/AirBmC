@@ -25,6 +25,7 @@ export const newReservation = (listingId,reservation,successCallback = success,f
   });
 };
 
+
 export const cancelReservation = (listingId,reservationId,successCallback = success,fail = errorCallback) => {
   console.log("cancelReservation");
   $.ajax({

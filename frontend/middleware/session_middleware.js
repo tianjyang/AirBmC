@@ -1,14 +1,22 @@
-import { SESSION_CONSTANTS, updateUser } from '../actions/session_actions';
-import { signUpUser, newSession, destroySession } from '../utils/session_ajax_util';
+import { SESSION_CONSTANTS, updateUser, receiveReservations, requestReservations } from '../actions/session_actions';
+import { signUpUser, newSession, destroySession, getReservations } from '../utils/session_ajax_util';
 import { updateErrors } from '../actions/error_actions';
 
 const SessionMiddleware = (store) => (next) => (action) => {
   const success = (reply) => {
     store.dispatch(updateUser(reply));
+    if (action.type === SESSION_CONSTANTS.CREATE_SESSION) {
+      getReservations(addReservationsToState);
+    }
+
   };
 
   const failure = (reply) => {
     store.dispatch(updateErrors(reply));
+  };
+
+  const addReservationsToState = (reply) => {
+    store.dispatch(receiveReservations(reply));
   };
 
   switch (action.type) {
@@ -26,7 +34,9 @@ const SessionMiddleware = (store) => (next) => (action) => {
       console.log("LOGGING OUT USER");
       console.log(action);
       destroySession(action.creds,success,failure);
-      break;
+      return next(action)
+    case SESSION_CONSTANTS.REQUEST_RESERVATIONS:
+      getReservations(addReservationsToState);
     default:
       return next(action);
 

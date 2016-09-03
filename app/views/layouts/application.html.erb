@@ -2,16 +2,17 @@
 <html>
 <head>
   <title>AirBmC</title>
+  <script type="text/javascript">
+  <% if current_user %>
+    window.currentUser = '<%= (current_user.username).html_safe %>'
+  <% end %>
+  </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRGwxu8LC5zjEHU-bF5ba28NlOMYTj67c"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript">
-  <% if current_user %>
-  	window.currentUser = '<%= (current_user.username).html_safe %>'
-  <% end %>
-  </script>
+
 
 </head>
 <body>
