@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import Router from './router';
 
-
 const initiateReactRouter = () => {
   let node = document.getElementById("root");
   let preloadedState = {
@@ -17,7 +16,7 @@ const initiateReactRouter = () => {
 
   let storeHolder = store(preloadedState);
   window.store = storeHolder;
-
+  window.state = window.store.getState();
   ReactDOM.render(<Provider store={storeHolder}><Router store={storeHolder}/></Provider>,node);
 };
 

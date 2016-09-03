@@ -37,28 +37,26 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let loginFormClass, submitButtonClass, logoutButtonClass;
+    let showIfLoggedOut, showIfLoggedIn;
     if ( this.props.loggedIn ){
-      loginFormClass = "hidden";
-      submitButtonClass = "hidden";
-      logoutButtonClass = "";
+      showIfLoggedOut = "hidden";
+      showIfLoggedIn = "";
     } else {
-      loginFormClass = "";
-      submitButtonClass = "";
-      logoutButtonClass = "hidden";
+      showIfLoggedOut = "";
+      showIfLoggedIn = "hidden";
     }
 
     return(
         <form className={"session_form"}>
-          <span className={loginFormClass}>
+          <span className={ showIfLoggedOut }>
               <input className="input_field" type="text" name="user[username]" placeholder="Username"></input>
-              <input className="input_field" type="text" name="user[password]" placeholder="Password"></input>  
+              <input className="input_field" type="text" name="user[password]" placeholder="Password"></input>
           </span>
           <span>
-            <input type="submit" onClick={this.handleClick} value="Log In" className={"session_button " + submitButtonClass}></input>
-            <input type="submit" onClick={this.handleClick} value="Sign Up" className={"session_button " + submitButtonClass}></input>
-            <input type="submit" onClick={this.handleClick} value="Guest" className={"session_button " + submitButtonClass}></input>
-            <input type="submit" onClick={this.handleClick} value="Log Out" className={"session_button " + logoutButtonClass}></input>
+            <input type="submit" onClick={this.handleClick} value="Log In" className={"session_button " + showIfLoggedOut}></input>
+            <input type="submit" onClick={this.handleClick} value="Sign Up" className={"session_button " + showIfLoggedOut}></input>
+            <input type="submit" onClick={this.handleClick} value="Guest" className={"session_button " + showIfLoggedOut}></input>
+            <input type="submit" onClick={this.handleClick} value="Log Out" className={"session_button " + showIfLoggedIn}></input>
           </span>
         </form>
     );

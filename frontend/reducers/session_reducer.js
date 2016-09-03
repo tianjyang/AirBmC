@@ -6,7 +6,7 @@ const sessionReducer = (state = {}, action) => {
     case SESSION_CONSTANTS.UPDATE_USER:
       return merge({},state,action.userInfo);
     default:
-    return state;
+      return state;
   }
 };
 
