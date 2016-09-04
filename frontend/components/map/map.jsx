@@ -17,14 +17,12 @@ class Map extends React.Component {
     });
     this.map.setCenter(new google.maps.LatLng(37.7546193, -122.4276216));
     this.map.addListener("idle",this.updateMarkersByBounds);
-
-    window.map = this.map;
-
   }
 
   updateMarkersByBounds() {
     let bounds = this.map.getBounds().toJSON();
     this.props.searchByBounds(bounds);
+    this.setBound = false;
   }
 
   componentDidUpdate() {
@@ -50,8 +48,9 @@ class Map extends React.Component {
     });
     if ( this.setBound ) {
       this.map.fitBounds(bounds);
-      this.setBound = false;
+      // this.setBound = false;
     }
+    this.setBound = true;
   }
 
   purgeMarkersFromMap () {
