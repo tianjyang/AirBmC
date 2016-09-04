@@ -15,7 +15,6 @@ class NewReservationForm extends React.Component {
 
   handleClick (e) {
     e.preventDefault();
-    console.log("new reservation clicked!");
     const reservation = {
       start_date: e.currentTarget.form[0].value,
       end_date: e.currentTarget.form[1].value,

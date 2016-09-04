@@ -9,7 +9,6 @@ class ResultItem extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    console.log("you clicked on" + this.props.listing.id);
     hashHistory.push("show/" + this.props.listing.id);
   }
 
@@ -18,7 +17,7 @@ class ResultItem extends React.Component {
     // <img src={this.props.listing.image_url} className="listing-thumbnail"/>
     return(
       <div className="displayListing" onClick={this.handleClick}>
-        <p> {(this.props.listing.title)}</p>
+        {(this.props.listing.title)}
       </div>
     );
   }

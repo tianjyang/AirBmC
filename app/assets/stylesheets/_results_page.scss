@@ -1,0 +1,31 @@
+div.results_search {
+  height:100px;
+
+}
+
+div.results_container {
+  max-width: 900px;
+  margin:0px auto;
+}
+
+div.results_map {
+margin: 15px 5px;
+position: fixed;
+}
+
+div.results_listings {
+  width:50%;
+  float:right;
+}
+
+
+div.displayListing {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background-color: #008AC9;
+	margin: 10px;
+	box-sizing: border-box;
+	padding: 10px;
+  vertical-align: bottom;
+}

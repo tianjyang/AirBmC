@@ -29,7 +29,6 @@ class SearchForm extends React.Component {
   }
 
   handleChange (e) {
-    console.log("handling change");
     e.preventDefault();
     let searchParams = {
       location: e.currentTarget.form[0].value,
@@ -41,8 +40,13 @@ class SearchForm extends React.Component {
   render() {
 
     return(
-    <div>
       <div className="landingPage">
+        <span className="title-container">
+          DRIVE THERE
+        </span>
+        <span className="subtitle-container">
+          Find and rent local cars from your neighbors
+        </span>
         <div className="search_form_container">
         <form className={"search_form"}>
               <input className="search_field" type="text" name="search[location]" onChange={this.handleChange} placeholder="Where are you?"></input>
@@ -53,7 +57,6 @@ class SearchForm extends React.Component {
         </form>
         </div>
       </div>
-    </div>
     );
   }
 

@@ -17,7 +17,7 @@ class Api::ReservationsController < ApplicationController
 
   def index
     if current_user.has_no_reservations?
-      blank_res = Reseration.new(title:"No Reservations Yet!")
+      blank_res = Reservation.new(description:"No Reservations Yet!")
       render json: [blank_res]
     else
       render json: current_user.reservations

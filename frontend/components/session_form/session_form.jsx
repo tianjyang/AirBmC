@@ -40,7 +40,6 @@ class SessionForm extends React.Component {
         this.props.onLogoutClick(creds);
         break;
       default:
-      console.log("Nothing happened");
     }
   }
 
@@ -64,7 +63,7 @@ class SessionForm extends React.Component {
             <input type="submit" onClick={this.handleClick} value="Log In" className={"session_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Sign Up" className={"session_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Guest" className={"session_button " + showIfLoggedOut}></input>
-            <input type="submit" onClick={this.handleClick} value="Log Out" className={"session_button " + showIfLoggedIn}></input>
+            <input type="submit" onClick={this.handleClick} value="Log Out" className={"logout_button " + showIfLoggedIn}></input>
         </span>
         </form>
     );

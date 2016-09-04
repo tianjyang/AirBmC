@@ -28,7 +28,6 @@ class Map extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("componentWillUpdate");
     this.placeMarkersFromProp();
   }
 
@@ -66,7 +65,6 @@ class Map extends React.Component {
 
 
   render() {
-    console.log("rednering");
 
     return(
       <div id="map" className="mapContainer-search"></div>

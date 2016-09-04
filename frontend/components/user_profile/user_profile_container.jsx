@@ -9,7 +9,7 @@ import { objToArray } from '../../reducers/selector';
 const mapStateToProps = (state) => {
   return ({
     username: state.session.username,
-    logged_in: state.session.logged_in,
+    loggedIn: state.session.logged_in,
     reservations: objToArray(state.reservations)
   });
 };

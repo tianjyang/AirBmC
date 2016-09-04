@@ -16,15 +16,11 @@ const SessionMiddleware = (store) => (next) => (action) => {
       requestListing(action.searchParams,successfulRequest);
       break;
     case SHOW_CONSTANTS.REQUEST_COMMENTS:
-        console.log("requesting comments");
       break;
     case SHOW_CONSTANTS.POST_RESERVATION:
-      console.log("posting a reservation!");
       const successfulReservation = (data) => {
-        console.log("success",data);
       };
       const unseuccesfulReservation = (data) => {
-        console.log(data);
       };
       newReservation(action.listingId,action.reservationInfo,successfulReservation);
       break;

@@ -33,11 +33,22 @@ class UserProfile extends React.Component {
 
 
   render() {
+
+    let showIfLoggedOut, showIfLoggedIn;
+    if ( this.props.loggedIn ){
+      showIfLoggedOut = "hidden";
+      showIfLoggedIn = "";
+    } else {
+      showIfLoggedOut = "";
+      showIfLoggedIn = "hidden";
+    }
+
     return(
-      <div>
-        <div className="username">{"Welcome " + this.props.username + "!"}</div>
-        <div className="reservation-dropdown">Your Reservations</div>
-        <ul>
+      <div className={"user-profile " + showIfLoggedIn}>
+        <div className={"username " + showIfLoggedIn}>{"Welcome " + this.props.username + "!"}</div>
+        <div className={"reservation-dropdown " + showIfLoggedIn}>
+          <p className={"user-profile " + showIfLoggedIn}>Your Reservations</p>
+        <ul className={"dropdown-content"}>
           {
             this.props.reservations.map((el)=>{
               return(
@@ -49,6 +60,7 @@ class UserProfile extends React.Component {
           }
 
         </ul>
+        </div>
 
 
 
