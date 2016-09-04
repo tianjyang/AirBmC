@@ -4,14 +4,14 @@ import { Router, withRouter } from 'react-router';
 class UserProfile extends React.Component {
   constructor (props) {
     super(props);
+    // this.handleClick = this.handleClicks.bind(this)
   }
 
-  handleClick (e) {
-    e.preventDefault();
+  handleClick (object,e) {
+    this.props.deleteReservation(object.id);
   }
 
   componentWillMount() {
-    debugger
     if (window.currentUser) {
       let userInfo = {
         username: window.currentUser,
@@ -38,6 +38,15 @@ class UserProfile extends React.Component {
         <div className="username">{"Welcome " + this.props.username + "!"}</div>
         <div className="reservation-dropdown">Your Reservations</div>
         <ul>
+          {
+            this.props.reservations.map((el)=>{
+              return(
+                <li key={el.id + "reservation"}>{el.description} on {el.start_date}
+                  <a href="#" onClick={this.handleClick.bind(this,el)}>Cancel</a>
+                </li>
+              );
+            })
+          }
 
         </ul>
 

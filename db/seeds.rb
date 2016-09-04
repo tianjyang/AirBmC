@@ -16,7 +16,7 @@ User.create!(username: "Snorkeldink Crackersprout", password: "password")
 User.create!(username: "Bentobox Crimpysnitch", password: "password")
 User.create!(username: "Barnoldswick Crumplesack", password: "password")
 User.create!(username: "Snozzlebert Kryptonite", password: "password")
-# User.create!(username: "ManyRes", password: "password")
+User.create!(username: "ManyRes", password: "password")
 
 
 Listing.create!(title:"Experience Embarcadero!", description:"I have a Tesla Model S which I hardly use. I am open to letting people use this to commute around the bay area. It is important to remember that this car has limited range and will require a long time to recharge",user_id:2,price_per_day:120,

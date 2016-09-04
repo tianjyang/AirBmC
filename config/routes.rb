@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     resource :sessions, only: [:create, :destroy], defaults: {format: 'json'}
     resource :user, only:[:create], defaults: {format: 'json'}
     resources :listings, only: [:index,:show], defaults: {format: 'json'} do
-      resources :reservations, only:[:create, :destroy], defaults: {format: 'json'}
+      resources :reservations, only:[:create], defaults: {format: 'json'}
     end
-    resources :reservations, only: [:index]
+    resources :reservations, only: [:index, :destroy]
     get 'map_listings/' => 'listings#index_by_map'
   end
   # The priority is based upon order of creation: first created -> highest priority.

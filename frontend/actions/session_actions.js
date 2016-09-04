@@ -4,7 +4,8 @@ const SESSION_CONSTANTS = {
   DESTROY_SESSION: "DESTROY_SESSION",
   UPDATE_USER: "UPDATE_USER",
   REQUEST_RESERVATIONS: "REQUEST_RESERVATIONS",
-  RECEIVE_RESERVATIONS: "RECEIVE_RESERVATIONS"
+  RECEIVE_RESERVATIONS: "RECEIVE_RESERVATIONS",
+  DESTROY_RESERVATION: "DESTROY_RESERVATION"
 };
 
 const createUser = (creds) => ({
@@ -35,4 +36,9 @@ const receiveReservations = (reservationInfo) => ({
   reservationInfo
 });
 
-export {SESSION_CONSTANTS, createUser, createSession, destroySession, updateUser, receiveReservations, requestReservations};
+const destroyReservation = (reservationId) => ({
+  type: SESSION_CONSTANTS.DESTROY_RESERVATION,
+  reservationId
+});
+
+export {SESSION_CONSTANTS, createUser, createSession, destroySession, updateUser, receiveReservations, requestReservations, destroyReservation};

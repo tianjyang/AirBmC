@@ -1,5 +1,5 @@
 import { SESSION_CONSTANTS, updateUser, receiveReservations, requestReservations } from '../actions/session_actions';
-import { signUpUser, newSession, destroySession, getReservations } from '../utils/session_ajax_util';
+import { signUpUser, newSession, destroySession, getReservations, deleteReservation } from '../utils/session_ajax_util';
 import { updateErrors } from '../actions/error_actions';
 
 const SessionMiddleware = (store) => (next) => (action) => {
@@ -34,9 +34,13 @@ const SessionMiddleware = (store) => (next) => (action) => {
       console.log("LOGGING OUT USER");
       console.log(action);
       destroySession(action.creds,success,failure);
-      return next(action)
+      return next(action);
     case SESSION_CONSTANTS.REQUEST_RESERVATIONS:
       getReservations(addReservationsToState);
+      break;
+    case SESSION_CONSTANTS.DESTROY_RESERVATION:
+      deleteReservation(action.reservationId,addReservationsToState);
+      break;
     default:
       return next(action);
 

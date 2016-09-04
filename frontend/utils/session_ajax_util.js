@@ -42,5 +42,15 @@ const getReservations = (success = successCallback,fail = errorCallback) => {
   });
 };
 
+const deleteReservation = (id,success=successCallback, fail= errorCallback) =>{
+  debugger
+  $.ajax({
+    method: "DELETE",
+    url: `api/reservations/${id}`,
+    success: success,
+    error: fail
+  });
+};
 
-export { signUpUser, newSession, destroySession, getReservations };
+
+export { signUpUser, newSession, destroySession, getReservations, deleteReservation };

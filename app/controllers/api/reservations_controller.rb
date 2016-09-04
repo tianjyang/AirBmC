@@ -1,5 +1,5 @@
 class Api::ReservationsController < ApplicationController
-  before_action :ensure_logged_in, only:[:create, :index]
+  before_action :ensure_logged_in, only:[:create, :index, :destroy]
 
   def create
     new_reservation = Reservation.new
@@ -17,11 +17,11 @@ class Api::ReservationsController < ApplicationController
 
   def index
     if current_user.has_no_reservations?
-      render json: {reservations: ["No Reservations Yet!"]}
+      blank_res = Reseration.new(title:"No Reservations Yet!")
+      render json: [blank_res]
     else
-      render json: {reservations: current_user.reservations}
+      render json: current_user.reservations
     end
-
   end
 
   def ensure_logged_in
@@ -30,5 +30,9 @@ class Api::ReservationsController < ApplicationController
     end
   end
 
+  def destroy
+    Reservation.find(params[:id].to_i).destroy
+    render json: current_user.reservations
+  end
 
 end

@@ -1,21 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
-import { requestReservations } from '../../actions/session_actions';
+import { requestReservations, destroyReservation } from '../../actions/session_actions';
 import { updateUser } from '../../actions/session_actions';
+import { objToArray } from '../../reducers/selector';
 
 
 const mapStateToProps = (state) => {
   return ({
     username: state.session.username,
     logged_in: state.session.logged_in,
-    reservations: state.session.reservations
+    reservations: objToArray(state.reservations)
   });
 };
 
 const mapDispatchToProps = (dispatch) => ({
   requestReservations: () => {dispatch(requestReservations());},
-  setInitialState: (userInfo) => {dispatch(updateUser(userInfo));}
+  setInitialState: (userInfo) => {dispatch(updateUser(userInfo));},
+  deleteReservation: (id) => {dispatch(destroyReservation(id));}
 });
 
 export default connect(
