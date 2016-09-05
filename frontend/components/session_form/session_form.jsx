@@ -1,4 +1,5 @@
 import React from 'react';
+import Errors from '../errors/errors_container';
 
 
 class SessionForm extends React.Component {
@@ -59,12 +60,14 @@ class SessionForm extends React.Component {
               <input className="input_field" type="text" name="user[username]" placeholder="Username"></input>
               <input className="input_field" type="text" name="user[password]" placeholder="Password"></input>
           </span>
+          <Errors/>
           <span>
             <input type="submit" onClick={this.handleClick} value="Log In" className={"session_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Sign Up" className={"session_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Guest" className={"guest_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Log Out" className={"logout_button " + showIfLoggedIn}></input>
         </span>
+
         </form>
     );
   }

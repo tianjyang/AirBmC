@@ -4,14 +4,15 @@ import { updateErrors } from '../actions/error_actions';
 
 const SessionMiddleware = (store) => (next) => (action) => {
   const success = (reply) => {
+    console.log("session middleware success");
     store.dispatch(updateUser(reply));
     if (action.type === SESSION_CONSTANTS.CREATE_SESSION) {
       getReservations(addReservationsToState);
     }
   };
 
-  const failure = (reply) => {
-    store.dispatch(updateErrors(reply));
+  const errorCallback = (errorMessage) => {
+    store.dispatch(updateErrors(errorMessage));
   };
 
   const addReservationsToState = (reply) => {
@@ -20,14 +21,14 @@ const SessionMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case SESSION_CONSTANTS.CREATE_SESSION:
-      newSession(action.creds,success,failure);
+      newSession(action.creds,success,errorCallback);
       break;
     case SESSION_CONSTANTS.CREATE_USER:
 
-      signUpUser(action.creds,success,failure);
+      signUpUser(action.creds,success,errorCallback);
       break;
     case SESSION_CONSTANTS.DESTROY_SESSION:
-      destroySession(action.creds,success,failure);
+      destroySession(action.creds,success,errorCallback);
       return next(action);
     case SESSION_CONSTANTS.REQUEST_RESERVATIONS:
       getReservations(addReservationsToState);

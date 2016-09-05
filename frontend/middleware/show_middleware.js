@@ -9,23 +9,23 @@ const SessionMiddleware = (store) => (next) => (action) => {
     store.dispatch(updateErrors(errorMessage));
   };
 
+  const successfulRequest = (listingObject) => {
+    store.dispatch(receiveListing(listingObject));
+  };
+
+  const successfulReservation = (data) => {
+    store.dispatch(requestReservations());
+  };
+
+
   switch (action.type) {
     case SHOW_CONSTANTS.REQUEST_LISTING:
-      let successfulRequest = (listingObject) => {
-        store.dispatch(receiveListing(listingObject));
-      };
-      requestListing(action.searchParams,successfulRequest);
+      requestListing(action.searchParams,successfulRequest,errorCallback);
       break;
     case SHOW_CONSTANTS.REQUEST_COMMENTS:
       break;
     case SHOW_CONSTANTS.POST_RESERVATION:
-      const successfulReservation = (data) => {
-        store.dispatch(requestReservations());
-      };
-      const unseuccesfulReservation = (data) => {
-
-      };
-      newReservation(action.listingId,action.reservationInfo,successfulReservation);
+      newReservation(action.listingId,action.reservationInfo,successfulReservation,errorCallback);
       break;
 
     default:

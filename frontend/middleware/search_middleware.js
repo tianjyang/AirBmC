@@ -5,13 +5,18 @@ const SearchMiddleware = (store) => (next) => (action) => {
   let success = (data) => {
     store.dispatch(receiveListings(data));
   };
+
+  const errorCallback = (errorMessage) => {
+    store.dispatch(updateErrors(errorMessage));
+  };
+
   switch (action.type) {
     case SEARCH_CONSTANTS.FIND_LISTINGS:
-      requestListings(action.searchParams,success);
+      requestListings(action.searchParams,success,errorCallback);
       break;
 
     case SEARCH_CONSTANTS.SEARCH_BY_BOUNDS:
-      searchListingsByBound(action.searchParams,success);
+      searchListingsByBound(action.searchParams,success,errorCallback);
 
       break;
     default:

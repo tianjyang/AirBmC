@@ -10,8 +10,7 @@ class Api::UsersController < ApplicationController
       reply = {username: username, logged_in: true}
       render json: reply
     else
-      reply = [new_user.errors]
-      render json: reply
+      render json: new_user.errors.full_messages, status:400
     end
   end
 end

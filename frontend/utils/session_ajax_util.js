@@ -5,7 +5,6 @@ const errorCallback = (data) => {
 };
 
 const signUpUser = (creds,success = successCallback,fail = errorCallback) => {
-  debugger
   $.ajax({
     method: "POST",
     url: "api/user",
@@ -45,7 +44,6 @@ const getReservations = (success = successCallback,fail = errorCallback) => {
 };
 
 const deleteReservation = (id,success=successCallback, fail= errorCallback) =>{
-  debugger
   $.ajax({
     method: "DELETE",
     url: `api/reservations/${id}`,

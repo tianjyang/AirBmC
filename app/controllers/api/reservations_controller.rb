@@ -11,7 +11,7 @@ class Api::ReservationsController < ApplicationController
     if new_reservation.save
       render json: "confirmed booking!"
     else
-      render json: new_reservation.errors.full_messages
+      render json: new_reservation.errors.full_messages,status: 400
     end
   end
 
@@ -26,7 +26,7 @@ class Api::ReservationsController < ApplicationController
 
   def ensure_logged_in
     unless current_user
-      render text: "You must be logged in!", status: :bad_request
+      render json:["You must be logged in!"],status: 401
     end
   end
 
