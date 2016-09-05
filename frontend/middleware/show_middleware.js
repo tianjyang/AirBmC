@@ -10,10 +10,12 @@ const SessionMiddleware = (store) => (next) => (action) => {
   };
 
   const successfulRequest = (listingObject) => {
+    // store.dispatch(updateErrors);
     store.dispatch(receiveListing(listingObject));
   };
 
   const successfulReservation = (data) => {
+    // store.dispatch(updateErrors);
     store.dispatch(requestReservations());
   };
 

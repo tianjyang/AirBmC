@@ -4,8 +4,8 @@ import { updateErrors } from '../actions/error_actions';
 
 const SessionMiddleware = (store) => (next) => (action) => {
   const success = (reply) => {
-    console.log("session middleware success");
     store.dispatch(updateUser(reply));
+    store.dispatch(updateErrors({}));
     if (action.type === SESSION_CONSTANTS.CREATE_SESSION) {
       getReservations(addReservationsToState);
     }

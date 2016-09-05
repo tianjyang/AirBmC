@@ -1,5 +1,5 @@
 import React from 'react';
-import Errors from '../errors/errors_container';
+import Errors from '../errors/errors';
 
 
 class SessionForm extends React.Component {
@@ -60,7 +60,7 @@ class SessionForm extends React.Component {
               <input className="input_field" type="text" name="user[username]" placeholder="Username"></input>
               <input className="input_field" type="text" name="user[password]" placeholder="Password"></input>
           </span>
-          <Errors/>
+          <Errors errors={this.props.errors}/>
           <span>
             <input type="submit" onClick={this.handleClick} value="Log In" className={"session_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Sign Up" className={"session_button " + showIfLoggedOut}></input>

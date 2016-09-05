@@ -4,10 +4,11 @@ import { requestListings, searchListingsByBound } from '../utils/search_ajax_uti
 const SearchMiddleware = (store) => (next) => (action) => {
   let success = (data) => {
     store.dispatch(receiveListings(data));
+    // store.dispatch(updateErrors())
   };
 
   const errorCallback = (errorMessage) => {
-    store.dispatch(updateErrors(errorMessage));
+    // store.dispatch(updateErrors(errorMessage));
   };
 
   switch (action.type) {
