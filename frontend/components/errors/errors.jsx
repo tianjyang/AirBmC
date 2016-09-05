@@ -9,6 +9,7 @@ class Errors extends React.Component {
   }
 
   render() {
+    debugger
     return(
       <div className = "errors-message">
         {this.props.errors}

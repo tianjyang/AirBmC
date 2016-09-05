@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router, withRouter } from 'react-router';
+import Errors from '../errors/errors_container';
 // import {SHOW_CONSTANTS, requestListing} from '../../actions/show_actions';
 
 
@@ -31,6 +32,7 @@ class NewReservationForm extends React.Component {
         <input type="date" name="reservation[end_date]"></input>
         <textarea rows="4" cols="40"name=" reservation[description]" placeholder="Tell me about your trip!"></textarea>
         <input type="submit" onClick={this.handleClick}/>
+        <Errors/>
       </form>
     );
   }
