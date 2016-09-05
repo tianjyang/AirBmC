@@ -8,7 +8,6 @@ const SessionMiddleware = (store) => (next) => (action) => {
     if (action.type === SESSION_CONSTANTS.CREATE_SESSION) {
       getReservations(addReservationsToState);
     }
-
   };
 
   const failure = (reply) => {
