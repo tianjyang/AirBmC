@@ -31,6 +31,10 @@ ol, ul {
 //
 // }
 
+body {
+	padding-top: 75px;
+}
+
 form.session_form{
 	float:right;
 	display:inline-block;
@@ -42,11 +46,14 @@ form.session_form{
 
 
 .header {
-	// background: #008AC9;
+	background: #008AC9;
 	// background: white;
 	display: block;
 	width: 100%;
 	height: 75px;
+	position:fixed;
+	top:0px;
+	z-index:1;
 }
 
 
@@ -55,8 +62,8 @@ div.header-span {
   display: block;
   position: relative;
   margin: auto;
-	border-left: 1px solid white;
-	border-right: 1px solid white;
+	border-left: 1px solid lightgrey;
+	border-right: 1px solid lightgrey;
 	height: inherit;
 }
 
@@ -67,6 +74,7 @@ img.logo {
 }
 
 div.landingPage {
+	min-width: 900px;
 	background-image: url("http://res.cloudinary.com/drf8botsi/image/upload/c_crop,h_1063,w_4181,y_986/v1472697730/bg.jpg");
 	background-size: auto 100%;
 	background-clip: border-box;
@@ -99,6 +107,7 @@ input.search_field {
   height: 30px;
   border-radius: 5px;
 	padding-left: 10px;
+	font-size:18px;
 }
 
 input.input_field {
@@ -116,6 +125,7 @@ input.search_submit {
 	height: 30px;
 	border-radius: 5px;
 	background-color: white;
+	font-size: 16px;
 	-webkit-transition: background-color 0.5s, color 0.5s;
 }
 
@@ -149,8 +159,8 @@ input.logout_button {
 
 div.mapContainer-search {
 	display: block;
-	width: 430px;
-	height: 430px;
+	width: 450px;
+	height: 450px;
 }
 
 .hidden {
@@ -168,6 +178,7 @@ form.reservation-form {
 div.listing-container {
     max-width: 900px;
     margin: 0px auto;
+		margin-top:100px;
     background-position: center;
 		background-repeat:no-repeat;
 		position:relative;
@@ -238,7 +249,7 @@ li.dropdown-content {
 	width: 300px;
 	background-color: white;
 	box-sizing:border-box;
-	border-bottom:1px solid #2B115A;
+	border-top:1px solid #2B115A;
 }
 
 .reservation-dropdown:hover .dropdown-content {

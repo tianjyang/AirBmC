@@ -37,13 +37,14 @@ class Results extends React.Component {
     };
     this.props.updateSearchParams(searchParams);
   }
-
+  // <div className="results_search">
+  // </div>
 
   render() {
     let listingsArray = objToArray(this.props.listings);
     return(
       <div className="results_container">
-        <div className="results_search">
+
           <form className={"results_search_form"}>
                 <input className="results_search_field" type="text"
                   name="search[location]" placeholder="Where are you?"
@@ -56,7 +57,7 @@ class Results extends React.Component {
 
               <input className="results_search_submit" type="submit" value="Find Your Car" onClick={this.handleClick}></input>
           </form>
-        </div>
+
         <div className="results_map">
           <ResultsMap/>
         </div>

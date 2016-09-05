@@ -51,11 +51,17 @@ class UserProfile extends React.Component {
         <ul className={"dropdown-content"}>
           {
             this.props.reservations.map((el)=>{
-              return(
-                <li className="dropdown-content" key={el.id + "reservation"}>{el.description} on {el.start_date}
-                  <a href="#" className="cancel-link" onClick={this.handleClick.bind(this,el)}>Cancel</a>
-                </li>
-              );
+              if (el.id) {
+                return(
+                  <li className="dropdown-content" key={el.id + "reservation"}>{el.description} on {el.start_date}
+
+                    <a href="#" className="cancel-link" onClick={this.handleClick.bind(this,el)}>Cancel</a>
+                  </li>
+                )
+              } else {
+                return (<li className="dropdown-content" key={el.id + "reservation"}>{el.description}</li>);
+              }
+
             })
           }
 
