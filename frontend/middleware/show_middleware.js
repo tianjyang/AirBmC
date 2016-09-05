@@ -1,6 +1,7 @@
 import { SHOW_CONSTANTS, receiveListing } from '../actions/show_actions';
 import { requestListing, newReservation } from '../utils/show_ajax_util';
 import { updateErrors } from '../actions/error_actions';
+import { requestReservations } from '../actions/session_actions';
 
 const SessionMiddleware = (store) => (next) => (action) => {
 
@@ -19,8 +20,10 @@ const SessionMiddleware = (store) => (next) => (action) => {
       break;
     case SHOW_CONSTANTS.POST_RESERVATION:
       const successfulReservation = (data) => {
+        store.dispatch(requestReservations());
       };
       const unseuccesfulReservation = (data) => {
+
       };
       newReservation(action.listingId,action.reservationInfo,successfulReservation);
       break;

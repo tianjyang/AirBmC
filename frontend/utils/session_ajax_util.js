@@ -4,10 +4,12 @@ const errorCallback = (data) => {
   console.log(data);
 };
 
-const signUpUser = (id,success = successCallback,fail = errorCallback) => {
+const signUpUser = (creds,success = successCallback,fail = errorCallback) => {
+  debugger
   $.ajax({
     method: "POST",
-    url: `api/listings/${id}`,
+    url: "api/user",
+    data: creds,
     success: success,
     error: fail
   });

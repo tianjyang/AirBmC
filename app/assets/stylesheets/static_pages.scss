@@ -167,29 +167,6 @@ div.mapContainer-search {
 	display: none;
 }
 
-form.reservation-form {
-	float:right;
-	position:fixed;
-	width: 300px;
-	height: 200px;
-	background: white;
-	right: 50px
-}
-div.listing-container {
-    max-width: 900px;
-    margin: 0px auto;
-		margin-top:100px;
-    background-position: center;
-		background-repeat:no-repeat;
-		position:relative;
-}
-
-div.listing-title {
-	font-size: 32px;
-	position:absolute;
-	bottom:10px;
-	left:10px;
-}
 
 div.user-profile {
 	display:inline-block;
@@ -237,6 +214,8 @@ ul.dropdown-content {
 	position: absolute;
 	width: 300px;
 	background-color: white;
+	border: 1px solid #2B115A;
+	border-top: none;
 }
 
 a.cancel-link {

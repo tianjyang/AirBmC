@@ -12,6 +12,21 @@ class Results extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount () {
+    $(window).scroll( () => {
+      let pos = $("body").scrollTop();
+      if ( pos >= 100 ) {
+        $(".results_map").css( {"position":"fixed","top":"75px"});
+      } else {
+        $(".results_map").css({"position":"relative","top":""});
+      }
+    });
+  }
+
+  componentWillUnmount () {
+    $(window).off("scroll");
+  }
+
   handleClick (e) {
     e.preventDefault();
     const criteria = e.currentTarget.form[1].value;

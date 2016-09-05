@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
     username: state.session.username,
     loggedIn: state.session.logged_in,
     reservations: objToArray(state.reservations)
+
   });
 };
 

@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-newReservation: (listingId,reservationInfo) => {dispatch(postReservation(listingId,reservationInfo));},
+  newReservation: (listingId,reservationInfo) => {dispatch(postReservation(listingId,reservationInfo));},
 });
 
 export default connect(

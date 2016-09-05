@@ -11,6 +11,10 @@ class UserProfile extends React.Component {
     this.props.deleteReservation(object.id);
   }
 
+  redirectToShowPage(object,e) {
+
+  }
+
   componentWillMount() {
     if (window.currentUser) {
       let userInfo = {
@@ -53,7 +57,9 @@ class UserProfile extends React.Component {
             this.props.reservations.map((el)=>{
               if (el.id) {
                 return(
-                  <li className="dropdown-content" key={el.id + "reservation"}>{el.description} on {el.start_date}
+                  <li className="dropdown-content" key={el.id + "reservation"}>
+                    <a href="#" onClick={this.redirectToShowPage.bind(this,el)}> {el.description} on {el.start_date} </a>
+
 
                     <a href="#" className="cancel-link" onClick={this.handleClick.bind(this,el)}>Cancel</a>
                   </li>
@@ -64,16 +70,11 @@ class UserProfile extends React.Component {
 
             })
           }
-
         </ul>
-        </div>
-
-
-
-
-
+          </div>
 
       </div>
+
     );
   }
 
