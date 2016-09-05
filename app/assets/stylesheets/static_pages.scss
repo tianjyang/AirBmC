@@ -97,7 +97,8 @@ input.search_field {
   margin: 10px auto;
   width: 300px;
   height: 30px;
-  border-radius: 5px
+  border-radius: 5px;
+	padding-left: 10px;
 }
 
 input.input_field {
@@ -115,13 +116,28 @@ input.search_submit {
 	height: 30px;
 	border-radius: 5px;
 	background-color: white;
+	-webkit-transition: background-color 0.5s, color 0.5s;
+}
+
+input.search_submit:hover {
+	background-color: #F11A22;
+	color:white;
 }
 
 input.session_button {
 	width: 80px;
 	margin: 5px 10px;
 	font-size: 12px;
+}
 
+input.guest_button {
+	width: 80px;
+	margin: 5px 10px;
+	font-size: 12px;
+	background-color: #F11A22;
+	color: white;
+	border-radius: 5px;
+	border: 0px;
 }
 
 input.logout_button {
@@ -168,21 +184,21 @@ div.user-profile {
 	display:inline-block;
 	height: inherit;
 	position: absolute;
-	top: 0px;
 }
 
 div.reservation-dropdown {
 	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
+	height:inherit;
+	line-height: 75px;
 	display: inline-block;
 }
 
 div.username {
 	display: inline-block;
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
+	height:inherit;
+	line-height:75px;
+	margin: 0px 10px;
+	margin-right: 50px;
 }
 
 div.user-profile.hidden {
@@ -212,6 +228,19 @@ ul.dropdown-content {
 	background-color: white;
 }
 
+a.cancel-link {
+	float:right;
+}
+
+li.dropdown-content {
+	line-height: 10px;
+	padding: 10px 10px;
+	width: 300px;
+	background-color: white;
+	box-sizing:border-box;
+	border-bottom:1px solid #2B115A;
+}
+
 .reservation-dropdown:hover .dropdown-content {
-	display: inline-block;
+	display: block;
 }

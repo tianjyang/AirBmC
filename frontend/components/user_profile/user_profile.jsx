@@ -47,13 +47,13 @@ class UserProfile extends React.Component {
       <div className={"user-profile " + showIfLoggedIn}>
         <div className={"username " + showIfLoggedIn}>{"Welcome " + this.props.username + "!"}</div>
         <div className={"reservation-dropdown " + showIfLoggedIn}>
-          <p className={"user-profile " + showIfLoggedIn}>Your Reservations</p>
+          Your Reservations
         <ul className={"dropdown-content"}>
           {
             this.props.reservations.map((el)=>{
               return(
-                <li key={el.id + "reservation"}>{el.description} on {el.start_date}
-                  <a href="#" onClick={this.handleClick.bind(this,el)}>Cancel</a>
+                <li className="dropdown-content" key={el.id + "reservation"}>{el.description} on {el.start_date}
+                  <a href="#" className="cancel-link" onClick={this.handleClick.bind(this,el)}>Cancel</a>
                 </li>
               );
             })

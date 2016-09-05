@@ -51,10 +51,10 @@ class Results extends React.Component {
                   onChange={this.handleChange}></input>
                 <input className="results_search_field" type="text"
                   name="search[distance]" placeholder="Search area?"
+                  defaultValue={this.props.searchParams.distance}
                   onChange={this.handleChange}></input>
-            <span>
+
               <input className="results_search_submit" type="submit" value="Find Your Car" onClick={this.handleClick}></input>
-            </span>
           </form>
         </div>
         <div className="results_map">
