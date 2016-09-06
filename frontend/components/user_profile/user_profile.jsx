@@ -13,8 +13,7 @@ class UserProfile extends React.Component {
   }
 
   redirectToShowPage(object,e) {
-    e.preventDefault()
-    debugger
+    e.preventDefault();
     hashHistory.push(`/show/${object.listing_id}`);
 
 

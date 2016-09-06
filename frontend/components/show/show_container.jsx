@@ -8,7 +8,12 @@ import { requestListing,
 const mapStateToProps = (state) => ({
   title: state.currentListing.listingInfo.title,
   description: state.currentListing.listingInfo.description,
-  image_url: state.currentListing.listingInfo.image_url
+  imageUrl: state.currentListing.listingInfo.image_url,
+  pricePerDay: state.currentListing.listingInfo.price_per_day,
+  lat: state.currentListing.listingInfo.lat,
+  long: state.currentListing.listingInfo.long,
+  hostname: state.currentListing.listingInfo.username
+
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -10,7 +10,15 @@ class Api::ListingsController < ApplicationController
 
   def show
     current_listing = Listing.find(params[:id])
-    render json: current_listing
+    reply = {}
+    reply[:title] = current_listing.title
+    reply[:description] = current_listing.description
+    reply[:price_per_day] = current_listing.price_per_day
+    reply[:image_url] = current_listing.image_url
+    reply[:lat] = current_listing.lat
+    reply[:long] = current_listing.long
+    reply[:username] = current_listing.user.username
+    render json: reply
   end
 
   def index_by_map

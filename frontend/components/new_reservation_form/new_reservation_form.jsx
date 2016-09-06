@@ -25,13 +25,24 @@ class NewReservationForm extends React.Component {
   }
 
   render() {
-
+    let startDateIndent = {
+      margin: "0px 0px 0px 10px",
+    }
     return(
       <form className="reservation-form">
-        <input type="date" name="reservation[start_date]"></input>
-        <input type="date" name="reservation[end_date]"></input>
+        <label>
+          Start Date
+        <input style={{margin: "0px 0px 0px 10px"}} type="date" name="reservation[start_date]"></input>
+        </label>
+
+
+        <label>
+          End Date
+        <input style={{margin: "0px 0px 0px 17px"}} type="date" name="reservation[end_date]"></input>
+        </label>
+
         <textarea rows="4" cols="40"name=" reservation[description]" placeholder="Tell me about your trip!"></textarea>
-        <input type="submit" onClick={this.handleClick}/>
+        <input style={{margin: "0px 65px"}} type="submit" className="reservation-submit" onClick={this.handleClick}/>
         <ReservationErrors errors={this.props.errors}/>
       </form>
     );

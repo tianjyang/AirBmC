@@ -19,14 +19,25 @@ class Show extends React.Component {
 
   render() {
     let currentPostingBG = {
-      backgroundImage: 'url('+ this.props.image_url + ')',
+      backgroundImage: 'url('+ this.props.imageUrl + ')',
       height: 500,
     }
 
     return(
-      <div>
+      <div className="showContent">
         <div style={currentPostingBG} className="listing-container">
           <div className="listing-title">{this.props.title}</div>
+
+        </div>
+
+        <div className="listing-information">
+          <div className="host-information">
+            <h2>Host Name</h2>
+            <p>{this.props.hostname}</p>
+            <h2>Description</h2>
+            <p>{this.props.description}</p>
+          </div>
+
           <NewReservationForm listingId={this.props.params.id}/>
         </div>
 

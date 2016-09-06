@@ -15,10 +15,45 @@ div.listing-title {
 }
 
 form.reservation-form {
-	float:right;
-	position:fixed;
+	display:inline-block;
 	width: 300px;
 	height: 200px;
-	background: white;
-	right: 50px
+	background: lightgray;
+  vertical-align: top;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.listing-information {
+  width:900px;
+  margin: 0px auto;
+  padding-top:10px;
+}
+
+.host-information {
+  width: 600px;
+  display:inline-block;
+}
+
+.host-information h2 {
+  padding:10px 0px;
+}
+
+form.reservation-form label {
+  display: inline-block;
+  width: 275px  ;
+}
+
+form.reservation-form input {
+  display: inline-block;
+  font-size:12px;
+  width: 150px;
+  margin: 5px 0px;
+}
+
+form.reservation-form textarea {
+  font-size:12px;
+  width:275px;
+  border: 0px;
+  margin: 5px 0px;
 }
