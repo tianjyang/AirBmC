@@ -14,7 +14,7 @@ class Base extends React.Component {
 
     return (
       <div>
-        <Header/>
+        <Header history={hashHistory}/>
         <Router history={hashHistory}>
           <Route path="/" component={Search}/>
           <Route path="/results" component={Results}/>

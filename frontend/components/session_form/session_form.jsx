@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
         <form className={"session_form"}>
           <span className={ showIfLoggedOut }>
               <input className="input_field" type="text" name="user[username]" placeholder="Username"></input>
-              <input className="input_field" type="text" name="user[password]" placeholder="Password"></input>
+              <input className="input_field" type="password" name="user[password]" placeholder="Password"></input>
           </span>
           <SessionErrors errors={this.props.errors}/>
           <span>

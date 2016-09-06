@@ -1,5 +1,6 @@
 import React from 'react';
-import { Router, withRouter } from 'react-router';
+import { Router, withRouter, hashHistory } from 'react-router';
+
 
 class UserProfile extends React.Component {
   constructor (props) {
@@ -12,6 +13,11 @@ class UserProfile extends React.Component {
   }
 
   redirectToShowPage(object,e) {
+    e.preventDefault()
+    debugger
+    hashHistory.push(`/show/${object.listing_id}`);
+
+
 
   }
 
@@ -80,4 +86,4 @@ class UserProfile extends React.Component {
 
 }
 
-export default UserProfile;
+export default withRouter(UserProfile);

@@ -8,14 +8,6 @@ window.merge = merge;
 
 const initiateReactRouter = () => {
   let node = document.getElementById("root");
-  // let preloadedState = {
-  //   session: {}
-  // };
-  // if (window.currentUser) {
-  //   preloadedState.session.username = window.currentUser;
-  //   preloadedState.session.logged_in = true;
-  // }
-
   let storeHolder = store();
   window.store = storeHolder;
   ReactDOM.render(<Provider store={storeHolder}><Router store={storeHolder}/></Provider>,node);
