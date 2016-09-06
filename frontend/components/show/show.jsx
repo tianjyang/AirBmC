@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, withRouter } from 'react-router';
 // import {SHOW_CONSTANTS, requestListing} from '../../actions/show_actions';
 import NewReservationForm from '../new_reservation_form/new_reservation_form_container';
+import CommentItem from './comment_item';
 
 
 class Show extends React.Component {
@@ -23,7 +24,6 @@ class Show extends React.Component {
       backgroundImage: 'url('+ this.props.imageUrl + ')',
       height: 500,
     };
-    debugger
 
     return(
       <div className="show-content">
@@ -59,7 +59,9 @@ class Show extends React.Component {
         </table>
 
 
-        
+        {this.props.comments.map ((el) => {
+          return(<CommentItem comment={el} key={el.id + "-comment"}/>);
+        })}
 
 
       </div>

@@ -3,6 +3,11 @@ class Comment < ActiveRecord::Base
   validate :rating_within_limits?
   belongs_to :listing
   belongs_to :user
+  before_save :populate_username
+
+  def populate_username
+    self.username = User.find(self.user_id).username
+  end
 
   def rating_within_limits?
     unless self.rating.between?(1,5)
