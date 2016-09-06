@@ -1,7 +1,8 @@
 import React from 'react';
 import { Router, withRouter } from 'react-router';
-import {SHOW_CONSTANTS, requestListing} from '../../actions/show_actions';
-import NewReservationForm from '../new_reservation_form/new_reservation_form_container'
+// import {SHOW_CONSTANTS, requestListing} from '../../actions/show_actions';
+import NewReservationForm from '../new_reservation_form/new_reservation_form_container';
+
 
 class Show extends React.Component {
   constructor () {
@@ -10,7 +11,7 @@ class Show extends React.Component {
 
   componentWillMount() {
     this.props.requestListing(this.props.params.id);
-
+    this.props.requestComments(this.props.params.id);
   }
 
   handleClick (e) {
@@ -22,6 +23,7 @@ class Show extends React.Component {
       backgroundImage: 'url('+ this.props.imageUrl + ')',
       height: 500,
     };
+    debugger
 
     return(
       <div className="show-content">
@@ -55,6 +57,9 @@ class Show extends React.Component {
             <td>{this.props.mpg}</td>
           </tr>
         </table>
+
+
+        
 
 
       </div>

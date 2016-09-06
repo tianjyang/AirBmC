@@ -31,16 +31,6 @@ class UserProfile extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   debugger
-  //   if (this.props.logged_in) {
-  //     debugger
-  //     this.props.requestReservations();
-  //   }
-  // }
-
-
-
   render() {
 
     let showIfLoggedOut, showIfLoggedIn;

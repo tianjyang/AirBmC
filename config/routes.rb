@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :reservations, only:[:create], defaults: {format: 'json'}
     end
     resources :reservations, only: [:index, :destroy]
+    resources :comments, only: [:index, :create]
     get 'map_listings/' => 'listings#index_by_map'
   end
   # The priority is based upon order of creation: first created -> highest priority.

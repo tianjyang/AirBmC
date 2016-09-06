@@ -1,6 +1,7 @@
 class Listing < ActiveRecord::Base
   belongs_to :user
   has_many :reservations
+  has_many :comments
   validates :title, :description, :user_id, :price_per_day, :lat, :long, presence: true
 
   def self.find_by_max_price(arg)

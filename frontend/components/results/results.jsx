@@ -52,8 +52,6 @@ class Results extends React.Component {
     };
     this.props.updateSearchParams(searchParams);
   }
-  // <div className="results_search">
-  // </div>
 
   render() {
     let listingsArray = objToArray(this.props.listings);
@@ -69,7 +67,6 @@ class Results extends React.Component {
                   name="search[distance]" placeholder="Search area?"
                   defaultValue={this.props.searchParams.distance}
                   onChange={this.handleChange}></input>
-
               <input className="results_search_submit" type="submit" value="Find Your Car" onClick={this.handleClick}></input>
           </form>
 
@@ -78,7 +75,9 @@ class Results extends React.Component {
         </div>
         <div className="results_listings">
         {listingsArray.map((element) => {
-          return(<ResultItem listing={element} key={element.id + "-listing"}/>);
+          return(<ResultItem
+            listing={element}
+            key={element.id + "-listing"}/>);
         })
         }
         </div>

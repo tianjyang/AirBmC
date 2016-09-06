@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Show from './show';
 import { requestListing,
-  requestComments,
-  postReservation } from '../../actions/show_actions';
+        postReservation } from '../../actions/show_actions';
+import { requestComments } from '../../actions/comment_actions';
 
 const mapStateToProps = (state) => ({
   title: state.currentListing.listingInfo.title,
@@ -15,13 +15,14 @@ const mapStateToProps = (state) => ({
   hostname: state.currentListing.listingInfo.username,
   mpg : state.currentListing.listingInfo.mpg,
   seating: state.currentListing.listingInfo.num_seats,
-  makeModel: state.currentListing.listingInfo.make_model
+  makeModel: state.currentListing.listingInfo.make_model,
+  comments: state.comments
 
 });
 
 const mapDispatchToProps = (dispatch) => ({
 requestListing: (data) => {dispatch(requestListing(data));},
-requestComments: (data) => {dispatch(requestComments(data));}
+requestComments: (listingId) => {dispatch(requestComments(listingId));}
 });
 
 export default connect(

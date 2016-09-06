@@ -6,6 +6,7 @@ import formReducer from './form_reducer';
 import sessionErrorsReducer from './session_errors_reducer';
 import reservationErrorsReducer from './reservation_errors_reducer';
 import reservationReducer from './reservation_reducer';
+import commentReducer from './comment_reducer';
 
 export default combineReducers({
   session: sessionReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   searchParams: formReducer,
   sessionErrors: sessionErrorsReducer,
   reservations: reservationReducer,
-  reservationErrors: reservationErrorsReducer
+  reservationErrors: reservationErrorsReducer,
+  comments: commentReducer
 });
