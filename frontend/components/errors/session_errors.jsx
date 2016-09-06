@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Errors extends React.Component {
+class SessionErrors extends React.Component {
   constructor (props) {
     super(props);
   }
@@ -25,4 +25,4 @@ class Errors extends React.Component {
   }
 }
 
-export default Errors;
+export default SessionErrors;

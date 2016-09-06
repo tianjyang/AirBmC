@@ -3,7 +3,7 @@ import { ERROR_CONSTANTS } from '../actions/error_actions';
 
 const errorsReducer = (state = {}, action) => {
   switch (action.type) {
-    case ERROR_CONSTANTS.UPDATE_ERRORS:
+    case ERROR_CONSTANTS.UPDATE_RESERVE_ERRORS:
       return action.errors;
     default:
     return state;

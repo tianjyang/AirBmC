@@ -1,18 +1,18 @@
 import { SESSION_CONSTANTS, updateUser, receiveReservations, requestReservations } from '../actions/session_actions';
 import { signUpUser, newSession, destroySession, getReservations, deleteReservation } from '../utils/session_ajax_util';
-import { updateErrors } from '../actions/error_actions';
+import { updateSessionErrors } from '../actions/error_actions';
 
 const SessionMiddleware = (store) => (next) => (action) => {
   const success = (reply) => {
     store.dispatch(updateUser(reply));
-    store.dispatch(updateErrors({}));
+    store.dispatch(updateSessionErrors({}));
     if (action.type === SESSION_CONSTANTS.CREATE_SESSION) {
       getReservations(addReservationsToState);
     }
   };
 
   const errorCallback = (errorMessage) => {
-    store.dispatch(updateErrors(errorMessage));
+    store.dispatch(updateSessionErrors(errorMessage));
   };
 
   const addReservationsToState = (reply) => {

@@ -30,7 +30,8 @@ class User < ActiveRecord::Base
     if possible_user = self.find_by_username(username)
       return possible_user if possible_user.is_password?(password)
     else
-      errors[:session] << "Invalid credentials"
+      @errors = []
+      @errors << "Invalid credentials"
     end
   end
 

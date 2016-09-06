@@ -6,7 +6,7 @@ import { createSession, createUser, destroySession, updateUser } from '../../act
 const mapStateToProps = (state) => ({
   currentUser: state.session.username,
   loggedIn: state.session.logged_in,
-  errors: state.errors
+  errors: state.sessionErrors
 });
 
 const mapDispatchToProps = (dispatch) => ({

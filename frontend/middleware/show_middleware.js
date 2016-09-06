@@ -1,12 +1,12 @@
 import { SHOW_CONSTANTS, receiveListing } from '../actions/show_actions';
 import { requestListing, newReservation } from '../utils/show_ajax_util';
-import { updateErrors } from '../actions/error_actions';
+import { updateReserveErrors } from '../actions/error_actions';
 import { requestReservations } from '../actions/session_actions';
 
 const SessionMiddleware = (store) => (next) => (action) => {
 
   const errorCallback = (errorMessage) => {
-    store.dispatch(updateErrors(errorMessage));
+    store.dispatch(updateReserveErrors(errorMessage));
   };
 
   const successfulRequest = (listingObject) => {

@@ -1,5 +1,5 @@
 class Api::SessionsController < ApplicationController
-
+before_action :full_form, only:[:create]
 
   def create
     username = params[:username]
@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
       sign_in(user)
       render json: {username: user.username,logged_in: true}
     else
-      render json: errors.full_messages,status: 401
+      render json: @errors,status: 401
     end
   end
 
@@ -18,6 +18,19 @@ class Api::SessionsController < ApplicationController
     render json: {username:"", logged_in: false}
   end
 
+  def full_form
+    errors = []
+    if params[:username] == ""
+      errors.push("Username cannot be blank")
+    end
+    if params[:password] == ""
+      errors.push("Password cannot be blank")
+    end
+
+    if errors.length >= 1
+      render json: errors, status: 400
+    end
+  end
 
 
 end
