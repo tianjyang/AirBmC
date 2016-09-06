@@ -9,15 +9,13 @@ class UserProfile extends React.Component {
   }
 
   handleClick (object,e) {
+    e.preventDefault();
     this.props.deleteReservation(object.id);
   }
 
   redirectToShowPage(object,e) {
     e.preventDefault();
     hashHistory.push(`/show/${object.listing_id}`);
-
-
-
   }
 
   componentWillMount() {

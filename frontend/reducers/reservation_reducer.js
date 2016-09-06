@@ -1,7 +1,7 @@
 import { merge } from 'lodash';
 import { SESSION_CONSTANTS } from '../actions/session_actions';
 
-const sessionReducer = (state = [], action) => {
+const reservationReducer = (state = [], action) => {
   switch (action.type) {
     case SESSION_CONSTANTS.RECEIVE_RESERVATIONS:
       return merge({},action.reservationInfo);
@@ -12,4 +12,4 @@ const sessionReducer = (state = [], action) => {
   }
 };
 
-export default sessionReducer;
+export default reservationReducer;

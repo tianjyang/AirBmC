@@ -3,7 +3,8 @@ import SessionFormContainer from "../session_form/session_form_container";
 import UserProfileContainer from "../user_profile/user_profile_container";
 
 class Header extends React.Component {
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
     this.props.history.push("/")
   }
 

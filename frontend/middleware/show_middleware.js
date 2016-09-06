@@ -6,28 +6,31 @@ import { requestReservations } from '../actions/session_actions';
 const SessionMiddleware = (store) => (next) => (action) => {
 
   const errorCallback = (errorMessage) => {
+    console.log("post reservation failed");
     store.dispatch(updateReserveErrors(errorMessage));
   };
 
   const successfulRequest = (listingObject) => {
-    // store.dispatch(updateErrors);
     store.dispatch(receiveListing(listingObject));
   };
 
   const successfulReservation = (data) => {
-    // store.dispatch(updateErrors);
+    debugger
     store.dispatch(requestReservations());
+    store.dispatch(updateReserveErrors({}));
   };
 
 
   switch (action.type) {
     case SHOW_CONSTANTS.REQUEST_LISTING:
-      requestListing(action.searchParams,successfulRequest,errorCallback);
+      // requestListing(action.searchParams,successfulRequest,errorCallback);
+      requestListing(action.searchParams,successfulRequest);
       break;
     case SHOW_CONSTANTS.REQUEST_COMMENTS:
       break;
     case SHOW_CONSTANTS.POST_RESERVATION:
       newReservation(action.listingId,action.reservationInfo,successfulReservation,errorCallback);
+      // newReservation(action.listingId,action.reservationInfo);
       break;
 
     default:

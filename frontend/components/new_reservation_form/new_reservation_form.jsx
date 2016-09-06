@@ -10,10 +10,6 @@ class NewReservationForm extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillMount() {
-
-  }
-
   handleClick (e) {
     e.preventDefault();
     const reservation = {

@@ -1,4 +1,4 @@
-const successCallback = (data) => {console.log(data);};
+const success = (data) => {console.log("success",data);};
 const errorCallback = (data) => {
   console.log("you failed");
   console.log(data);

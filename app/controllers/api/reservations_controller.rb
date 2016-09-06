@@ -9,7 +9,7 @@ class Api::ReservationsController < ApplicationController
     new_reservation.user_id = current_user.id
     new_reservation.description = params[:description]
     if new_reservation.save
-      render json: "confirmed booking!"
+      render json: {result: "confirmed booking!"}
     else
       render json: new_reservation.errors.full_messages,status: 400
     end
