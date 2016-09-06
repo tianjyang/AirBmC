@@ -12,7 +12,10 @@ const mapStateToProps = (state) => ({
   pricePerDay: state.currentListing.listingInfo.price_per_day,
   lat: state.currentListing.listingInfo.lat,
   long: state.currentListing.listingInfo.long,
-  hostname: state.currentListing.listingInfo.username
+  hostname: state.currentListing.listingInfo.username,
+  mpg : state.currentListing.listingInfo.mpg,
+  seating: state.currentListing.listingInfo.num_seats,
+  makeModel: state.currentListing.listingInfo.make_model
 
 });
 

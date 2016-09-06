@@ -21,10 +21,10 @@ class Show extends React.Component {
     let currentPostingBG = {
       backgroundImage: 'url('+ this.props.imageUrl + ')',
       height: 500,
-    }
+    };
 
     return(
-      <div className="showContent">
+      <div className="show-content">
         <div style={currentPostingBG} className="listing-container">
           <div className="listing-title">{this.props.title}</div>
 
@@ -40,6 +40,21 @@ class Show extends React.Component {
 
           <NewReservationForm listingId={this.props.params.id}/>
         </div>
+
+        <table className="vehicle-info">
+          <tr>
+            <th>Car Model</th>
+            <th>Number of Seats</th>
+            <th>Price Per Day</th>
+            <th>Miles per Gallon</th>
+          </tr>
+          <tr>
+            <td>{this.props.makeModel}</td>
+            <td>{this.props.seating}</td>
+            <td>{this.props.pricePerDay}</td>
+            <td>{this.props.mpg}</td>
+          </tr>
+        </table>
 
 
       </div>

@@ -10,6 +10,7 @@ class Api::ListingsController < ApplicationController
 
   def show
     current_listing = Listing.find(params[:id])
+
     reply = {}
     reply[:title] = current_listing.title
     reply[:description] = current_listing.description
@@ -17,6 +18,9 @@ class Api::ListingsController < ApplicationController
     reply[:image_url] = current_listing.image_url
     reply[:lat] = current_listing.lat
     reply[:long] = current_listing.long
+    reply[:mpg] = current_listing.mpg
+    reply[:num_seats] = current_listing.num_seats
+    reply[:make_model] = current_listing.make_model
     reply[:username] = current_listing.user.username
     render json: reply
   end
