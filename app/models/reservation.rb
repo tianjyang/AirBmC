@@ -41,4 +41,16 @@ class Reservation < ActiveRecord::Base
     check_array[3] = end_date2.between?(start_date1,end_date1)
     check_array.any?{|x| x }
   end
+
+  def conflict_with_date?(start_date, end_date)
+    check_array = []
+    reservation1 = self
+    start_date1 = reservation1.start_date
+    end_date1 = reservation1.end_date
+    check_array[0] = start_date1.between?(start_date,end_date)
+    check_array[1] = end_date1.between?(start_date,end_date)
+    check_array[2] = start_date.between?(start_date1,end_date1)
+    check_array[3] = end_date.between?(start_date1,end_date1)
+    check_array.any?{|x| x }
+  end
 end

@@ -28,4 +28,17 @@ class Listing < ActiveRecord::Base
     (lat >= ?) AND (lat <= ?) AND long >= ? AND long <= ?
     SQL
   end
+
+  def self.find_by_date(lat,long,start_date, end_date)
+    all_results = self.find_by_distance(lat,long,10)
+    output = []
+    all_results.each do |listing|
+      conflicts = listing.reservations.any? do |reservation|
+        reservation.conflict_with_date?(start_date, end_date)
+      end
+      output << listing unless conflicts
+    end
+    output
+  end
+
 end
