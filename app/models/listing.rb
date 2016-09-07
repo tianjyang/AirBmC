@@ -33,11 +33,20 @@ class Listing < ActiveRecord::Base
     all_results = self.find_by_distance(lat,long,distance)
     output = []
     all_results.each do |listing|
-      conflicts = listing.reservations.any? do |reservation|
-        reservation.conflict_with_date?(start_date, end_date)
+      unless listing.date_conflict?(start_date, end_date)
+        output.push(listing)
       end
-      debugger
-      output << listing unless conflicts
+    end
+    output
+  end
+
+  def self.find_by_map_criteria(min_lat,max_lat,min_long, max_long,start_date, end_date)
+    all_results = Listing.find_within_bounds(min_lat,max_lat,min_long, max_long)
+    output = []
+    all_results.each do |listing|
+      unless listing.date_conflict?(start_date, end_date)
+        output.push(listing)
+      end
     end
     output
   end

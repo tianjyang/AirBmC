@@ -7,28 +7,22 @@ class Map extends React.Component {
     this.updateMarkersByBounds = this.updateMarkersByBounds.bind(this);
     this.purgeMarkersFromMap = this.purgeMarkersFromMap.bind(this);
     this.markers = [];
-    this.setBound = true;
+    this.setBound = false;
   }
 
   componentDidMount() {
     this.map = new google.maps.Map(document.getElementById('map'), {
       zoom: 11,
-      center: {lat: 37.7546193, lng: -122.4276216}
+      center: {lat: 37.7578881, lng: -122.5780261}
     });
-    // this.map.setCenter(new google.maps.LatLng(37.7546193, -122.4276216));
-    // this.setBound = true;
-    this.placeMarkersFromProp();
-
+    this.map.setCenter(new google.maps.LatLng(37.7546193, -122.4276216));
     this.map.addListener("idle",this.updateMarkersByBounds);
   }
 
   updateMarkersByBounds() {
+    let bounds = this.map.getBounds().toJSON();
+    this.props.searchByBounds(bounds);
     this.setBound = false;
-    let searchParams = {};
-    searchParams.bounds = this.map.getBounds().toJSON();
-    searchParams.start_date = this.props.searchParams.start_date || "";
-    searchParams.end_date = this.props.searchParams.end_date || "";
-    this.props.searchByBounds(searchParams);
   }
 
   componentDidUpdate() {
@@ -49,13 +43,14 @@ class Map extends React.Component {
         map: this.map,
         title: el.title
       });
-      this.markers.push();
+      this.markers.push(newMarker);
       bounds.extend(latlong);
     });
-    if ( this.setBound && markerArray.length > 0 ) {
+    if ( this.setBound ) {
       this.map.fitBounds(bounds);
-      this.setBound = true
+      this.setBound = false;
     }
+    // this.setBound = true;
   }
 
   purgeMarkersFromMap () {

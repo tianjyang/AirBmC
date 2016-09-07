@@ -48,7 +48,9 @@ class Results extends React.Component {
     e.preventDefault();
     let searchParams = {
       location: e.currentTarget.form[0].value,
-      distance: e.currentTarget.form[1].value
+      distance: e.currentTarget.form[1].value,
+      start_date: e.currentTarget.form[2].value,
+      end_date: e.currentTarget.form[3].value,
     };
     this.props.updateSearchParams(searchParams);
   }
@@ -59,15 +61,27 @@ class Results extends React.Component {
       <div className="results_container">
 
           <form className={"results_search_form"}>
-                <input className="results_search_field" type="text"
-                  name="search[location]" placeholder="Where are you?"
-                  defaultValue={this.props.searchParams.location}
-                  onChange={this.handleChange}></input>
-                <input className="results_search_field" type="text"
-                  name="search[distance]" placeholder="Search area?"
-                  defaultValue={this.props.searchParams.distance}
-                  onChange={this.handleChange}></input>
-              <input className="results_search_submit" type="submit" value="Find Your Car" onClick={this.handleClick}></input>
+            <input className="results_search_field" type="text"
+              name="search[location]" placeholder="Where are you?"
+              defaultValue={this.props.searchParams.location}
+              onChange={this.handleChange}></input>
+            <input className="results_search_field" type="text"
+              name="search[distance]" placeholder="Search area?"
+              defaultValue={this.props.searchParams.distance}
+              onChange={this.handleChange}></input>
+              <input
+                className="search_field date"
+                type="date"
+                onChange={this.handleChange}
+                placeholder="Start Date"
+                defaultValue={this.props.searchParams.start_date}/>
+              <input
+                className="search_field date"
+                type="date"
+                onChange={this.handleChange}
+                placeholder="end date"
+                defaultValue={this.props.searchParams.end_date}/>
+            <input className="results_search_submit" type="submit" value="Find Your Car" onClick={this.handleClick}></input>
           </form>
 
         <div className="results_map">

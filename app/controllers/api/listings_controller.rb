@@ -2,8 +2,8 @@ class Api::ListingsController < ApplicationController
   def index
     location = params[:location]
     lat = location[:lat].to_f || 37.7576793
-    long = location[:long].to_f || -122.5076393
-    distance = params[:criteria].to_f
+    long = location[:lng].to_f || -122.5076393
+    distance = params[:distance].to_f
     start_date = params[:start_date]
     if start_date.empty?
       start_date = "1900/1/1"
@@ -17,6 +17,7 @@ class Api::ListingsController < ApplicationController
 
     end_date = Date.parse(end_date)
     matched_listings = Listing.find_with_criteria(lat,long,start_date,end_date,distance)
+    puts matched_listings
     render json: matched_listings
 
   end
@@ -39,11 +40,23 @@ class Api::ListingsController < ApplicationController
   end
 
   def index_by_map
-    min_lat = params[:south]
-    max_lat = params[:north]
-    min_long = params[:west]
-    max_long = params[:east]
-    current_listings = Listing.find_within_bounds(min_lat,max_lat,min_long, max_long)
+    min_lat = params[:bounds][:south]
+    max_lat = params[:bounds][:north]
+    min_long = params[:bounds][:west]
+    max_long = params[:bounds][:east]
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+
+    if start_date.empty?
+      start_date = "1900/1/1"
+    end
+    start_date = Date.parse(start_date)
+
+    if end_date.empty?
+      end_date = "1900/1/1"
+    end
+
+    current_listings = Listing.find_by_map_criteria(min_lat,max_lat,min_long, max_long,start_date, end_date)
     render json: current_listings
   end
 
