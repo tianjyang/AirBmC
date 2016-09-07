@@ -93,7 +93,7 @@ div.search_form_container {
 }
 
 form.search_form {
-	width: 400px;
+	width: 315px;
 	position: relative;
 	margin: auto;
 	top: 50%;
@@ -104,10 +104,10 @@ input.search_field {
 	display: block;
   margin: 10px auto;
   width: 300px;
-  height: 30px;
+  height: 25px;
   border-radius: 5px;
 	padding-left: 10px;
-	font-size:18px;
+	font-size:16px;
 }
 
 input.input_field {
@@ -240,4 +240,23 @@ li.dropdown-content {
 	color: white;
 	font-size:12px;
 	text-align: center;
+}
+
+.search_field.date {
+	width: 150px;
+	display:inline-block;
+	box-sizing: border-box;
+	margin:0px 5px;
+}
+.date_container {
+	width:320px;
+	display: block;
+	margin: 0px auto;
+}
+
+input::-webkit-calendar-picker-indicator{
+    display: none;
+}
+input[type="date"]::-webkit-input-placeholder{
+    visibility: hidden !important;
 }

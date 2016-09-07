@@ -9,7 +9,6 @@ class Api::ListingsController < ApplicationController
     end_date = search_criteria[:end_date] || "5000/12/31"
     end_date = Date.parase(end_date)
     def self.find_with_criteria(lat,long,start_date,end_date,distance)
-
   end
 
   def show

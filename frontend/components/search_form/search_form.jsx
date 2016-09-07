@@ -37,6 +37,11 @@ class SearchForm extends React.Component {
     this.props.updateSearchParams(searchParams);
   }
 
+  changeTextToDate (e) {
+    e.preventDefault();
+    e.currentTarget.setAttribute('type','date');
+  }
+
   render() {
 
     return(
@@ -51,6 +56,10 @@ class SearchForm extends React.Component {
         <form className={"search_form"}>
               <input className="search_field" type="text" name="search[location]" onChange={this.handleChange} placeholder="Where are you?"></input>
               <input className="search_field" type="text" name="search[distance]" onChange={this.handleChange} placeholder="Search distance?"></input>
+              <div className="date_container">
+              <input className="search_field date" type="text" onClick={this.changeTextToDate} placeholder="start date"/>
+              <input className="search_field date" type="text" onClick={this.changeTextToDate} placeholder="end date"/>
+              </div>
           <span>
             <input className="search_submit" type="submit" onClick={this.handleClick} value="Find Your Car"></input>
           </span>
