@@ -5,7 +5,6 @@ const errorCallback = (data) => {
 };
 
 const requestCommentsFromServer = (listingId,success = successCallback,fail = errorCallback) => {
-  console.log("requested comments");
   $.ajax({
     method: "GET",
     url: "api/comments",
@@ -15,5 +14,15 @@ const requestCommentsFromServer = (listingId,success = successCallback,fail = er
   });
 };
 
+const postRequestToServer = (commentParams,success = successCallback,fail = errorCallback) => {
+  $.ajax({
+    method: "POST",
+    url: "api/comments",
+    data: commentParams,
+    success: success,
+    error: fail
+  });
+};
 
-export { requestCommentsFromServer };
+
+export { requestCommentsFromServer, postRequestToServer };

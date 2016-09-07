@@ -12,8 +12,7 @@ export const receiveComments = (comments) => ({
   type: COMMENT_CONSTANTS.RECEIVE_COMMENTS,
   comments
 });
-
-export const createComments = (commentInfo) => ({
+export const createComment = (commentInfo) => ({
   type: COMMENT_CONSTANTS.CREATE_COMMENT,
   commentInfo
 });

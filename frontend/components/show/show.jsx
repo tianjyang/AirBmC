@@ -1,8 +1,8 @@
 import React from 'react';
 import { Router, withRouter } from 'react-router';
-// import {SHOW_CONSTANTS, requestListing} from '../../actions/show_actions';
 import NewReservationForm from '../new_reservation_form/new_reservation_form_container';
 import CommentItem from './comment_item';
+import NewCommentForm from './new_comment_form';
 
 
 class Show extends React.Component {
@@ -59,6 +59,7 @@ class Show extends React.Component {
         </table>
 
         <h2>User Comments</h2>
+        <NewCommentForm createComment={this.props.newComment} listingId={this.props.params.id}/>
         {this.props.comments.map ((el) => {
           return(<CommentItem comment={el} key={el.id + "-comment"}/>);
         })}
