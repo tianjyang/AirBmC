@@ -107,6 +107,7 @@ input.search_field {
   border-radius: 5px;
 	padding-left: 10px;
 	font-size:16px;
+	border: none;
 }
 
 input.input_field {
@@ -124,8 +125,9 @@ input.search_submit {
 	height: 30px;
 	border-radius: 5px;
 	background-color: white;
+	border: none;
 	font-size: 16px;
-	-webkit-transition: background-color 0.5s, color 0.5s;
+	-webkit-transition: background-color 0.25s, color 0.25s;
 }
 
 input.search_submit:hover {

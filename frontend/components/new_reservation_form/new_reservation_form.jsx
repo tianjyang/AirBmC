@@ -40,6 +40,7 @@ class NewReservationForm extends React.Component {
         <textarea rows="4" cols="40"name=" reservation[description]" placeholder="Tell me about your trip!"></textarea>
         <input style={{margin: "0px 65px"}} type="submit" className="reservation-submit" onClick={this.handleClick}/>
         <ReservationErrors errors={this.props.errors}/>
+
       </form>
     );
   }

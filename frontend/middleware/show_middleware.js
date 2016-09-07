@@ -6,7 +6,6 @@ import { requestReservations } from '../actions/session_actions';
 const SessionMiddleware = (store) => (next) => (action) => {
 
   const errorCallback = (errorMessage) => {
-    console.log("post reservation failed");
     store.dispatch(updateReserveErrors(errorMessage));
   };
 
@@ -14,9 +13,17 @@ const SessionMiddleware = (store) => (next) => (action) => {
     store.dispatch(receiveListing(listingObject));
   };
 
+  const flashTheModal = () => {
+    $("#reservation-modal").show();
+    setTimeout(()=>{
+      $("#reservation-modal").hide();
+    },1000);
+  };
+
   const successfulReservation = (data) => {
     store.dispatch(requestReservations());
     store.dispatch(updateReserveErrors({}));
+    flashTheModal();
   };
 
 

@@ -4,7 +4,8 @@ import NewReservationForm from './new_reservation_form';
 import { postReservation } from '../../actions/show_actions';
 
 const mapStateToProps = (state) => ({
-  errors: state.reservationErrors
+  errors: state.reservationErrors,
+  reservations: state.reservations
 });
 
 const mapDispatchToProps = (dispatch) => ({
