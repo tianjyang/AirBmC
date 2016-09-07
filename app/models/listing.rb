@@ -36,9 +36,18 @@ class Listing < ActiveRecord::Base
       conflicts = listing.reservations.any? do |reservation|
         reservation.conflict_with_date?(start_date, end_date)
       end
+      debugger
       output << listing unless conflicts
     end
     output
   end
 
+  def date_conflict?(start_date, end_date)
+    output = self.reservations.any? do |reservation|
+      reservation.conflict_with_date?(start_date, end_date)
+    end
+
+    output
+
+  end
 end
