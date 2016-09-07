@@ -29,10 +29,8 @@ class User < ActiveRecord::Base
   def self.find_by_credentials(username, password)
     if possible_user = self.find_by_username(username)
       return possible_user if possible_user.is_password?(password)
-    else
-      @errors = []
-      @errors << "Invalid credentials"
     end
+    return nil
   end
 
   def has_no_reservations?

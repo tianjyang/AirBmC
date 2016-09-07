@@ -61,26 +61,34 @@ class Results extends React.Component {
       <div className="results_container">
 
           <form className={"results_search_form"}>
+            <label className="results_search_field">Location
             <input className="results_search_field" type="text"
               name="search[location]" placeholder="Where are you?"
               defaultValue={this.props.searchParams.location}
-              onChange={this.handleChange}></input>
+              onChange={this.handleChange}/>
+            </label>
+            <label className="results_search_field">Distance
             <input className="results_search_field" type="text"
-              name="search[distance]" placeholder="Search area?"
+              name="search[distance]" placeholder="Search Distance?"
               defaultValue={this.props.searchParams.distance}
-              onChange={this.handleChange}></input>
+              onChange={this.handleChange}/>
+            </label>
+            <label className="results_search_field">Start Date
               <input
-                className="search_field date"
+                className="results_search_field date"
                 type="date"
                 onChange={this.handleChange}
                 placeholder="Start Date"
                 defaultValue={this.props.searchParams.start_date}/>
+            </label>
+            <label className="results_search_field">End Date
               <input
-                className="search_field date"
+                className="results_search_field date"
                 type="date"
                 onChange={this.handleChange}
                 placeholder="end date"
                 defaultValue={this.props.searchParams.end_date}/>
+            </label>
             <input className="results_search_submit" type="submit" value="Find Your Car" onClick={this.handleClick}></input>
           </form>
 

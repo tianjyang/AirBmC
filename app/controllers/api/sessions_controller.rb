@@ -9,7 +9,8 @@ before_action :full_form, only:[:create]
       sign_in(user)
       render json: {username: user.username,logged_in: true}
     else
-      render json: @errors,status: 401
+      errors = ["Invalid credentials"]
+      render json: errors,status: 401
     end
   end
 

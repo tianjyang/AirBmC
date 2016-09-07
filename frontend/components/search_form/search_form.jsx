@@ -51,7 +51,7 @@ class SearchForm extends React.Component {
     return(
       <div className="landingPage">
         <span className="title-container">
-          DRIVE THERE
+          AirBmC
         </span>
         <span className="subtitle-container">
           Find and rent local cars from your neighbors
@@ -63,13 +63,14 @@ class SearchForm extends React.Component {
                 type="text"
                 name="search[location]"
                 onChange={this.handleChange}
+                defaultValue="San Francisco"
                 placeholder="Where are you?"/>
 
               <input
                 className="search_field"
                 type="text" name="search[distance]"
                 onChange={this.handleChange}
-                placeholder="Search distance?"/>
+                placeholder="Search distance in miles?"/>
 
               <div className="date_container">
               <input
@@ -77,14 +78,14 @@ class SearchForm extends React.Component {
                 type="text"
                 onFocus={this.changeTextToDate}
                 onChange={this.handleChange}
-                placeholder="Start Date"/>
+                placeholder="Start date"/>
 
               <input
                 className="search_field date"
                 type="text"
                 onFocus={this.changeTextToDate}
                 onChange={this.handleChange}
-                placeholder="end date"/>
+                placeholder="End date"/>
               </div>
           <span>
             <input className="search_submit" type="submit" onClick={this.handleClick} value="Find Your Car"></input>

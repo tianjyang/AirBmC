@@ -10,7 +10,7 @@ class CommentItem extends React.Component {
       <div className="comment-container">
       <h2>{this.props.comment.title}</h2>
       <h3>Rating: {this.props.comment.rating}</h3>
-      <h3>{this.props.comment.body}</h3>
+      <p>{this.props.comment.body}</p>
       <p>Posted by {this.props.comment.username}</p>
       </div>
     );

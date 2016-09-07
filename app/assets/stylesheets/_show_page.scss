@@ -12,6 +12,8 @@ div.listing-title {
 	position:absolute;
 	bottom:10px;
 	left:10px;
+  background-color: #008AC9;
+  padding: 0px 5px;
 }
 
 form.reservation-form {
@@ -71,4 +73,22 @@ form.reservation-form textarea {
 
 .comment-container {
   padding: 10px 0px;
+  border: 1px solid lightgray;
+}
+
+.comment_form {
+  background-color: lightgray;
+}
+
+input.input_field.body {
+  width:400px;
+}
+
+table.vehicle-info {
+  margin-bottom: 10px;
+}
+
+.input_field {
+  border: none;
+
 }

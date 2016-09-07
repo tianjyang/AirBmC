@@ -20,16 +20,22 @@ class NewCommentForm extends React.Component {
   render() {
     return(
 
-      <form className={"comment_form"}>
-        <input className="input_field title" type="text" placeholder="Title"></input>
-        <input className="input_field body" type="text" placeholder="Body"></input>
-        <select className="input_field dropdown">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+      <form className="comment_form">
+        <label className="input_field title">Title
+          <input className="input_field title" type="text" placeholder="Title"></input>
+        </label>
+        <label className="input_field body">Body
+          <input className="input_field body" type="text" placeholder="Body"></input>
+        </label>
+        <label>Rating
+          <select className="input_field dropdown">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
         <span>
           <input type="submit" onClick={this.handleClick} value="Submit" className={"comment-submit"}></input>
       </span>
