@@ -4,12 +4,12 @@ class Reservation < ActiveRecord::Base
   validates :user_id, :listing_id, :description, :start_date, :end_date, presence: true
   validate :renter_isnt_listing_owner
   validate :no_conflicts
-  before_save :convert_dates
+  # before_save :convert_dates
 
-  def convert_dates
-    self.start_date = Date.parse(self.start_date)
-    self.end_date = Date.parse(self.end_date)
-  end
+  # def convert_dates
+  #   self.start_date = Date.parse(self.start_date)
+  #   self.end_date = Date.parse(self.end_date)
+  # end
 
   def renter_isnt_listing_owner
     listing = Listing.find(listing_id)

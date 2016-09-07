@@ -132,14 +132,14 @@ mpg: 33)
 
 
 Reservation.create!(user_id: 2, listing_id: 3,description: "Day Trip to Napa",
-start_date: Date.parse("2016/10/1"),end_date: Date.parse("2016/10/3"))
+start_date: "2016/10/1",end_date: "2016/10/3")
 Reservation.create(user_id: 4, listing_id: 3,description: "For Errands Around Town",
-start_date: Date.parse("2016/10/8"),end_date: Date.parse("2016/10/10"))
+start_date: ("2016/10/8"),end_date: ("2016/10/10"))
 Reservation.create(user_id: 11, listing_id: 4,description: "Pick Up Mom",
-start_date: Date.parse("2016/10/15"),end_date: Date.parse("2016/10/17"))
+start_date: ("2016/10/15"),end_date: ("2016/10/17"))
 Reservation.create(user_id: 11, listing_id: 5,description: "Beach Trip",
-start_date: Date.parse("2016/10/22"),end_date: Date.parse("2016/10/23"))
+start_date: ("2016/10/22"),end_date: ("2016/10/23"))
 Reservation.create(user_id: 11, listing_id: 8,description: "Weekend Drive Along Skyline",
-start_date: Date.parse("2016/10/29"),end_date: Date.parse("2016/10/30"))
+start_date: ("2016/10/29"),end_date: ("2016/10/30"))
 Reservation.create(user_id: 11, listing_id: 7,description: "Date Night",
-start_date: Date.parse("2016/11/1"),end_date: Date.parse("2016/11/2"))
+start_date: ("2016/11/1"),end_date: ("2016/11/2"))
