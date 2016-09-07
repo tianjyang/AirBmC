@@ -29,8 +29,8 @@ class Listing < ActiveRecord::Base
     SQL
   end
 
-  def self.find_by_date(lat,long,start_date, end_date)
-    all_results = self.find_by_distance(lat,long,10)
+  def self.find_with_criteria(lat,long,start_date,end_date,distance)
+    all_results = self.find_by_distance(lat,long,distance)
     output = []
     all_results.each do |listing|
       conflicts = listing.reservations.any? do |reservation|

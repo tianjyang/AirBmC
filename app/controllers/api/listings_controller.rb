@@ -1,11 +1,15 @@
 class Api::ListingsController < ApplicationController
   def index
     location = params[:location]
-    lat = location[:lat].to_f
-    long = location[:lng].to_f
+    lat = location[:lat].to_f || 37.7576793
+    long = location[:long].to_f || -122.5076393
     distance = params[:criteria].to_f
-    listings = Listing.find_by_distance(lat,long,distance);
-    render json: listings
+    start_date = search_criteria[:start_date] || "5000/12/31"
+    start_date = Date.parse(start_date)
+    end_date = search_criteria[:end_date] || "5000/12/31"
+    end_date = Date.parase(end_date)
+    def self.find_with_criteria(lat,long,start_date,end_date,distance)
+
   end
 
   def show
