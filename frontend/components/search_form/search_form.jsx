@@ -12,18 +12,21 @@ class SearchForm extends React.Component {
 
   handleClick (e) {
     e.preventDefault();
-    const criteria = e.currentTarget.form[1].value;
+    // const criteria = e.currentTarget.form[1].value;
     let success = (data) => {
           this.props.router.push("/results");
       let location = data.results[0].geometry.location;
       let searchParams = {
         location: location,
-        criteria: this.props.searchParams.distance
+        distance: this.props.searchParams.distance,
+        start_date: this.props.searchParams.start_date,
+        end_date: this.props.searchParams.end_date
       };
       this.props.onSearchClick(searchParams);
     };
     let query = {};
-    query.address = this.props.searchParams.location;
+    query.address = this.props.searchParams.location || "San Francisco";
+    debugger
     GoogleGeocoding(query,success);
 
   }

@@ -50,7 +50,7 @@ class Map extends React.Component {
       this.map.fitBounds(bounds);
       // this.setBound = false;
     }
-    this.setBound = true;
+    // this.setBound = true;
   }
 
   purgeMarkersFromMap () {
