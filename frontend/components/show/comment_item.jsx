@@ -6,11 +6,11 @@ class CommentItem extends React.Component {
   }
 
   render() {
-    debugger
     return(
       <div className="comment-container">
       <h2>{this.props.comment.title}</h2>
-      <p>{this.props.comment.body}</p>
+      <h3>Rating: {this.props.comment.rating}</h3>
+      <h3>{this.props.comment.body}</h3>
       <p>Posted by {this.props.comment.username}</p>
       </div>
     );

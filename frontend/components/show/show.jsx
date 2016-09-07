@@ -58,7 +58,7 @@ class Show extends React.Component {
           </tr>
         </table>
 
-
+        <h2>User Comments</h2>
         {this.props.comments.map ((el) => {
           return(<CommentItem comment={el} key={el.id + "-comment"}/>);
         })}

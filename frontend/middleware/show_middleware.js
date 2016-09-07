@@ -15,7 +15,6 @@ const SessionMiddleware = (store) => (next) => (action) => {
   };
 
   const successfulReservation = (data) => {
-    debugger
     store.dispatch(requestReservations());
     store.dispatch(updateReserveErrors({}));
   };
