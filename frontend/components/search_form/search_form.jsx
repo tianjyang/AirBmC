@@ -32,7 +32,9 @@ class SearchForm extends React.Component {
     e.preventDefault();
     let searchParams = {
       location: e.currentTarget.form[0].value,
-      distance: e.currentTarget.form[1].value
+      distance: e.currentTarget.form[1].value,
+      start_date: e.currentTarget.form[2].value,
+      end_date: e.currentTarget.form[3].value
     };
     this.props.updateSearchParams(searchParams);
   }
@@ -54,11 +56,33 @@ class SearchForm extends React.Component {
         </span>
         <div className="search_form_container">
         <form className={"search_form"}>
-              <input className="search_field" type="text" name="search[location]" onChange={this.handleChange} placeholder="Where are you?"></input>
-              <input className="search_field" type="text" name="search[distance]" onChange={this.handleChange} placeholder="Search distance?"></input>
+              <input
+                className="search_field"
+                type="text"
+                name="search[location]"
+                onChange={this.handleChange}
+                placeholder="Where are you?"/>
+
+              <input
+                className="search_field"
+                type="text" name="search[distance]"
+                onChange={this.handleChange}
+                placeholder="Search distance?"/>
+
               <div className="date_container">
-              <input className="search_field date" type="text" onClick={this.changeTextToDate} placeholder="start date"/>
-              <input className="search_field date" type="text" onClick={this.changeTextToDate} placeholder="end date"/>
+              <input
+                className="search_field date"
+                type="text"
+                onFocus={this.changeTextToDate}
+                onChange={this.handleChange}
+                placeholder="Start Date"/>
+
+              <input
+                className="search_field date"
+                type="text"
+                onFocus={this.changeTextToDate}
+                onChange={this.handleChange}
+                placeholder="end date"/>
               </div>
           <span>
             <input className="search_submit" type="submit" onClick={this.handleClick} value="Find Your Car"></input>
