@@ -26,7 +26,6 @@ class SearchForm extends React.Component {
     };
     let query = {};
     query.address = this.props.searchParams.location || "San Francisco";
-    debugger
     GoogleGeocoding(query,success);
 
   }

@@ -7,7 +7,7 @@ class Map extends React.Component {
     this.updateMarkersByBounds = this.updateMarkersByBounds.bind(this);
     this.purgeMarkersFromMap = this.purgeMarkersFromMap.bind(this);
     this.markers = [];
-    this.setBound = true;
+    this.setBound = false;
   }
 
   componentDidMount() {
@@ -48,7 +48,7 @@ class Map extends React.Component {
     });
     if ( this.setBound ) {
       this.map.fitBounds(bounds);
-      // this.setBound = false;
+      this.setBound = false;
     }
     // this.setBound = true;
   }
