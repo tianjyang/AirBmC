@@ -15,7 +15,8 @@ class Results extends React.Component {
   componentDidMount () {
     $(window).scroll( () => {
       let pos = $("body").scrollTop();
-      if ( pos >= 100 ) {
+      console.log(pos);
+      if ( pos >= 75 ) {
         $(".results_map").css( {"position":"fixed","top":"75px"});
       } else {
         $(".results_map").css({"position":"relative","top":""});
