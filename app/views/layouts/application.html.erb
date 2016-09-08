@@ -7,7 +7,7 @@
       window.currentUser = '<%= (current_user.username).html_safe %>'
     <% end %>
   </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRGwxu8LC5zjEHU-bF5ba28NlOMYTj67c"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.env.google_maps_api_key! %>"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
