@@ -5,13 +5,13 @@ class Api::ListingsController < ApplicationController
     long = location[:lng].to_f || -122.5076393
     distance = params[:distance].to_f
     start_date = params[:start_date]
-    if start_date.empty?
+    if start_date.nil? || start_date.empty?
       start_date = "1900/1/1"
     end
     start_date = Date.parse(start_date)
 
     end_date = params[:end_date]
-    if end_date.empty?
+    if end_date.nil? || end_date.empty?
       end_date = "1900/1/1"
     end
 

@@ -5,7 +5,8 @@ import { postReservation } from '../../actions/show_actions';
 
 const mapStateToProps = (state) => ({
   errors: state.reservationErrors,
-  reservations: state.reservations
+  reservations: state.reservations,
+  searchParams: state.searchParams
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -57,8 +57,6 @@ class UserProfile extends React.Component {
                 return(
                   <li className="dropdown-content" key={el.id + "reservation"}>
                     <a href="#" onClick={this.redirectToShowPage.bind(this,el)}> {el.description} on {datePrettifier(el.start_date)} </a>
-
-
                     <a href="#" className="cancel-link" onClick={this.handleClick.bind(this,el)}>Cancel</a>
                   </li>
                 )

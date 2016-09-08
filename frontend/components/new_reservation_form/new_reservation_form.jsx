@@ -28,13 +28,19 @@ class NewReservationForm extends React.Component {
       <form className="reservation-form">
         <label>
           Start Date
-        <input style={{margin: "0px 0px 0px 10px"}} type="date" name="reservation[start_date]"></input>
+        <input style={{margin: "0px 0px 0px 10px"}}
+          type="date"
+          name="reservation[start_date]"
+          defaultValue={this.props.searchParams.start_date}></input>
         </label>
 
 
         <label>
           End Date
-        <input style={{margin: "0px 0px 0px 17px"}} type="date" name="reservation[end_date]"></input>
+        <input style={{margin: "0px 0px 0px 17px"}}
+          type="date"
+          name="reservation[end_date]"
+          defaultValue={this.props.searchParams.end_date}></input>
         </label>
 
         <textarea rows="4" cols="40"name=" reservation[description]" placeholder="Tell me about your trip!"></textarea>

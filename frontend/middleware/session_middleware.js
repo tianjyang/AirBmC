@@ -6,7 +6,7 @@ const SessionMiddleware = (store) => (next) => (action) => {
   const success = (reply) => {
     store.dispatch(updateUser(reply));
     store.dispatch(updateSessionErrors({}));
-    if (action.type === SESSION_CONSTANTS.CREATE_SESSION) {
+    if (action.type !== SESSION_CONSTANTS.DESTROY_SESSION) {
       getReservations(addReservationsToState);
     }
   };
@@ -24,7 +24,6 @@ const SessionMiddleware = (store) => (next) => (action) => {
       newSession(action.creds,success,errorCallback);
       break;
     case SESSION_CONSTANTS.CREATE_USER:
-
       signUpUser(action.creds,success,errorCallback);
       break;
     case SESSION_CONSTANTS.DESTROY_SESSION:
