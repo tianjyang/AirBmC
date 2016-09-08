@@ -3,8 +3,7 @@ import { requestListing, newReservation } from '../utils/show_ajax_util';
 import { updateReserveErrors } from '../actions/error_actions';
 import { requestReservations } from '../actions/session_actions';
 
-const SessionMiddleware = (store) => (next) => (action) => {
-
+const ShowMiddleware = (store) => (next) => (action) => {
   const errorCallback = (errorMessage) => {
     store.dispatch(updateReserveErrors(errorMessage));
   };
@@ -31,14 +30,12 @@ const SessionMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case SHOW_CONSTANTS.REQUEST_LISTING:
-      // requestListing(action.searchParams,successfulRequest,errorCallback);
       requestListing(action.searchParams,successfulRequest);
       break;
     case SHOW_CONSTANTS.REQUEST_COMMENTS:
       break;
     case SHOW_CONSTANTS.POST_RESERVATION:
       newReservation(action.listingId,action.reservationInfo,successfulReservation,errorCallback);
-      // newReservation(action.listingId,action.reservationInfo);
       break;
 
     default:
@@ -47,4 +44,4 @@ const SessionMiddleware = (store) => (next) => (action) => {
   }
 };
 
-export default SessionMiddleware;
+export default ShowMiddleware;

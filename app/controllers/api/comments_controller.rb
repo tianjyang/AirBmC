@@ -1,9 +1,9 @@
 class Api::CommentsController < ApplicationController
   before_action :ensure_logged_in, only:[:create]
-
+  before_action :already_posted?, only:[:create]
   def index
     current_listing = Listing.find(params[:id])
-    render json: current_listing.comments
+    render json: current_listing.comments.reverse
   end
 
   def create
@@ -15,7 +15,8 @@ class Api::CommentsController < ApplicationController
     new_comment.listing_id = params[:listing_id].to_i
 
     if new_comment.save
-      render json: [new_comment]
+      current_listing = Listing.find(new_comment.listing_id)
+      render json: current_listing.comments.reverse
     else
       render json: new_comment.errors.full_messages,status: 400
     end
@@ -24,6 +25,15 @@ class Api::CommentsController < ApplicationController
   def ensure_logged_in
     unless current_user
       render json:["You must be logged in!"],status: 401
+    end
+  end
+
+  def already_posted?
+    current_listing_id = params[:listing_id].to_i
+    current_user_id = current_user.id
+    comment = Comment.find_by_user_listing(current_listing_id, current_user_id)
+    if comment.length > 0
+      render json: "you've already commented on this posting!", status: 400
     end
   end
 end

@@ -1,5 +1,13 @@
 class Api::ReservationsController < ApplicationController
   before_action :ensure_logged_in, only:[:create, :index, :destroy]
+  before_action :ensure_valid_dates, only:[:create]
+  before_action :check_errors, only:[:create, :index, :destroy]
+
+  def check_errors
+    if @errors.length > 0
+      render json: @errors, status: 400
+    end
+  end
 
   def create
     new_reservation = Reservation.new
@@ -25,8 +33,22 @@ class Api::ReservationsController < ApplicationController
   end
 
   def ensure_logged_in
+    @errors ||= []
     unless current_user
-      render json:["You must be logged in!"],status: 401
+      @errors << "You must be logged in!"
+    end
+  end
+
+  def ensure_valid_dates
+    @errors ||=[]
+    end_date = Date.parse(params[:end_date])
+    start_date = Date.parse(params[:start_date])
+    if start_date > end_date
+      @errors << "Start date must be before end date!"
+    end
+
+    if start_date < Date.today
+      @errors << "Start date cannot be before today!"
     end
   end
 

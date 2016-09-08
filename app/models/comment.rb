@@ -14,4 +14,10 @@ class Comment < ActiveRecord::Base
       errors[:rating].push("Rating must be between 1 and 5")
     end
   end
+
+  def self.find_by_user_listing(current_listing_id,current_user_id)
+    Comment.where(<<-SQL,current_listing_id,current_user_id)
+    listing_id = ? AND user_id = ?
+    SQL
+  end
 end
