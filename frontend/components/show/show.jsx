@@ -18,9 +18,10 @@ class Show extends React.Component {
   handleClick (e) {
     e.preventDefault();
   }
-  componentWillUnmount() {
 
-    // this.props.clearComments();
+  componentWillReceiveProps(){
+    this.props.requestListing(this.props.params.id);
+    this.props.requestComments(this.props.params.id);
   }
 
   render() {
