@@ -15,9 +15,11 @@ const SessionMiddleware = (store) => (next) => (action) => {
 
   const flashTheModal = () => {
     $("#reservation-modal").show();
-    setTimeout(()=>{
-      $("#reservation-modal").hide();
-    },1000);
+    $(window).on("click",function(){
+      console.log("window click!");
+      $('#reservation-modal').hide();
+      $(window).off('click');
+    });
   };
 
   const successfulReservation = (data) => {
