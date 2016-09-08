@@ -19,9 +19,11 @@ class Show extends React.Component {
     e.preventDefault();
   }
 
-  componentWillReceiveProps(){
-    this.props.requestListing(this.props.params.id);
-    this.props.requestComments(this.props.params.id);
+  componentWillReceiveProps(nextProps){
+    if (parseInt(nextProps.params.id) !== this.props.id) {
+      this.props.requestListing(this.props.params.id);
+      this.props.requestComments(this.props.params.id);
+    }
   }
 
   render() {

@@ -6,6 +6,7 @@ import { requestListing,
 import { requestComments, createComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state) => ({
+  id: state.currentListing.listingInfo.id,
   title: state.currentListing.listingInfo.title,
   description: state.currentListing.listingInfo.description,
   imageUrl: state.currentListing.listingInfo.image_url,

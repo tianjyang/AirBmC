@@ -36,6 +36,7 @@ class Api::ListingsController < ApplicationController
     reply[:num_seats] = current_listing.num_seats
     reply[:make_model] = current_listing.make_model
     reply[:username] = current_listing.user.username
+    reply[:id] = current_listing.id
     render json: reply
   end
 
