@@ -25,7 +25,7 @@ class UserProfile extends React.Component {
 
   redirectToShowPageCar(object,e) {
     e.preventDefault();
-    hashHistory.push(`/show/${object.id}`);
+    this.props.history.push(`/show/${object.id}`);
   }
 
   componentWillMount() {

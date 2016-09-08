@@ -9,6 +9,7 @@ const SessionMiddleware = (store) => (next) => (action) => {
     store.dispatch(updateSessionErrors({}));
     if (action.type === SESSION_CONSTANTS.CREATE_SESSION) {
       getReservations(addReservationsToState);
+      getCarsAJAX(addCarstoState);
     }
   };
 
@@ -22,7 +23,7 @@ const SessionMiddleware = (store) => (next) => (action) => {
 
   const addCarstoState = (reply) => {
     store.dispatch(receiveCars(reply));
-  }
+  };
 
   switch (action.type) {
     case CAR_CONSTANTS.REQUEST_CARS:
