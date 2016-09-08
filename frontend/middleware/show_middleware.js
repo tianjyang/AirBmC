@@ -15,7 +15,6 @@ const ShowMiddleware = (store) => (next) => (action) => {
   const flashTheModal = () => {
     $("#reservation-modal").show();
     $(window).on("click",function(){
-      console.log("window click!");
       $('#reservation-modal').hide();
       $(window).off('click');
     });

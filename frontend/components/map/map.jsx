@@ -23,6 +23,7 @@ class Map extends React.Component {
   }
 
   updateMarkersByBounds() {
+    this.purgeMarkersFromMap();
     this.setBound = false;
     let searchParams = {};
     searchParams.bounds = this.map.getBounds().toJSON();
@@ -36,7 +37,9 @@ class Map extends React.Component {
   }
 
   placeMarkersFromProp () {
+    // debugger
     this.purgeMarkersFromMap();
+    // debugger
     let markerArray = objToArray(this.props.listings);
     let newMarker;
     let latlong = {};
@@ -49,7 +52,7 @@ class Map extends React.Component {
         map: this.map,
         title: el.title
       });
-      this.markers.push();
+      this.markers.push(newMarker);
       bounds.extend(latlong);
     });
     if ( this.setBound && markerArray.length > 0 ) {
@@ -59,6 +62,7 @@ class Map extends React.Component {
   }
 
   purgeMarkersFromMap () {
+    // debugger
     this.markers.forEach((el)=>{
       el.setMap(null);
     });
