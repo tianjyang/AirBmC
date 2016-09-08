@@ -18,6 +18,10 @@ class Show extends React.Component {
   handleClick (e) {
     e.preventDefault();
   }
+  componentWillUnmount() {
+
+    // this.props.clearComments();
+  }
 
   render() {
     let currentPostingBG = {
