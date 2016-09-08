@@ -31,6 +31,3 @@
     "npm": "3.9.3"
   }
 }
-
-
-/*"postinstall": "./node_modules/.bin/webpack",*/
