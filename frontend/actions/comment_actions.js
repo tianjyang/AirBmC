@@ -1,7 +1,8 @@
 export const COMMENT_CONSTANTS = {
   REQUEST_COMMENTS: "REQUEST_COMMENTS",
   RECEIVE_COMMENTS: "RECEIVE_COMMENTS",
-  CREATE_COMMENT: "CREATE_COMMENT"
+  CREATE_COMMENT: "CREATE_COMMENT",
+  CLEAR_COMMENTS: "CLEAR_COMMENTS"
 };
 
 export const requestComments = (listingId) => ({
@@ -16,3 +17,7 @@ export const createComment = (commentInfo) => ({
   type: COMMENT_CONSTANTS.CREATE_COMMENT,
   commentInfo
 });
+
+export const clearComment = () => ({
+  type: COMMENT_CONSTANTS.CLEAR_COMMENTS
+})

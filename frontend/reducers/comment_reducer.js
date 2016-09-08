@@ -7,6 +7,8 @@ const commentReducer = (state = [], action) => {
     case COMMENT_CONSTANTS.RECEIVE_COMMENTS:
     let outputVal = []
       return state.concat(action.comments);
+    case COMMENT_CONSTANTS.CLEAR_COMMENTS:
+      return []
   default:
   return state;
   }

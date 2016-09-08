@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Show from './show';
 import { requestListing,
         postReservation } from '../../actions/show_actions';
-import { requestComments, createComment } from '../../actions/comment_actions';
+import { requestComments, createComment, clearComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state) => ({
   title: state.currentListing.listingInfo.title,
@@ -21,6 +21,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+clearComments: (data) => {dispatch(clearComment());},
 requestListing: (data) => {dispatch(requestListing(data));},
 requestComments: (listingId) => {dispatch(requestComments(listingId));},
 newComment: (commentInfo) => {dispatch(createComment(commentInfo));}

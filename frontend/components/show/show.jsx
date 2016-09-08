@@ -19,12 +19,15 @@ class Show extends React.Component {
     e.preventDefault();
   }
 
+  componentWillUnmount() {
+    this.props.clearComments();
+  }
+
   render() {
     let currentPostingBG = {
       backgroundImage: 'url('+ this.props.imageUrl + ')',
       height: 500,
     };
-
     return(
       <div className="show-content">
         <div style={currentPostingBG} className="listing-container">

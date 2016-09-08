@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     resources :reservations, only: [:index, :destroy]
     resources :comments, only: [:index, :create]
+    get 'cars' => 'sessions#user_cars'
     get 'map_listings/' => 'listings#index_by_map'
   end
   # The priority is based upon order of creation: first created -> highest priority.

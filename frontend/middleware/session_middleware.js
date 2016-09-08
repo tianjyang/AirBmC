@@ -1,5 +1,6 @@
 import { SESSION_CONSTANTS, updateUser, receiveReservations, requestReservations } from '../actions/session_actions';
-import { signUpUser, newSession, destroySession, getReservations, deleteReservation } from '../utils/session_ajax_util';
+import { CAR_CONSTANTS, requestCars, receiveCars } from '../actions/car_actions'
+import { signUpUser, newSession, destroySession, getReservations, deleteReservation, getCarsAJAX, deleteCarsAJAX } from '../utils/session_ajax_util';
 import { updateSessionErrors } from '../actions/error_actions';
 
 const SessionMiddleware = (store) => (next) => (action) => {
@@ -19,7 +20,15 @@ const SessionMiddleware = (store) => (next) => (action) => {
     store.dispatch(receiveReservations(reply));
   };
 
+  const addCarstoState = (reply) => {
+    store.dispatch(receiveCars(reply));
+  }
+
   switch (action.type) {
+    case CAR_CONSTANTS.REQUEST_CARS:
+      getCarsAJAX(addCarstoState);
+      break;
+
     case SESSION_CONSTANTS.CREATE_SESSION:
       newSession(action.creds,success,errorCallback);
       break;
