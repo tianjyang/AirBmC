@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907030213) do
+ActiveRecord::Schema.define(version: 20160908175607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160907030213) do
     t.string   "make_model",    null: false
     t.integer  "num_seats",     null: false
     t.integer  "mpg",           null: false
+    t.string   "thumb_url"
   end
 
   add_index "listings", ["id"], name: "index_listings_on_id", using: :btree
