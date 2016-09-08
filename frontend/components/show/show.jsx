@@ -50,6 +50,10 @@ class Show extends React.Component {
             <th>Price Per Day</th>
             <th>Miles per Gallon</th>
           </tr>
+            <td><i className="material-icons">directions_car</i></td>
+            <td><i className="material-icons">event_seat</i></td>
+            <td><i className="material-icons">monetization_on</i></td>
+            <td><i className="material-icons">local_gas_station</i></td>
           <tr>
             <td>{this.props.makeModel}</td>
             <td>{this.props.seating}</td>
