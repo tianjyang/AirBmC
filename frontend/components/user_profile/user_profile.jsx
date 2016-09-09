@@ -56,10 +56,10 @@ class UserProfile extends React.Component {
     };
 
     window.props = this.props;
-
+// <div className={"username " + showIfLoggedIn}>{"Welcome " + this.props.username + "!"}</div>
     return(
       <div className={"user-profile " + showIfLoggedIn}>
-        <div className={"username " + showIfLoggedIn}>{"Welcome " + this.props.username + "!"}</div>
+
         <div className={"reservation-dropdown " + showIfLoggedIn}>
           <i className="material-icons">arrow_drop_down</i>
           Your Reservations
