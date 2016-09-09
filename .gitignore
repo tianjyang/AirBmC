@@ -15,3 +15,5 @@
 node_modules/
 bundle.js
 bundle.js.map
+config/application.yml
+script.sh

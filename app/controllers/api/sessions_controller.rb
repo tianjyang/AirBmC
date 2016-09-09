@@ -38,7 +38,8 @@ before_action :full_form, only:[:create]
     if current_cars.length > 0
       render json: current_cars
     else
-      render json: ["No Listings Yet!"], status: 401
+      empty_listing = Listing.new
+      render json: [empty_listing]
     end
   end
 
