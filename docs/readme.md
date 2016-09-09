@@ -9,7 +9,7 @@ AirBmC can be found at
 
 ### MVP Features
 
-The MVP shall have smooth bug-free navigation, adequate styling, appropriate seed data to demonstarte the functionality of the following features:
+The MVP shall have smooth bug-free navigation, adequate styling, appropriate seed data to demonstrate the functionality of the following features:
 * New account creation, login, and guest/demo login
 * A production README
 * Hosting on Heroku
