@@ -181,14 +181,16 @@ div.reservation-dropdown {
 	height:inherit;
 	line-height: 75px;
 	display: inline-block;
+	margin: auto 25px;
 }
 
 div.username {
-	display: inline-block;
-	height:inherit;
-	line-height:75px;
-	margin: 0px 10px;
-	margin-right: 50px;
+	// display: inline-block;
+	// height:inherit;
+	// line-height:75px;
+	// margin: 0px 10px;
+	// margin-right: 50px;
+	text-align:right;
 }
 
 div.user-profile.hidden {

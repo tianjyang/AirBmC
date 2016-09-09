@@ -56,6 +56,7 @@ class SessionForm extends React.Component {
 
     return(
         <form className={"session_form"}>
+          <div className={"username " + showIfLoggedIn}>{"Welcome " + this.props.username + "!"}</div>
           <span className={ showIfLoggedOut }>
               <input className="input_field" type="text" name="user[username]" placeholder="Username"></input>
               <input className="input_field" type="password" name="user[password]" placeholder="Password"></input>

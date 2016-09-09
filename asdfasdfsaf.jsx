@@ -34,6 +34,7 @@ class Show extends React.Component {
         height: 500,
       }
     }
+
     return(
       <div className="show-content">
         <div style={currentPostingBG} className="listing-container">

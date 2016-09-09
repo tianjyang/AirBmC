@@ -52,5 +52,24 @@ const deleteReservation = (id,success=successCallback, fail= errorCallback) =>{
   });
 };
 
+const getCarsAJAX = (success = successCallback,fail = errorCallback) => {
+  $.ajax({
+    method: "GET",
+    url: "api/cars",
+    success: success,
+    error: fail
+  });
+};
 
-export { signUpUser, newSession, destroySession, getReservations, deleteReservation };
+const deleteCarsAJAX = (id,success=successCallback, fail= errorCallback) =>{
+  $.ajax({
+    method: "DELETE",
+    url: `api/reservations/${id}`,
+    success: success,
+    error: fail
+  });
+};
+
+
+
+export { signUpUser, newSession, destroySession, getReservations, deleteReservation, getCarsAJAX, deleteCarsAJAX};
