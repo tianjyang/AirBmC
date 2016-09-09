@@ -8,16 +8,6 @@ class SessionForm extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  // componentWillMount() {
-  //   if (window.currentUser) {
-  //     let userInfo = {
-  //       username: window.currentUser,
-  //       logged_in: true,
-  //     };
-  //     this.props.setInitialState(userInfo);
-  //   }
-  // }
-
   handleClick (e) {
     e.preventDefault();
     let creds = {};
@@ -56,7 +46,7 @@ class SessionForm extends React.Component {
 
     return(
         <form className={"session_form"}>
-          <div className={"username " + showIfLoggedIn}>{"Welcome " + this.props.username + "!"}</div>
+          <div className={"username " + showIfLoggedIn}>{"Welcome " + this.props.currentUser + "!"}</div>
           <span className={ showIfLoggedOut }>
               <input className="input_field" type="text" name="user[username]" placeholder="Username"></input>
               <input className="input_field" type="password" name="user[password]" placeholder="Password"></input>

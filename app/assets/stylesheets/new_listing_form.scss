@@ -1,0 +1,25 @@
+#new_listing_modal {
+  position:fixed;
+  height:100%;
+  width:100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 10px;
+}
+
+.new_listing_form_container {
+  display:block;
+  background: white;
+  width:400px;
+  height:400px;
+  margin:0px auto;
+  position:relative;
+  top:50%;
+  transform:translateY(-75%)
+
+}
+
+.listing_form_input {
+  display: block;
+  margin: 0px auto;
+  text-align:center;
+}
