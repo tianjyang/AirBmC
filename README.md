@@ -21,18 +21,19 @@ AirBmC has the following features
 ### New account creation, login, and guest/demo login
 AirBmC allows users to login to an existing account, create a new one, or simply experience the website's functionality as a guest. Users are free to browse and view listings without an account, but back end authentication ensures users are logged in before POST or DELETE methods are committed to the database.
 
-### Hosting on Heroku
-Heroku is used for hosting services. A redirect service is used from www.airbmc.us to www.airbmc.herokuapp.com
-
 ### Ability to search for local cars
+Listings in the San Francisco metropolitan area can be found using the search form on the landing page. If the user desires, search results can be filtered by availability dates and distance from location. Once redirected to the search results page, the user is presented with two options to refine their results. The criteria previously entered persists in a form at the top of the results page and can be updated accordingly. Alternatively, users can use the map and find results contained in the current view.
 
-* Ability to display local cars
-* Ability to create new bookings
-* Ability to find local cars by location and availability
-* Ability to post new and view existing reviews
+Since the map provides valuable feedback regariding the location of listings,
 
-### Development Schedule
-AirBmC was produced over course of two weeks using the following schedule.
+### Ability to create new bookings
+From the search page, the user is redirected to the show page where more information about the car can be found. Three validations are performed before a reservation is committed to the database: a check to ensure the start date comes before the end date, a check to ensure the user has an account, and a final check to ensure there are no conflicts with existing reservations.
+
+### Ability to post new reviews
+At the show page, users can view existing reviews. Users can post a review on a car if they have not done so before.
+
+## Development Schedule
+AirBmC was produced over two weeks using the following schedule.
 
 **New account/session creation - 8/30**
 * Generate model and controllers for back end authentication and session token functionality

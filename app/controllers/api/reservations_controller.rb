@@ -41,14 +41,18 @@ class Api::ReservationsController < ApplicationController
 
   def ensure_valid_dates
     @errors ||=[]
-    end_date = Date.parse(params[:end_date])
-    start_date = Date.parse(params[:start_date])
-    if start_date > end_date
-      @errors << "Start date must be before end date!"
-    end
+    begin
+      end_date = Date.parse(params[:end_date])
+      start_date = Date.parse(params[:start_date])
+      if start_date > end_date
+        @errors << "Start date must be before end date!"
+      end
 
-    if start_date < Date.today
-      @errors << "Start date cannot be before today!"
+      if start_date < Date.today
+        @errors << "Start date cannot be before today!"
+      end
+    rescue
+      @errors << "Please enter a valid date"
     end
   end
 
