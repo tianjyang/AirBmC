@@ -16,7 +16,7 @@ User.create!(username: "Snorkeldink Crackersprout", password: "password")
 User.create!(username: "Bentobox Crimpysnitch", password: "password")
 User.create!(username: "Barnoldswick Crumplesack", password: "password")
 User.create!(username: "Snozzlebert Kryptonite", password: "password")
-User.create!(username: "ManyRes", password: "password")
+
 
 
 Listing.create!(title:"Experience Embarcadero!",
@@ -140,16 +140,91 @@ make_model: "Toyota Camry",
 num_seats: 5,
 mpg: 33)
 
-
 Reservation.create!(user_id: 2, listing_id: 3,description: "Day Trip to Napa",
 start_date: "2016/10/1",end_date: "2016/10/3")
 Reservation.create(user_id: 4, listing_id: 3,description: "For Errands Around Town",
 start_date: ("2016/10/8"),end_date: ("2016/10/10"))
-Reservation.create(user_id: 11, listing_id: 4,description: "Pick Up Mom",
+Reservation.create(user_id: 1, listing_id: 4,description: "Pick Up Mom",
 start_date: ("2016/10/15"),end_date: ("2016/10/17"))
-Reservation.create(user_id: 11, listing_id: 5,description: "Beach Trip",
+Reservation.create(user_id: 1, listing_id: 5,description: "Beach Trip",
 start_date: ("2016/10/22"),end_date: ("2016/10/23"))
-Reservation.create(user_id: 11, listing_id: 8,description: "Weekend Drive Along Skyline",
+Reservation.create(user_id: 1, listing_id: 8,description: "Weekend Drive Along Skyline",
 start_date: ("2016/10/29"),end_date: ("2016/10/30"))
-Reservation.create(user_id: 11, listing_id: 7,description: "Date Night",
+Reservation.create(user_id: 1, listing_id: 7,description: "Date Night",
 start_date: ("2016/11/1"),end_date: ("2016/11/2"))
+
+Comment.create(
+user_id: 2,
+listing_id: 3,
+rating: 5,
+title: "Decent Car",
+body: "Got me front point A to point B. Didn't need it for much more than that. Nice and comfy.")
+
+Comment.create(
+user_id: 2,
+listing_id: 5,
+rating: 5,
+title: "Got the job done",
+body: "Had a hiking trip planned with some friends. Got me there safely and comfortably")
+
+Comment.create(
+user_id: 2,
+listing_id: 4,
+rating: 2,
+title: "Dirty and gross",
+body: "Rented this car after a BART ride and I would have felt cleaner if I had sat on the floor of the train. Wouldn't rent this again")
+
+Comment.create(
+user_id: 3,
+listing_id: 1,
+rating: 5,
+title: "Too Quiet",
+body: "Car is great, but I was stuck in the parking lot behind a slow moving pedestrian because they didn't hear the car pull up behind them")
+
+Comment.create(
+user_id: 4,
+listing_id: 1,
+rating: 5,
+title: "Nice to drive but...",
+body: "Took this car to work as my corvette was in the shop. I enjoyed the drive but I think i still prefer a V8 over an electric motor.")
+
+Comment.create(
+user_id: 5,
+listing_id: 1,
+rating: 3,
+title: "Meh.",
+body: "I don't see what all the hype is about.")
+
+Comment.create(
+user_id: 6,
+listing_id: 2,
+rating: 5,
+title: "Expensive but worth it!",
+body: "Took this car out for a short trip into Napa Valley. So glad I did it in this car because it was what a trip to California should be like.")
+
+Comment.create(
+user_id: 7,
+listing_id: 2,
+rating: 5,
+title: "Convertibles are cool",
+body: "What can I say, I like a convertible.")
+Comment.create(
+user_id: 8,
+listing_id: 2,
+rating: 3,
+title: "Not for me...",
+body: "I was super nervous taking this car out once I realized I might not get my deposity back")
+
+Comment.create(
+user_id: 9,
+listing_id: 2,
+rating: 3,
+title: "Car was great",
+body: "I wouldn't want to deal with the owner again though.")
+
+Comment.create(
+user_id: 10,
+listing_id: 2,
+rating: 1,
+title: "I guess I like lamborghinis",
+body: "I didn't get that fizzy sensation in my gut like most other supercars give me.")

@@ -24,7 +24,7 @@ AirBmC allows users to login to an existing account, create a new one, or simply
 ### Ability to search for local cars
 Listings in the San Francisco metropolitan area can be found using the search form on the landing page. If the user desires, search results can be filtered by availability dates and distance from location. Once redirected to the search results page, the user is presented with two options to refine their results. The criteria previously entered persists in a form at the top of the results page and can be updated accordingly. Alternatively, users can use the map and find results contained in the current view.
 
-Since the map provides valuable feedback regariding the location of listings,
+Since the map provides valuable feedback regarding the location of listings, a feature was developed to fix the position of the map as the user scrolls through the listings.
 
 ### Ability to create new bookings
 From the search page, the user is redirected to the show page where more information about the car can be found. Three validations are performed before a reservation is committed to the database: a check to ensure the start date comes before the end date, a check to ensure the user has an account, and a final check to ensure there are no conflicts with existing reservations.
