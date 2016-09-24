@@ -55,9 +55,9 @@ class UserProfile extends React.Component {
 
     return(
       <div className={"user-profile " + showIfLoggedIn}>
-        <div className={"username " + showIfLoggedIn}>{"Welcome " + this.props.username + "!"}</div>
+        <div className={"username " + showIfLoggedIn}> <i className="material-icons">perm_identity</i>{"Welcome " + this.props.username + "!"}</div>
         <div className={"reservation-dropdown " + showIfLoggedIn}>
-          Your Reservations
+          <i className="material-icons">book</i> Your Reservations
         <ul className={"dropdown-content"}>
           {
             this.props.reservations.map((el)=>{
