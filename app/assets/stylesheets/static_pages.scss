@@ -35,24 +35,18 @@ body {
 	vertical-align: sub;
 }
 
-// form.session_form{
-// 	float:right;
-// 	display:inline-block;
-// 	width: 300px;
-// 	position: relative;
-// 	top: 50%;
-// 	transform: translateY(-50%);
-// }
-
 form.session_form{
 	float:right;
-	display:flex;
-	justify-content: space-between;
-	flex-direction: row;
 	width: 300px;
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
+}
+div.session_form{
+	display:flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+	margin-bottom:5px;
 }
 
 
@@ -60,7 +54,6 @@ form.session_form{
 
 .header {
 	background: #008AC9;
-	// background: white;
 	display: block;
 	width: 100%;
 	height: 75px;
@@ -68,7 +61,7 @@ form.session_form{
 	top:0px;
 	z-index:1;
 	box-sizing: border-box;
-	border-bottom: 2px solid #2B115A
+	border-bottom: 2px solid #2B115A;
 }
 
 
@@ -120,15 +113,14 @@ input.search_field {
   margin: 10px auto;
   width: 300px;
   height: 25px;
-  border-radius: 5px;
 	padding-left: 10px;
 	font-size:16px;
 	border: none;
 }
 
 input.input_field {
-	border-radius: 5px;
-	margin: 5px 5px;
+	border:none;
+	// margin: 5px 5px;
 	padding: 0px 5px;
 	height: 25px;
 	font-size: 12px
@@ -152,7 +144,6 @@ input.search_submit:hover {
 
 input.session_button {
 	width: 80px;
-	margin: 5px 10px;
 	font-size: 12px;
 	border:none;
 	background-color: #F11A22;
@@ -173,10 +164,7 @@ input.guest_button {
 	border: 0px;
 }
 
-input.logout_button {
-	width: 80px;
-	margin: 5px 10px;
-	font-size: 12px;
+input.float_right {
 	float:right;
 }
 

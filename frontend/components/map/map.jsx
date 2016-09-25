@@ -18,8 +18,16 @@ class Map extends React.Component {
     // this.map.setCenter(new google.maps.LatLng(37.7546193, -122.4276216));
     // this.setBound = true;
     this.placeMarkersFromProp();
+    google.maps.event.removeListener(this.idle);
+    if (!this.idle) {
+      this.drag = this.map.addListener("drag",this.addIdleListener.bind(this));
+    }
+  }
 
-    this.map.addListener("idle",this.updateMarkersByBounds);
+  addIdleListener(){
+    console.log("add idle listener");
+    google.maps.event.removeListener(this.drag);
+    this.idle = this.map.addListener("idle",this.updateMarkersByBounds);
   }
 
   updateMarkersByBounds() {
@@ -57,8 +65,8 @@ class Map extends React.Component {
     });
     if ( this.setBound && markerArray.length > 0 ) {
       this.map.fitBounds(bounds);
-      this.setBound = true
     }
+    this.setBound = true
   }
 
   purgeMarkersFromMap () {

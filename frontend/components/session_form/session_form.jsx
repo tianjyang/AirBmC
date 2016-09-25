@@ -46,18 +46,17 @@ class SessionForm extends React.Component {
 
     return(
         <form className={"session_form"}>
-          <span className={ showIfLoggedOut }>
-              <input className="input_field" type="text" name="user[username]" placeholder="Username"></input>
-              <input className="input_field" type="password" name="user[password]" placeholder="Password"></input>
-          </span>
+              <div className ="session_form">
+                <input className={"input_field " + showIfLoggedOut} type="text" name="user[username]" placeholder="Username"></input>
+                <input className={"input_field " + showIfLoggedOut} type="password" name="user[password]" placeholder="Password"></input>
+              </div>
           <SessionErrors errors={this.props.errors}/>
-          <span>
+          <div className ="session_form">
             <input type="submit" onClick={this.handleClick} value="Log In" className={"session_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Sign Up" className={"session_button " + showIfLoggedOut}></input>
             <input type="submit" onClick={this.handleClick} value="Guest" className={"session_button " + showIfLoggedOut}></input>
-            <input type="submit" onClick={this.handleClick} value="Log Out" className={"logout_button " + showIfLoggedIn}></input>
-        </span>
-
+          </div>
+          <input type="submit" onClick={this.handleClick} value="Log Out" className={"session_button float_right " + showIfLoggedIn}></input>
         </form>
     );
   }
