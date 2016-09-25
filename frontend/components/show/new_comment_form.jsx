@@ -20,7 +20,8 @@ class NewCommentForm extends React.Component {
   render() {
     return(
 
-      <form className="comment_form">
+      <form className="comment-form">
+        <h2>User Comments</h2>
         <label className="input_field title">Title
           <input className="input_field title" type="text" placeholder="Title"></input>
         </label>

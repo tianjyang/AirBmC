@@ -5,6 +5,8 @@ div.results_search {
 div.results_container {
   max-width: 900px;
   margin:0px auto;
+
+  background-color:white;
 }
 
 div.results_map {
@@ -48,6 +50,7 @@ div.listing-container {
 }
 
 .results_search_form {
+  background-color: white;
   display: flex;
   align-content:center;
 }

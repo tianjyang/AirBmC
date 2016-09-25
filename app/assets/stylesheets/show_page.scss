@@ -12,29 +12,33 @@ div.listing-title {
 	position:absolute;
 	bottom:10px;
 	left:10px;
-  background-color: #008AC9;
+  background-color: rgba(0,138,201,0.5);
   padding: 0px 5px;
+  font-weight: bold;
+
 }
 
 form.reservation-form {
 	display:inline-block;
 	width: 300px;
 	height: 200px;
-	background: lightgray;
+	background: #008AC9;
   vertical-align: top;
   padding: 10px;
   box-sizing: border-box;
 }
 
 .listing-information {
+  background-color: white;
   width:900px;
   margin: 0px auto;
   padding-top:10px;
 }
 
 .host-information {
-  width: 600px;
+  width: 580px;
   display:inline-block;
+  padding: 0px 10px;
 }
 
 .host-information h2 {
@@ -67,17 +71,24 @@ form.reservation-form textarea {
 }
 
 .vehicle-info {
-  width: 600px;
+  width: 900px;
   text-align:center;
+  background-color:white;
 }
 
 .comment-container {
-  padding: 10px 0px;
+  padding: 10px 10px;
   border: 1px solid lightgray;
+  background-color:white;
 }
 
-.comment_form {
-  background-color: lightgray;
+.comment-form {
+  background-color: #008AC9;
+  padding:0px 10px;
+}
+
+.comment-form  h2{
+  padding-top:10px;
 }
 
 input.input_field.body {
@@ -85,7 +96,7 @@ input.input_field.body {
 }
 
 table.vehicle-info {
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
 }
 
 .input_field {

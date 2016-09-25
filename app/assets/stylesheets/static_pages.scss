@@ -16,9 +16,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	padding: 0;
 	border: 0;
 	outline: 0;
-	// font-weight: inherit;
 	font-style: inherit;
-	// font-size: 100%;
 	color: #2B115A;
 	font-family: 'Roboto', sans-serif;
 	vertical-align: baseline;
@@ -27,13 +25,9 @@ ol, ul {
 	list-style: none;
 }
 
-// * {
-// 	border: 2px solid red;
-//
-// }
-
 body {
 	padding-top: 75px;
+	background-color:lightgrey;
 }
 
 
@@ -60,6 +54,8 @@ form.session_form{
 	position:fixed;
 	top:0px;
 	z-index:1;
+	box-sizing: border-box;
+	border-bottom: 2px solid #2B115A
 }
 
 
@@ -80,11 +76,12 @@ img.logo {
 div.landingPage {
 	min-width: 900px;
 	background-image: url("http://res.cloudinary.com/drf8botsi/image/upload/v1474757400/landscape-1444408765-road-trip_y45b2n.jpg");
-	background-size: auto 100%;
+	background-size: cover;
 	background-clip: border-box;
 	background-repeat: no-repeat;
 	background-position: center top;
-	height: 100vh;
+	height: calc(100vh - 75px);
+	min-height: 500px;
 }
 
 div.search_form_container {
@@ -206,7 +203,7 @@ span.title-container {
 	font-size: 48px;
 	display:block;
 	text-align: center;
-	padding-top: 35px;
+	padding-top: 100px;
 
 }
 span.subtitle-container {

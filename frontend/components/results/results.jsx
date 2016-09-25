@@ -91,7 +91,6 @@ class Results extends React.Component {
             </label>
             <input className="results_search_submit" type="submit" value="Find Your Car" onClick={this.handleClick}></input>
           </form>
-
         <div className="results_map">
           <ResultsMap/>
         </div>

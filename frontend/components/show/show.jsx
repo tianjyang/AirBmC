@@ -71,8 +71,6 @@ class Show extends React.Component {
             <td>{this.props.mpg}</td>
           </tr>
         </table>
-
-        <h2>User Comments</h2>
         <NewCommentForm createComment={this.props.newComment} listingId={this.props.params.id}/>
         {this.props.comments.map ((el) => {
           return(<CommentItem comment={el} key={el.id + "-comment"}/>);
