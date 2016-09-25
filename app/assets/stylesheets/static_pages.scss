@@ -35,14 +35,27 @@ body {
 	vertical-align: sub;
 }
 
+// form.session_form{
+// 	float:right;
+// 	display:inline-block;
+// 	width: 300px;
+// 	position: relative;
+// 	top: 50%;
+// 	transform: translateY(-50%);
+// }
+
 form.session_form{
 	float:right;
-	display:inline-block;
+	display:flex;
+	justify-content: space-between;
+	flex-direction: row;
 	width: 300px;
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
 }
+
+
 
 
 .header {
@@ -71,6 +84,7 @@ img.logo {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
+	cursor: pointer;
 }
 
 div.landingPage {
@@ -125,24 +139,28 @@ input.search_submit {
 	margin: 10px auto;
 	width: 200px;
 	height: 30px;
-	border-radius: 5px;
-	background-color: white;
+	background-color: #F11A22;
+	color:white;
 	border: none;
 	font-size: 16px;
 	-webkit-transition: background-color 0.25s, color 0.25s;
 }
 
 input.search_submit:hover {
-	background-color: #F11A22;
-	color:white;
+	background-color: darken(#F11A22, 10%);
 }
 
 input.session_button {
 	width: 80px;
 	margin: 5px 10px;
 	font-size: 12px;
-	border-radius:0px;
-
+	border:none;
+	background-color: #F11A22;
+	color:white;
+	-webkit-transition: background-color 0.25s, color 0.25s;
+}
+input.session_button:hover {
+	background-color: darken(#F11A22, 10%);
 }
 
 input.guest_button {

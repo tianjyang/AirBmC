@@ -24,8 +24,8 @@ div.listing-title {
 	height: 2px;
 	width: 150px;
   -webkit-transform: rotate(-45deg) translateX(-55px);
-	   -moz-transform: rotate(-45deg);
-	     -o-transform: rotate(-45deg);
+	   -moz-transform: rotate(-45deg) translateX(-55px);
+	     -o-transform: rotate(-45deg) translateX(-55px);
 }
 
 .trapezoid-small {
@@ -34,9 +34,9 @@ div.listing-title {
 	border-right: 10px solid transparent;
 	height: 0px;
 	width: 295px;
-  -webkit-transform:  translateX(-50px) translateY(15px) rotate(-45deg);
-	   -moz-transform: rotate(-45deg);
-	     -o-transform: rotate(-45deg);
+  -webkit-transform: translateX(-50px) translateY(15px) rotate(-45deg);
+	   -moz-transform: translateX(-50px) translateY(15px) rotate(-45deg);
+	     -o-transform: translateX(-50px) translateY(15px) rotate(-45deg);
 
 }
 
