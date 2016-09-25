@@ -38,6 +38,8 @@ class Show extends React.Component {
     return(
       <div className="show-content">
         <div style={currentPostingBG} className="listing-container">
+          <div className="trapezoid"></div>
+          <div className="trapezoid-small"></div>
           <div className="listing-title">{this.props.title}</div>
 
         </div>
