@@ -29,6 +29,7 @@ class NewCommentForm extends React.Component {
           <input className="input_field body" type="text" placeholder="Body"></input>
         </label>
         <label>Rating
+          <div className="input_field select-container">
           <select className="input_field dropdown">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -36,6 +37,7 @@ class NewCommentForm extends React.Component {
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
+          </div>
         </label>
         <span>
           <input type="submit" onClick={this.handleClick} value="Submit" className={"comment-submit"}></input>

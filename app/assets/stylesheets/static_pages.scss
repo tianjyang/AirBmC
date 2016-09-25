@@ -149,6 +149,7 @@ input.session_button {
 	background-color: #F11A22;
 	color:white;
 	-webkit-transition: background-color 0.25s, color 0.25s;
+	cursor:pointer;
 }
 input.session_button:hover {
 	background-color: darken(#F11A22, 10%);
