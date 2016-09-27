@@ -1,6 +1,7 @@
 import React from "react";
 import SessionFormContainer from "../session_form/session_form_container";
 import UserProfileContainer from "../user_profile/user_profile_container";
+import { hashHistory } from 'react-router';
 
 class Header extends React.Component {
   handleClick(e) {

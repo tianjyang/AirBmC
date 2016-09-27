@@ -30,6 +30,7 @@ class Api::ListingsController < ApplicationController
     reply[:description] = current_listing.description
     reply[:price_per_day] = current_listing.price_per_day
     reply[:image_url] = current_listing.image_url
+    reply[:thumb_url] = current_listing.thumb_url
     reply[:lat] = current_listing.lat
     reply[:long] = current_listing.long
     reply[:mpg] = current_listing.mpg

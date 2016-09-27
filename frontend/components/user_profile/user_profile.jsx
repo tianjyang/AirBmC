@@ -1,11 +1,12 @@
 import React from 'react';
 import { Router, withRouter, hashHistory } from 'react-router';
+import CurrentReservationModal from '../current_reservation_modal/current_reservation_modal';
 
 
 class UserProfile extends React.Component {
   constructor (props) {
     super(props);
-    // this.handleClick = this.handleClicks.bind(this)
+    this.currentReservation = {};
   }
 
   handleClick (object,e) {
@@ -13,9 +14,14 @@ class UserProfile extends React.Component {
     this.props.deleteReservation(object.id);
   }
 
-  redirectToShowPage(object,e) {
+  showModal(object,e) {
+    this.props.requestListing(object.id);
     e.preventDefault();
-    hashHistory.push(`/show/${object.listing_id}`);
+    this.currentReservation = object;
+    this.forceUpdate();
+    console.log(this.currentReservation);
+    $("#reservation-modal").fadeIn();
+
   }
 
   componentWillMount() {
@@ -64,7 +70,7 @@ class UserProfile extends React.Component {
               if (el.id) {
                 return(
                   <li className="dropdown-content" key={el.id + "reservation"}>
-                    <a href="#" onClick={this.redirectToShowPage.bind(this,el)}> {stringShortener(el.description,15)} on {datePrettifier(el.start_date)} </a>
+                    <a href="#" onClick={this.showModal.bind(this,el)}> {stringShortener(el.description,15)} on {datePrettifier(el.start_date)} </a>
                     <a href="#" className="cancel-link" onClick={this.handleClick.bind(this,el)}>Cancel</a>
                   </li>
                 )
@@ -76,9 +82,10 @@ class UserProfile extends React.Component {
           }
         </ul>
           </div>
-
-          
-
+          <CurrentReservationModal
+            currentReservation={this.currentReservation}
+            currentListing={this.props.currentListing}
+             hashHistory = {hashHistory}/>
       </div>
 
     );

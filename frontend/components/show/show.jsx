@@ -78,7 +78,7 @@ class Show extends React.Component {
           return(<CommentItem comment={el} key={el.id + "-comment"}/>);
         })}
 
-        <div id="reservation-modal">
+        <div id="new-reservation-modal">
           <p>Your rental request has been sent to:</p>
           <h2>{this.props.hostname}</h2>
         </div>
