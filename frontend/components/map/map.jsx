@@ -25,7 +25,6 @@ class Map extends React.Component {
   }
 
   addIdleListener(){
-    console.log("add idle listener");
     google.maps.event.removeListener(this.drag);
     this.idle = this.map.addListener("idle",this.updateMarkersByBounds);
   }
