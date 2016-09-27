@@ -19,7 +19,6 @@ class CurrentSessionModal extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     let currentRes = this.props.currentReservation || {};
     let thumbUrl = this.props.currentThumb || ""
 

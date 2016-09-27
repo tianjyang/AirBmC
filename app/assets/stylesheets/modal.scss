@@ -29,3 +29,9 @@
 .listing-thumbnail {
   cursor: pointer;
 }
+
+#new-reservation-modal {
+  position:fixed;
+  z-index: 5;
+  display:none;
+}

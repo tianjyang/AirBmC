@@ -18,12 +18,8 @@ class UserProfile extends React.Component {
     e.preventDefault();
 
     const successCallback = (reply) => {
-      // console.log("reply is ");
-      // console.log(reply);
       this.thumbUrl = reply.thumb_url;
       this.forceUpdate();
-      // console.log("this thumburl is ");
-      // console.log(this.thumbUrl);
     }
 
 

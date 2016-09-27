@@ -80,8 +80,12 @@ class Show extends React.Component {
         })}
 
         <div id="new-reservation-modal">
-          <p>Your rental request has been sent to:</p>
-          <h2>{this.props.hostname}</h2>
+          <div className={"modal-background"}>
+            <div className={"modal-content"}>
+              <p>Your rental request has been sent to:</p>
+              <h2>{this.props.hostname}</h2>
+            </div>
+          </div>
         </div>
       </div>
     );
