@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, withRouter } from 'react-router';
+import { Router, withRouter, hashHistory } from 'react-router';
 import NewReservationForm from '../new_reservation_form/new_reservation_form_container';
 import CommentItem from './comment_item';
 import NewCommentForm from './new_comment_form';
@@ -8,6 +8,7 @@ import NewCommentForm from './new_comment_form';
 class Show extends React.Component {
   constructor () {
     super();
+    this.prevHash = hashHistory;
   }
 
   componentWillMount() {

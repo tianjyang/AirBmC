@@ -10,11 +10,6 @@ class CurrentSessionModal extends React.Component {
     this.props.hashHistory.push(`/show/${object}`);
     this.hideModal()
   }
-
-  componentWillReceiveProps(){
-    console.log("will receive props");
-  }
-
   hideModal(){
     $("#reservation-modal").fadeOut();
   }
@@ -25,9 +20,8 @@ class CurrentSessionModal extends React.Component {
 
   render() {
     console.log(this.props);
-
     let currentRes = this.props.currentReservation || {};
-    let currentLis = this.props.currentListing || {}
+    let thumbUrl = this.props.currentThumb || ""
 
     return(
       <div id="reservation-modal">
@@ -39,8 +33,8 @@ class CurrentSessionModal extends React.Component {
             <p>From: {this.datePrettifier(currentRes.start_date)}</p>
             <p>To: {this.datePrettifier(currentRes.end_date)}</p>
             <h2>Listing Information</h2>
-            <img src={currentLis.thumb_url} className="listing-thumbnail"
-              onClick={this.redirectToShowPage.bind(this,currentLis.id)}/>
+            <img src={thumbUrl} className="listing-thumbnail"
+              onClick={this.redirectToShowPage.bind(this,currentRes.listing_id)}/>
           </div>
         </div>
 

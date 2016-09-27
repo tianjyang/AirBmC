@@ -15,11 +15,24 @@ class UserProfile extends React.Component {
   }
 
   showModal(object,e) {
-    this.props.requestListing(object.id);
     e.preventDefault();
+
+    const successCallback = (reply) => {
+      // console.log("reply is ");
+      // console.log(reply);
+      this.thumbUrl = reply.thumb_url;
+      this.forceUpdate();
+      // console.log("this thumburl is ");
+      // console.log(this.thumbUrl);
+    }
+
+
+    $.ajax({
+      method: "GET",
+      url: `api/listings/${object.listing_id}`,
+      success: successCallback
+    });
     this.currentReservation = object;
-    this.forceUpdate();
-    console.log(this.currentReservation);
     $("#reservation-modal").fadeIn();
 
   }
@@ -62,29 +75,29 @@ class UserProfile extends React.Component {
     return(
       <div className={"user-profile " + showIfLoggedIn}>
         <div className={"username " + showIfLoggedIn}> <i className="material-icons">perm_identity</i>{"Welcome " + this.props.username + "!"}</div>
-        <div className={"reservation-dropdown " + showIfLoggedIn}>
-          <i className="material-icons">book</i> Your Reservations
-        <ul className={"dropdown-content"}>
-          {
-            this.props.reservations.map((el)=>{
-              if (el.id) {
-                return(
-                  <li className="dropdown-content" key={el.id + "reservation"}>
-                    <a href="#" onClick={this.showModal.bind(this,el)}> {stringShortener(el.description,15)} on {datePrettifier(el.start_date)} </a>
-                    <a href="#" className="cancel-link" onClick={this.handleClick.bind(this,el)}>Cancel</a>
-                  </li>
-                )
-              } else {
-                return (<li className="dropdown-content" key={el.id + "reservation"}>{el.description}</li>);
-              }
+          <div className={"reservation-dropdown " + showIfLoggedIn}>
+            <i className="material-icons">book</i> Your Reservations
+            <ul className={"dropdown-content"}>
+              {
+                this.props.reservations.map((el)=>{
+                  if (el.id) {
+                    return(
+                      <li className="dropdown-content" key={el.id + "reservation"}>
+                        <a href="#" onClick={this.showModal.bind(this,el)}> {stringShortener(el.description,15)} on {datePrettifier(el.start_date)} </a>
+                        <a href="#" className="cancel-link" onClick={this.handleClick.bind(this,el)}>Cancel</a>
+                      </li>
+                    )
+                  } else {
+                    return (<li className="dropdown-content" key={el.id + "reservation"}>{el.description}</li>);
+                  }
 
-            })
-          }
-        </ul>
-          </div>
+                })
+              }
+            </ul>
+            </div>
           <CurrentReservationModal
             currentReservation={this.currentReservation}
-            currentListing={this.props.currentListing}
+            currentThumb={this.thumbUrl}
              hashHistory = {hashHistory}/>
       </div>
 
