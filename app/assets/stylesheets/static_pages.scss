@@ -187,12 +187,7 @@ div.user-profile {
 	position: absolute;
 }
 
-div.reservation-dropdown {
-	position: relative;
-	height:inherit;
-	line-height: 75px;
-	display: inline-block;
-}
+
 
 div.username {
 	display: inline-block;
@@ -221,19 +216,24 @@ span.subtitle-container {
 }
 
 ul.dropdown-content {
-	display:block;
 	position: absolute;
-	width: 400px;
 	background-color: white;
-	border: 1px solid #2B115A;
-	border-top: none;
-	-webkit-transition: opacity 0.25s;
-	opacity:0;
+	width: 0px;
+	overflow:hidden;
+	-webkit-transition-timing-function: ease-in;
+	-webkit-transition: width 0.5s, border 0.25s;
 
 }
 
 a.cancel-link {
 	float:right;
+}
+
+div.reservation-dropdown {
+	position: relative;
+	height:inherit;
+	line-height: 75px;
+	display: inline-block;
 }
 
 li.dropdown-content {
@@ -244,13 +244,13 @@ li.dropdown-content {
 	width: 400px;
 	background-color: white;
 	box-sizing:border-box;
-	border-top:1px solid #2B115A;
+	border:1px solid #2B115A;
 
 }
 
 .reservation-dropdown:hover .dropdown-content {
-	// display:block;
-	opacity: 1;
+	display:block;
+	width:400px;
 }
 
 .errors-message{
@@ -271,10 +271,3 @@ li.dropdown-content {
 	display: block;
 	margin: 0px auto;
 }
-
-// input::-webkit-calendar-picker-indicator{
-//     display: none;
-// }
-// input[type="date"]::-webkit-input-placeholder{
-//     visibility: hidden !important;
-// }
