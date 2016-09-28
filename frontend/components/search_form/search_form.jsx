@@ -12,6 +12,8 @@ class SearchForm extends React.Component {
 
   handleClick (e) {
     e.preventDefault();
+    const startDate = e.target.form[2].value;
+    const endDate = e.target.form[3].value
     // const criteria = e.currentTarget.form[1].value;
     let success = (data) => {
           this.props.router.push("/results");
@@ -19,18 +21,20 @@ class SearchForm extends React.Component {
       let searchParams = {
         location: location,
         distance: this.props.searchParams.distance,
-        start_date: this.props.searchParams.start_date,
-        end_date: this.props.searchParams.end_date
+        start_date: startDate,
+        end_date: endDate,
       };
       this.props.onSearchClick(searchParams);
     };
     let query = {};
     query.address = this.props.searchParams.location || "San Francisco";
     GoogleGeocoding(query,success);
+    this.handleChange(e);
 
   }
 
   handleChange (e) {
+    console.log(e);
     e.preventDefault();
     let searchParams = {
       location: e.currentTarget.form[0].value,
@@ -38,12 +42,22 @@ class SearchForm extends React.Component {
       start_date: e.currentTarget.form[2].value,
       end_date: e.currentTarget.form[3].value
     };
+    console.log(searchParams);
     this.props.updateSearchParams(searchParams);
   }
 
   changeTextToDate (e) {
     e.preventDefault();
     e.currentTarget.setAttribute('type','date');
+  }
+
+  componentDidMount(){
+    $("#landing_start_date").datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+    $("#landing_end_date").datepicker({
+      dateFormat: "yy-mm-dd"
+    });
   }
 
   render() {
@@ -76,14 +90,14 @@ class SearchForm extends React.Component {
               <input
                 className="search_field date"
                 type="text"
-                onFocus={this.changeTextToDate}
+                id="landing_start_date"
                 onChange={this.handleChange}
                 placeholder="Start date"/>
 
               <input
                 className="search_field date"
                 type="text"
-                onFocus={this.changeTextToDate}
+                id="landing_end_date"
                 onChange={this.handleChange}
                 placeholder="End date"/>
               </div>

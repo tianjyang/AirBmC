@@ -7,6 +7,7 @@
       window.currentUser = '<%= (current_user.username).html_safe %>'
     <% end %>
   </script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.env.google_maps_api_key! %>"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:200,400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">

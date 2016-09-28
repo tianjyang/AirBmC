@@ -76,7 +76,7 @@ class Results extends React.Component {
             <label className="results_search_field">Start Date
               <input
                 className="results_search_field date"
-                type="date"
+                type="text"
                 onChange={this.handleChange}
                 placeholder="Start Date"
                 defaultValue={this.props.searchParams.start_date}/>
@@ -84,7 +84,7 @@ class Results extends React.Component {
             <label className="results_search_field">End Date
               <input
                 className="results_search_field date"
-                type="date"
+                type="text"
                 onChange={this.handleChange}
                 placeholder="end date"
                 defaultValue={this.props.searchParams.end_date}/>
