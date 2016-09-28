@@ -11,7 +11,7 @@ class CurrentSessionModal extends React.Component {
     this.hideModal()
   }
   hideModal(){
-    $("#reservation-modal").fadeOut();
+    $("#reservation-modal").fadeOut(200);
   }
 
   preventPropagation(e){
@@ -20,7 +20,20 @@ class CurrentSessionModal extends React.Component {
 
   render() {
     let currentRes = this.props.currentReservation || {};
-    let thumbUrl = this.props.currentThumb || ""
+    let thumbUrl = this.props.currentThumb || "";
+    let confirmColor = "";
+    let confirmText = "";
+    let confirmText2 = "";
+    if (currentRes.confirm) {
+      confirmColor = "confirmed";
+      confirmText = "Confirmed";
+      confirmText2 = "Your trip is go!";
+    } else {
+      confirmColor = "pending";
+      confirmText = "Pending";
+      confirmText2 = "The owner is still reviewing your trip.";
+    }
+
 
     return(
       <div id="reservation-modal">
@@ -34,6 +47,9 @@ class CurrentSessionModal extends React.Component {
             <h2>Listing Information</h2>
             <img src={thumbUrl} className="listing-thumbnail"
               onClick={this.redirectToShowPage.bind(this,currentRes.listing_id)}/>
+            <h2>Reservation Status</h2>
+            <p className={confirmColor}> {confirmText} </p>
+            <p>{confirmText2}</p>
           </div>
         </div>
 

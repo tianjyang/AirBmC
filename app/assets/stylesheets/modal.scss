@@ -2,6 +2,7 @@
   position:fixed;
   z-index: 5;
   display:none;
+  // display:block;
 }
 
 .modal-background {
@@ -17,17 +18,31 @@
   background-color:white;
   display: block;
     width: 400px;
-    height: 300px;
+    height: 400px;
     margin: 0px auto;
     position: relative;
     top: 50%;
     -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
     padding: 10px;
     text-align: center;
 }
 
 .listing-thumbnail {
   cursor: pointer;
+}
+
+.pending {
+  font-size:24px;
+  color: rgb(105,20,5);
+  background-color: rgb(232,44,12);
+}
+
+.confirmed {
+  font-size:24px;
+  color: rgb(28,105,39);
+  background-color: rgb(62,232,86);
 }
 
 #new-reservation-modal {

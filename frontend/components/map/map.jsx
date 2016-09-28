@@ -15,8 +15,6 @@ class Map extends React.Component {
       zoom: 11,
       center: {lat: 37.7546193, lng: -122.4276216}
     });
-    // this.map.setCenter(new google.maps.LatLng(37.7546193, -122.4276216));
-    // this.setBound = true;
     this.placeMarkersFromProp();
     google.maps.event.removeListener(this.idle);
     if (!this.idle) {
@@ -44,9 +42,7 @@ class Map extends React.Component {
   }
 
   placeMarkersFromProp () {
-    // debugger
     this.purgeMarkersFromMap();
-    // debugger
     let markerArray = objToArray(this.props.listings);
     let newMarker;
     let latlong = {};
@@ -69,7 +65,6 @@ class Map extends React.Component {
   }
 
   purgeMarkersFromMap () {
-    // debugger
     this.markers.forEach((el)=>{
       el.setMap(null);
     });

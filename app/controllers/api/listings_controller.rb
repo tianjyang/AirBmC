@@ -1,6 +1,5 @@
 class Api::ListingsController < ApplicationController
   def index
-    # debugger
     location = params[:location]
     lat = location[:lat].to_f || 37.7576793
     long = location[:lng].to_f || -122.5076393

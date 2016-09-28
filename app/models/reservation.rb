@@ -15,7 +15,7 @@ class Reservation < ActiveRecord::Base
   def no_conflicts
     all_reservations = Reservation.where("listing_id = ?",self.listing_id)
     conflict_check = all_reservations.any? do |el|
-      self.reservation_conflict?(el)
+      self.reservation_conflict?(el) && el.id != self.id
     end
     if conflict_check
       errors[:reservations].push("conflict with existing reservation!")

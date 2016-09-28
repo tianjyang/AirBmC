@@ -29,7 +29,7 @@ class UserProfile extends React.Component {
       success: successCallback
     });
     this.currentReservation = object;
-    $("#reservation-modal").fadeIn();
+    $("#reservation-modal").fadeIn(200);
 
   }
 

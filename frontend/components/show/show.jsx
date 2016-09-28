@@ -82,8 +82,16 @@ class Show extends React.Component {
         <div id="new-reservation-modal">
           <div className={"modal-background"}>
             <div className={"modal-content"}>
-              <p>Your rental request has been sent to:</p>
-              <h2>{this.props.hostname}</h2>
+              <h2>Your rental request has been sent to:</h2>
+              <p>{this.props.hostname}</p>
+              <p>Your request is being reviewed by the owner</p>
+              <p> </p>
+              <p style={{paddingBottom:'20px'}}>In the meantime, check out these destinations!</p>
+              <h2>11 California Road Trip Ideas</h2>
+              <a href="https://www.thrillist.com/lifestyle/san-francisco/11-california-road-trip-ideas-on-a-budget">
+                <img src="https://assets3.thrillist.com/v1/image/1562644/size/tl-horizontal_main.jpg"
+                alt="www.thrillist.com" style={{width:'300px'}}/>
+              </a>
             </div>
           </div>
         </div>
