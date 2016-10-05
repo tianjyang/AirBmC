@@ -232,18 +232,17 @@ a.cancel-link {
 }
 
 div.reservation-dropdown {
-	position: relative;
+	position: absolute;
 	height:inherit;
 	line-height: 75px;
 	display: inline-block;
+	right:0px;
 }
 
 li.dropdown-content {
 	overflow:hidden;
-	width: 0px;
 	line-height: 10px;
 	padding: 10px 10px;
-	width: 400px;
 	background-color: white;
 	box-sizing:border-box;
 	border:1px solid #2B115A;
@@ -252,7 +251,7 @@ li.dropdown-content {
 
 .reservation-dropdown:hover .dropdown-content {
 	display:block;
-	width:400px;
+	width:150px;
 }
 
 .errors-message{

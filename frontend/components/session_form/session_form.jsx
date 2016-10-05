@@ -5,16 +5,20 @@ import SessionErrors from '../errors/session_errors';
 class SessionForm extends React.Component {
   constructor () {
     super();
-    this.handleClick = this.handleClick.bind(this);
+    this.makeNewSession = this.makeNewSession.bind(this);
+    this.destroySession = this.destroySession.bind(this);
   }
 
-  handleClick (e) {
+  makeNewSession (e) {
     e.preventDefault();
     let creds = {};
-    creds.username = e.currentTarget.form[0].value;
-    creds.password = e.currentTarget.form[1].value;
-    e.currentTarget.form[0].value = "";
-    e.currentTarget.form[1].value = "";
+    if (e.currentTarget.value !== "Log Out") {
+      creds.username = e.currentTarget.form[0].value;
+      creds.password = e.currentTarget.form[1].value;
+      e.currentTarget.form[0].value = "";
+      e.currentTarget.form[1].value = "";
+    }
+
     switch (e.currentTarget.value) {
       case "Log In":
         this.props.onLoginClick(creds);
@@ -27,37 +31,70 @@ class SessionForm extends React.Component {
         creds.password = "password";
         this.props.onLoginClick(creds);
         break;
-      case "Log Out":
-        this.props.onLogoutClick(creds);
-        break;
-      default:
     }
+  }
+
+  destroySession () {
+    this.props.onLogoutClick();
+  }
+
+  showModal(){
+    $("#session-modal").fadeIn(200);
+  }
+
+  hideModal(){
+    $("#session-modal").fadeOut(200);
+  }
+  preventPropagation(e){
+    e.stopPropagation();
   }
 
   render() {
     let showIfLoggedOut, showIfLoggedIn;
     if ( this.props.loggedIn ){
-      showIfLoggedOut = "hidden";
+      showIfLoggedOut = "none";
       showIfLoggedIn = "";
     } else {
       showIfLoggedOut = "";
-      showIfLoggedIn = "hidden";
+      showIfLoggedIn = "none";
     }
 
     return(
-        <form className={"session_form"}>
-              <div className ="session_form">
-                <input className={"input_field " + showIfLoggedOut} type="text" name="user[username]" placeholder="Username"></input>
-                <input className={"input_field " + showIfLoggedOut} type="password" name="user[password]" placeholder="Password"></input>
-              </div>
-          <SessionErrors errors={this.props.errors}/>
-          <div className ="session_form">
-            <input type="submit" onClick={this.handleClick} value="Log In" className={"session_button " + showIfLoggedOut}></input>
-            <input type="submit" onClick={this.handleClick} value="Sign Up" className={"session_button " + showIfLoggedOut}></input>
-            <input type="submit" onClick={this.handleClick} value="Guest" className={"session_button " + showIfLoggedOut}></input>
+      <div className="reservation-dropdown">
+        <i className="material-icons">perm_identity</i> Your Profile
+        <ul className={"dropdown-content"}>
+          <li className={"dropdown-content "}
+            style={{"display":showIfLoggedOut}}>
+            <a href="#" onClick={this.showModal}>Login</a>
+          </li>
+          <li className={"dropdown-content "}
+            style={{"display":showIfLoggedIn}}>
+            <a href="#">Reservations</a>
+          </li>
+          <li className={"dropdown-content"}
+            style={{"display":showIfLoggedIn}}
+            value = "Log Out"
+            onClick={this.destroySession}>
+            <a href="#">Logout</a>
+          </li>
+        </ul>
+
+        <div id="session-modal">
+          <div className={"modal-background"} onClick={this.hideModal}>
+            <div className={"modal-content"} onClick={this.preventPropagation.bind(this)}>
+              <form className={"session_form"}>
+                <input className={"input_field"} type="text" name="user[username]" placeholder="Username"></input>
+                <input className={"input_field"} type="password" name="user[password]" placeholder="Password"></input>
+                <input type="submit" onClick={this.makeNewSession} value="Log In" className={"session_button "}></input>
+                <input type="submit" onClick={this.makeNewSession} value="Sign Up" className={"session_button "}></input>
+                <input type="submit" onClick={this.makeNewSession} value="Guest" className={"session_button "}></input>
+                <SessionErrors errors={this.props.errors}/>
+              </form>
+            </div>
           </div>
-          <input type="submit" onClick={this.handleClick} value="Log Out" className={"session_button float_right " + showIfLoggedIn}></input>
-        </form>
+
+        </div>
+      </div>
     );
   }
 

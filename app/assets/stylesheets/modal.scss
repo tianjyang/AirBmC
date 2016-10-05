@@ -5,6 +5,13 @@
   // display:block;
 }
 
+#session-modal {
+  position:fixed;
+  z-index: 5;
+  display:none;
+  // display:block;
+}
+
 .modal-background {
   position:fixed;
   width:100vw;
