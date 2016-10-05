@@ -9,6 +9,17 @@ class SessionForm extends React.Component {
     this.destroySession = this.destroySession.bind(this);
   }
 
+  componentWillMount() {
+    if (window.currentUser) {
+      let userInfo = {
+        username: window.currentUser,
+        logged_in: true,
+      };
+      this.props.setInitialState(userInfo);
+      this.props.requestReservations();
+    }
+  }
+
   makeNewSession (e) {
     e.preventDefault();
     let creds = {};
