@@ -57,7 +57,7 @@ div.listing-container {
   background-color: white;
   display: flex;
   align-items: center;
-  align-content: space-between;
+  justify-content: space-between;
 }
 
 form.results_search_form {
@@ -65,21 +65,20 @@ form.results_search_form {
   box-sizing: border-box;
   border-bottom: 2px solid #2B115A;
   vertical-align: middle;
+  height: 75px;
 }
 
 input.results_search_field {
-	display:inline-block;
-  margin: 5px 0px;
+	display:block;
+  margin: 10px auto;
   border-radius: 0px;
-  font-size: 12px;
+  font-size: 16px;
   min-width: 100px;
+  height:25px;
+  padding-left: 10px;
+  border:none;
 }
 
-label.results_search_field {
-  text-align: center;
-  padding-top: 5px;
-  float:left;
-}
 
 input.results_search_submit {
 	font-size: 12px;
