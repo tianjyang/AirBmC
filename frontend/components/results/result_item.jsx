@@ -18,7 +18,21 @@ class ResultItem extends React.Component {
     return(
       <div className="displayListing" onClick={this.handleClick}>
         <img src={this.props.listing.thumb_url} className="listing-thumbnail"/>
-        {(this.props.listing.title)}
+        <h2>{(this.props.listing.title)}</h2>
+        <table>
+          <tr>
+            <td>Make and Model: </td>
+            <td>{this.props.listing.make_model}</td>
+          </tr>
+          <tr>
+            <td>Number of Seats:</td>
+            <td>{this.props.listing.num_seats}</td>
+          </tr>
+          <tr>
+            <td>Price Per Day:</td>
+            <td>{this.props.listing.price_per_day}</td>
+          </tr>
+        </table>
       </div>
     );
   }

@@ -15,8 +15,8 @@ class Results extends React.Component {
   componentDidMount () {
     $(window).scroll( () => {
       let pos = $("body").scrollTop();
-      if ( pos >= 75 ) {
-        $(".results_map").css( {"position":"fixed","top":"75px"});
+      if ( pos >= 55 ) {
+        $(".results_map").css( {"position":"relative","top":pos-57});
       } else {
         $(".results_map").css({"position":"relative","top":""});
       }
@@ -91,17 +91,22 @@ class Results extends React.Component {
             </label>
             <input className="results_search_submit" type="submit" value="Find Your Car" onClick={this.handleClick}></input>
           </form>
-        <div className="results_map">
-          <ResultsMap/>
-        </div>
-        <div className="results_listings">
-        {listingsArray.map((element) => {
-          return(<ResultItem
-            listing={element}
-            key={element.id + "-listing"}/>);
-        })
-        }
-        </div>
+
+          <div className="results_listings">
+          {listingsArray.map((element) => {
+            return(<ResultItem
+              listing={element}
+              key={element.id + "-listing"}/>);
+          })
+          }
+          </div>
+
+          <div className="results_map">
+            <ResultsMap/>
+          </div>
+
+
+
       </div>
     );
   }

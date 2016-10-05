@@ -12,30 +12,34 @@ div.results_container {
 div.results_map {
 position: relative;
 // position:fixed;
-width: 450px;
-float: left;
+width: 40%;
+float: right;
 }
 
 div.results_listings {
-  width:50%;
-  float:right;
+  width:60%;
+  float:left;
 }
 
 div.displayListing {
 	display: inline-block;
-	width: 215px;
-	height: 200px;
-	background-color: #008AC9;
+	width: calc(100% - 20px);
+	height: 150px;
+	border-bottom: 1px solid #008AC9;
 	margin-left: 10px;
   margin-bottom: 10px;
 	box-sizing: border-box;
 	padding: 10px;
-  vertical-align: bottom;
-  -webkit-transition: background-color 0.5s, color 0.5s;
+  vertical-align:text-top;
+  -webkit-transition: background-color 0.2s, color 0.2s;
+}
+
+.displayListing h2{
+  display:inline-block;
 }
 
 div.displayListing:hover {
-  background-color: #2B115A;
+  background-color: #008AC9;
   color: white;
 
 }
