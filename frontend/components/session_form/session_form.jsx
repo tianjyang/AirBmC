@@ -92,13 +92,16 @@ class SessionForm extends React.Component {
 
         <div id="session-modal">
           <div className={"modal-background"} onClick={this.hideModal}>
-            <div className={"modal-content"} onClick={this.preventPropagation.bind(this)}>
+            <div className={"modal-content-fit"} onClick={this.preventPropagation.bind(this)}>
               <form className={"session_form"}>
-                <input className={"input_field"} type="text" name="user[username]" placeholder="Username"></input>
-                <input className={"input_field"} type="password" name="user[password]" placeholder="Password"></input>
-                <input type="submit" onClick={this.makeNewSession} value="Log In" className={"session_button "}></input>
-                <input type="submit" onClick={this.makeNewSession} value="Sign Up" className={"session_button "}></input>
-                <input type="submit" onClick={this.makeNewSession} value="Guest" className={"session_button "}></input>
+                <input className={"session_field"} type="text" name="user[username]" placeholder="Username"></input>
+                <input className={"session_field"} type="password" name="user[password]" placeholder="Password"></input>
+                <div className="button_container">
+                  <input type="submit" onClick={this.makeNewSession} value="Log In" className={"session_button "}></input>
+                  <input type="submit" onClick={this.makeNewSession} value="Sign Up" className={"session_button "}></input>
+                  <input type="submit" onClick={this.makeNewSession} value="Guest" className={"session_button "}></input>
+                </div>
+
                 <SessionErrors errors={this.props.errors}/>
               </form>
             </div>

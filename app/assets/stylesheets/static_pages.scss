@@ -38,21 +38,25 @@ body {
 }
 
 form.session_form{
-	float:right;
+	margin:0px auto;
+	display:flex;
+	flex-direction:column;
+	align-items: center;
 	width: 300px;
 	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
 }
-div.session_form{
+
+div.button_container {
 	display:flex;
-	justify-content: space-between;
-	flex-flow: row wrap;
-	margin-bottom:5px;
+	justify-content: space-around;
 }
 
-
-
+// div.session_form{
+// 	display:flex;
+// 	justify-content: space-between;
+// 	flex-flow: row wrap;
+// 	margin-bottom:5px;
+// }
 
 .header {
 	background: #008AC9;
@@ -157,6 +161,17 @@ input.session_button:hover {
 	background-color: darken(#F11A22, 10%);
 }
 
+
+
+input.session_field {
+	display: block;
+  margin: 10px auto;
+  width: 250px;
+  height: 25px;
+	padding-left: 10px;
+	font-size:16px;
+}
+
 input.guest_button {
 	width: 80px;
 	margin: 5px 10px;
@@ -259,6 +274,8 @@ li.dropdown-content {
 	color: white;
 	font-size:12px;
 	text-align: center;
+	line-height: 12px;
+	margin: 5px;
 }
 
 .search_field.date {
