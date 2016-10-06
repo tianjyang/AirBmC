@@ -6,6 +6,9 @@ const SessionMiddleware = (store) => (next) => (action) => {
   const success = (reply) => {
     store.dispatch(updateUser(reply));
     store.dispatch(updateSessionErrors({}));
+
+    $("#session-modal").fadeOut(200);
+
     if (action.type !== SESSION_CONSTANTS.DESTROY_SESSION) {
       getReservations(addReservationsToState);
     }
