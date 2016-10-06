@@ -10,6 +10,7 @@ class Results extends React.Component {
     super();
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.searchTimer = null;
   }
 
   componentDidMount () {
@@ -28,13 +29,16 @@ class Results extends React.Component {
   }
 
   handleClick (e) {
-    e.preventDefault();
-    const criteria = e.currentTarget.form[1].value;
+    console.log("handling click!");
+    console.log(e);
+    const criteria = e.target.form[1].value;
     let success = (data) => {
       let location = data.results[0].geometry.location;
       let searchParams = {
         location: location,
-        criteria: this.props.searchParams.distance
+        distance: this.props.searchParams.distance,
+        start_date: e.target.form[2].value,
+        end_date: e.target.form[3].value
       };
       this.props.onSearchClick(searchParams);
     };
@@ -46,6 +50,7 @@ class Results extends React.Component {
 
   handleChange (e) {
     e.preventDefault();
+    e.persist();
     let searchParams = {
       location: e.currentTarget.form[0].value,
       distance: e.currentTarget.form[1].value,
@@ -53,6 +58,18 @@ class Results extends React.Component {
       end_date: e.currentTarget.form[3].value,
     };
     this.props.updateSearchParams(searchParams);
+    if (this.searchTimer) {
+      window.clearTimeout(this.searchTimer);
+      this.searchTimer = window.setTimeout(()=>{
+        this.handleClick(e);
+        this.searchTimer = null;
+        },1000);
+    } else {
+      this.searchTimer = window.setTimeout(()=>{
+        this.handleClick(e);
+        this.searchTimer = null;
+      },1000);
+    }
   }
 
   render() {
