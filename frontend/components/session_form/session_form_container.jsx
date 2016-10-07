@@ -6,7 +6,8 @@ import { requestReservations, destroyReservation } from '../../actions/session_a
 const mapStateToProps = (state) => ({
   currentUser: state.session.username,
   loggedIn: state.session.logged_in,
-  errors: state.sessionErrors
+  errors: state.sessionErrors,
+  reservations: state.reservations,
 });
 
 const mapDispatchToProps = (dispatch) => ({

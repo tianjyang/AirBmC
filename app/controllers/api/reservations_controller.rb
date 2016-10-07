@@ -16,6 +16,7 @@ class Api::ReservationsController < ApplicationController
     new_reservation.end_date = params[:end_date]
     new_reservation.user_id = current_user.id
     new_reservation.description = params[:description]
+    new_reservation.thumb_url = Listing.find(params[:listing_id]).thumb_url
     if new_reservation.save
       render json: {result: "confirmed booking!"}
     else

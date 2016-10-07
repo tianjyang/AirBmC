@@ -1,6 +1,6 @@
 import React from 'react';
 import SessionErrors from '../errors/session_errors';
-
+import ReservationModal from '../current_reservation_modal/current_reservation_modal';
 
 class SessionForm extends React.Component {
   constructor () {
@@ -64,6 +64,7 @@ class SessionForm extends React.Component {
 
   showReservations(e){
     e.preventDefault();
+    $("#reservation-modal").fadeIn(200);
   }
 
   render() {
@@ -100,6 +101,7 @@ class SessionForm extends React.Component {
           <div className={"modal-background"} onClick={this.hideModal}>
             <div className={"modal-content-fit"} onClick={this.preventPropagation.bind(this)}>
               <img className="logo" style={{"cursor":"default"}} src={"http://res.cloudinary.com/drf8botsi/image/upload/v1472588478/logo.png"}/>
+              <p style={{"lineHeight":"12px"}}>Login or Sign Up Here!</p>
               <form className={"session_form"}>
                 <input className={"session_field"} type="text" name="user[username]" placeholder="Username"></input>
                 <input className={"session_field"} type="password" name="user[password]" placeholder="Password"></input>
@@ -113,8 +115,8 @@ class SessionForm extends React.Component {
               </form>
             </div>
           </div>
-
         </div>
+        <ReservationModal reservations={this.props.reservations} hashHistory={this.props.hashHistory}/>
       </div>
     );
   }

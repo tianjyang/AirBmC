@@ -49,6 +49,8 @@
     -o-transform: translateY(-50%);
     padding: 10px;
     text-align: center;
+    max-height: 85vh;
+    overflow-y:scroll;
 }
 
 .listing-thumbnail {
@@ -75,4 +77,11 @@
   position:fixed;
   z-index: 5;
   display:none;
+}
+
+.reservation-item {
+  line-height:normal;
+  border-bottom:1px solid black;
+  margin: 10px;
+  padding: 10px;
 }
