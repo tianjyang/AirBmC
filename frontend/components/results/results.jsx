@@ -29,8 +29,6 @@ class Results extends React.Component {
   }
 
   handleClick (e) {
-    console.log("handling click!");
-    console.log(e);
     const criteria = e.target.form[1].value;
     let success = (data) => {
       let location = data.results[0].geometry.location;

@@ -22,7 +22,6 @@ class CurrentReservationModal extends React.Component {
   }
 
   render() {
-    console.log("this.props.reservations are ", this.props.reservations);
     let currentRes = this.props.currentReservation || {};
     let thumbUrl = this.props.currentThumb || "";
     let confirmColor = "";

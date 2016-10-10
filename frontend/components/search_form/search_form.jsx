@@ -33,7 +33,6 @@ class SearchForm extends React.Component {
   }
 
   handleChange (e) {
-    console.log(e);
     e.preventDefault();
     let searchParams = {
       location: e.currentTarget.form[0].value,
@@ -41,7 +40,6 @@ class SearchForm extends React.Component {
       start_date: e.currentTarget.form[2].value,
       end_date: e.currentTarget.form[3].value
     };
-    console.log(searchParams);
     this.props.updateSearchParams(searchParams);
   }
 
