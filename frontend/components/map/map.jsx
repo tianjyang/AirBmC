@@ -8,7 +8,9 @@ class Map extends React.Component {
     this.purgeMarkersFromMap = this.purgeMarkersFromMap.bind(this);
     this.colorMarker = this.colorMarker.bind(this);
     this.markers = [];
-    this.setBound = true;
+    this.setBound = false;
+    this.bouncingMarker = null
+    window.markers = this.markers
   }
 
   componentDidMount() {
@@ -16,7 +18,7 @@ class Map extends React.Component {
       zoom: 11,
       center: {lat: 37.7546193, lng: -122.4276216}
     });
-    this.placeMarkersFromProp();
+    // this.placeMarkersFromProp();
     google.maps.event.removeListener(this.idle);
     if (!this.idle) {
       this.drag = this.map.addListener("drag",this.addIdleListener.bind(this));
@@ -44,48 +46,71 @@ class Map extends React.Component {
   }
 
   placeMarkersFromProp () {
-    this.purgeMarkersFromMap();
-    let markerArray = objToArray(this.props.listings);
-    let newMarker;
+    let matchingListings = this.purgeMarkersFromMap();
     let latlong = {};
     let bounds = new google.maps.LatLngBounds();
-    markerArray.forEach((el)=>{
+    matchingListings.forEach((el)=>{
       latlong.lat = el.lat;
       latlong.lng = el.long;
-      newMarker = new google.maps.Marker({
+      let newMarker = new google.maps.Marker({
         position: latlong,
         map: this.map,
         title: el.title
       });
-      newMarker.id = el.id;
+      newMarker.listingId = el.id
       this.markers.push(newMarker);
       bounds.extend(latlong);
     });
-    if ( this.setBound && markerArray.length > 0 ) {
+    if ( this.setBound && matchingListings.length > 0 ) {
       this.map.fitBounds(bounds);
     }
-    this.setBound = true
+    // this.setBound = true
   }
 
   purgeMarkersFromMap () {
-    this.markers.forEach((el)=>{
+    let matchingListings = objToArray(this.props.listings);
+    let markersToKeep = [];
+    let markersToDestroy = [];
+    let i = 0;
+    while (this.markers.length !== 0) {
+      let marker = this.markers[0];
+      let matchedListingIndex = matchingListings.findIndex((listing)=>{
+        return marker.listingId === listing.id;
+      });
+      if ( matchedListingIndex !== -1 ) {
+        markersToKeep.push(this.markers.shift());
+        matchingListings.splice(matchedListingIndex,1)
+      } else {
+        markersToDestroy.push(this.markers.shift());
+      }
+    }
+    this.markers = markersToKeep;
+    markersToDestroy.forEach((el)=>{
       el.setMap(null);
     });
-    this.markers = [];
+    return matchingListings
   }
 
+  // purgeMarkersFromMap () {
+  //   this.markers.forEach((el)=>{
+  //     el.setMap(null);
+  //   });
+  //   this.markers = [];
+  // }
+
   colorMarker () {
-    this.markers.forEach((el)=>{
-      console.log("element id is ",el.id);
-      if ( el.id === this.props.highlightedMarker ) {
-        console.log("match was found!");
-        if (el.getAnimation() !== null) {
-          el.setAnimation(null);
-        } else {
-          el.setAnimation(google.maps.Animation.BOUNCE);
+    if (this.bouncingMarker) {
+      this.bouncingMarker.setAnimation(null);
+      this.bouncingMarker = null;
+    }
+
+    this.markers.forEach((marker)=>{
+      if ( marker.listingId === this.props.highlightedMarker ) {
+        this.bouncingMarker = marker;
+          marker.setAnimation(google.maps.Animation.BOUNCE);
         }
       }
-    });
+    );
   }
 
 

@@ -6,6 +6,7 @@ class ResultItem extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this)
   }
 
   handleClick(e) {
@@ -17,13 +18,18 @@ class ResultItem extends React.Component {
     this.props.highlightMarker(this.props.listing.id);
   }
 
+  handleMouseLeave(e) {
+    this.props.highlightMarker(null);
+  }
+
   render() {
     //iumage tag taken out because it takes a long time to load.
     // <img src={this.props.listing.image_url} className="listing-thumbnail"/>
     return(
       <div className="displayListing"
         onClick={this.handleClick}
-        onMouseOver={this.handleMouseOver}>
+        onMouseOver={this.handleMouseOver}
+        onMouseLeave={this.handleMouseLeave}>
         <img src={this.props.listing.thumb_url} className="listing-thumbnail"/>
         <h2>{(this.props.listing.title)}</h2>
         <table>

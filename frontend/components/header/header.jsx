@@ -15,7 +15,7 @@ class Header extends React.Component {
     return(
     <nav className="header">
       <div className="header-span">
-        <img className="logo" onClick={this.handleClick.bind(this)} src={"http://res.cloudinary.com/drf8botsi/image/upload/c_crop,h_198,w_400,y_80/v1476245154/logo_qgje6h.png"}/>
+        <img className="logo" onClick={this.handleClick.bind(this)} src={"http://res.cloudinary.com/drf8botsi/image/upload/c_crop,h_108,w_200,y_41/v1476292411/anothernewlogo_lmhxpe.png"}/>
         <HeaderSearchContainer hashHistory = { hashHistory }/>
         <SessionFormContainer hashHistory = { hashHistory }/>
       </div>
