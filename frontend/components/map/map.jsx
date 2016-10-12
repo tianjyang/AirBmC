@@ -7,9 +7,11 @@ class Map extends React.Component {
     this.updateMarkersByBounds = this.updateMarkersByBounds.bind(this);
     this.purgeMarkersFromMap = this.purgeMarkersFromMap.bind(this);
     this.colorMarker = this.colorMarker.bind(this);
+    this.toggleMapSearch = this.toggleMapSearch.bind(this)
     this.markers = [];
     this.setBound = true;
     this.bouncingMarker = null;
+    this.mapSearch = false;
     window.markers = this.markers;
   }
 
@@ -44,12 +46,18 @@ class Map extends React.Component {
     searchParams.bounds = this.map.getBounds().toJSON();
     searchParams.start_date = this.props.searchParams.start_date || "";
     searchParams.end_date = this.props.searchParams.end_date || "";
-    this.props.searchByBounds(searchParams);
+    if (this.mapSearch) {
+      this.props.searchByBounds(searchParams);
+    }
   }
 
   componentDidUpdate() {
     this.placeMarkersFromProp();
     this.colorMarker();
+  }
+
+  toggleMapSearch(e) {
+    this.mapSearch = !this.mapSearch;
   }
 
   placeMarkersFromProp () {
@@ -119,8 +127,12 @@ class Map extends React.Component {
   render() {
 
     return(
-      <div id="map" className="mapContainer-search"></div>
-    );
+      <div>
+        <div id="map" className="mapContainer-search">
+        </div>
+        <input type="checkbox" onClick={this.toggleMapSearch}></input><span style={{"display":"inline","fontSize":"12px"}}>Update search results with map?</span>
+      </div>
+          );
   }
 
 }
