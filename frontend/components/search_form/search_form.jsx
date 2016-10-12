@@ -75,7 +75,7 @@ class SearchForm extends React.Component {
                 name="search[location]"
                 onChange={this.handleChange}
                 defaultValue="San Francisco"
-                placeholder="Where are you?"/>
+                placeholder="Search Location"/>
 
               <input
                 className="search_field"

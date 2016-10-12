@@ -19,7 +19,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-style: inherit;
 	color: #2B115A;
 	font-family: 'Roboto', sans-serif;
-	vertical-align: baseline;
+	vertical-align: middle;
 	text-decoration: none;
 }
 ol, ul {
@@ -83,6 +83,9 @@ div.header-span {
 img.logo {
 	position: relative;
 	cursor: pointer;
+	border-left: 2px solid #2B115A;
+	border-right: 2px solid #2B115A;
+	height: 74px;
 }
 
 div.landingPage {
