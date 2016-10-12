@@ -103,13 +103,14 @@ class Results extends React.Component {
           {listingsArray.map((element) => {
             return(<ResultItem
               listing={element}
+              highlightMarker={this.props.highlightMarker}
               key={element.id + "-listing"}/>);
           })
           }
           </div>
 
           <div className="results_map">
-            <ResultsMap/>
+            <ResultsMap highlightedMarker = {this.props.activeMarkerId}/>
           </div>
 
 

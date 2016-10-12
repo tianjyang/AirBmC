@@ -6,6 +6,7 @@ class Map extends React.Component {
     this.placeMarkersFromProp  = this.placeMarkersFromProp.bind(this);
     this.updateMarkersByBounds = this.updateMarkersByBounds.bind(this);
     this.purgeMarkersFromMap = this.purgeMarkersFromMap.bind(this);
+    this.colorMarker = this.colorMarker.bind(this);
     this.markers = [];
     this.setBound = true;
   }
@@ -39,6 +40,7 @@ class Map extends React.Component {
 
   componentDidUpdate() {
     this.placeMarkersFromProp();
+    this.colorMarker();
   }
 
   placeMarkersFromProp () {
@@ -55,6 +57,7 @@ class Map extends React.Component {
         map: this.map,
         title: el.title
       });
+      newMarker.id = el.id;
       this.markers.push(newMarker);
       bounds.extend(latlong);
     });
@@ -69,6 +72,20 @@ class Map extends React.Component {
       el.setMap(null);
     });
     this.markers = [];
+  }
+
+  colorMarker () {
+    this.markers.forEach((el)=>{
+      console.log("element id is ",el.id);
+      if ( el.id === this.props.highlightedMarker ) {
+        console.log("match was found!");
+        if (el.getAnimation() !== null) {
+          el.setAnimation(null);
+        } else {
+          el.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
+    });
   }
 
 

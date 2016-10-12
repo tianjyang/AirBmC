@@ -100,7 +100,8 @@ class SessionForm extends React.Component {
         <div id="session-modal">
           <div className={"modal-background"} onClick={this.hideModal}>
             <div className={"modal-content-fit"} onClick={this.preventPropagation.bind(this)}>
-              <img className="logo" style={{"cursor":"default"}} src={"http://res.cloudinary.com/drf8botsi/image/upload/v1472588478/logo.png"}/>
+              <img className="logo" style={{"cursor":"default","backgroundColor":"#008AC9","marginBottom":"10px","border":"2px solid #2B115A"}}
+                src={"http://res.cloudinary.com/drf8botsi/image/upload/c_crop,h_198,w_400,y_80/v1476245154/logo_qgje6h.png"}/>
               <p style={{"lineHeight":"12px"}}>Login or Sign Up Here!</p>
               <form className={"session_form"}>
                 <input className={"session_field"} type="text" name="user[username]" placeholder="Username"></input>

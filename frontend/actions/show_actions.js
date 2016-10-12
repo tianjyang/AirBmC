@@ -4,7 +4,8 @@ export const SHOW_CONSTANTS = {
   RECEIVE_LISTING: "RECEIVE_LISTING",
   // RECEIVE_COMMENTS: "RECEIVE_COMMENTS",
   POST_RESERVATION: "POST_RESERVATION",
-  CANCEL_RESERVATION: "CANCEL_RESERVATION"
+  CANCEL_RESERVATION: "CANCEL_RESERVATION",
+  HIGHLIGHT_MARKER: "HIGHLIGHT_MARKER",
 };
 
 export const requestListing = (searchParams) => ({
@@ -36,4 +37,9 @@ export const postReservation = (listingId, reservationInfo) => ({
 export const cancelReservation = (reservationInfo) => ({
   type: SHOW_CONSTANTS.CANCEL_RESERVATION,
   reservationInfo
+});
+
+export const highlightMarker = (markerId) => ({
+  type: SHOW_CONSTANTS.HIGHLIGHT_MARKER,
+  markerId
 });
