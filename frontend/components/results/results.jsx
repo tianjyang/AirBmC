@@ -36,7 +36,7 @@ class Results extends React.Component {
         location: location,
         distance: this.props.searchParams.distance,
         start_date: e.target.form[2].value,
-        end_date: e.target.form[3].value
+        end_date: e.target.form[3].value,
       };
       this.props.onSearchClick(searchParams);
     };

@@ -38,7 +38,7 @@ class SearchForm extends React.Component {
       location: e.currentTarget.form[0].value,
       distance: e.currentTarget.form[1].value,
       start_date: e.currentTarget.form[2].value,
-      end_date: e.currentTarget.form[3].value
+      end_date: e.currentTarget.form[3].value,
     };
     this.props.updateSearchParams(searchParams);
   }

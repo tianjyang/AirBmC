@@ -8,9 +8,16 @@ class Map extends React.Component {
     this.purgeMarkersFromMap = this.purgeMarkersFromMap.bind(this);
     this.colorMarker = this.colorMarker.bind(this);
     this.markers = [];
-    this.setBound = false;
-    this.bouncingMarker = null
-    window.markers = this.markers
+    this.setBound = true;
+    this.bouncingMarker = null;
+    window.markers = this.markers;
+  }
+
+  shouldComponentUpdate (nextProps,_nextState) {
+    if (this.props.highlightedMarker !== nextProps.highlightedMarker) {
+      this.setBound = false;
+    }
+    return true;
   }
 
   componentDidMount() {
@@ -31,8 +38,8 @@ class Map extends React.Component {
   }
 
   updateMarkersByBounds() {
-    this.purgeMarkersFromMap();
     this.setBound = false;
+    this.purgeMarkersFromMap();
     let searchParams = {};
     searchParams.bounds = this.map.getBounds().toJSON();
     searchParams.start_date = this.props.searchParams.start_date || "";
@@ -64,7 +71,7 @@ class Map extends React.Component {
     if ( this.setBound && matchingListings.length > 0 ) {
       this.map.fitBounds(bounds);
     }
-    // this.setBound = true
+    this.setBound = true
   }
 
   purgeMarkersFromMap () {
@@ -90,13 +97,6 @@ class Map extends React.Component {
     });
     return matchingListings
   }
-
-  // purgeMarkersFromMap () {
-  //   this.markers.forEach((el)=>{
-  //     el.setMap(null);
-  //   });
-  //   this.markers = [];
-  // }
 
   colorMarker () {
     if (this.bouncingMarker) {
