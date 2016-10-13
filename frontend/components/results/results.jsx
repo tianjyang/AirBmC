@@ -90,7 +90,6 @@ class Results extends React.Component {
                 onChange={this.handleChange}
                 placeholder="Start Date"
                 defaultValue={this.props.searchParams.start_date}/>
-
               <input
                 className="results_search_field date"
                 type="text"
