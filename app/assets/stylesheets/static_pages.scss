@@ -105,16 +105,15 @@ div.search_form_container {
 	background-color: rgba(0,138,201,0.8);
 	border-radius: 10px;
 	width: 400px;
-	height: 200px;
+	height: 150px;
 	margin: auto;
+	display:flex;
+	align-items:center;
+	justify-content: center;
 }
 
 form.search_form {
-	width: 315px;
-	position: relative;
 	margin: auto;
-	top: 50%;
-	transform: translateY(-50%);
 }
 
 input.search_field {

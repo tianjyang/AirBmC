@@ -77,12 +77,6 @@ class SearchForm extends React.Component {
                 defaultValue="San Francisco"
                 placeholder="Search Location"/>
 
-              <input
-                className="search_field"
-                type="text" name="search[distance]"
-                onChange={this.handleChange}
-                placeholder="Search distance in miles?"/>
-
               <div className="date_container">
               <input
                 className="search_field date"
