@@ -3,7 +3,9 @@ const SEARCH_CONSTANTS = {
   RECEIVE_LISTINGS: "RECEIVE_LISTINGS",
   UPDATE_SEARCH_PARAMS: "UPDATE_SEARCH_PARAMS",
   SEARCH_BY_BOUNDS: "SEARCH_BY_BOUNDS",
-  HIGHLIGHT_MARKER: "HIGHLIGHT_MARKER"
+  HIGHLIGHT_MARKER: "HIGHLIGHT_MARKER",
+  FILTER_LISTINGS: "FILTER_LISTINGS",
+  RESET_FILTERS: "RESET_FILTERS",
 };
 
 const findListings = (searchParams) => ({
@@ -26,8 +28,14 @@ const searchByBounds = (searchParams) => ({
   searchParams
 });
 
+const filterListings = (searchParams) => ({
+  type: SEARCH_CONSTANTS.FILTER_LISTINGS,
+  searchParams
+});
 
-
+const resetFilters = () => ({
+  type: SEARCH_CONSTANTS.RESET_FILTERS
+});
 
 export {SEARCH_CONSTANTS,
   findListings,

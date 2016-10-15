@@ -12,8 +12,8 @@ class SearchForm extends React.Component {
 
   handleClick (e) {
     e.preventDefault();
-    const startDate = e.target.form[2].value;
-    const endDate = e.target.form[3].value;
+    const startDate = e.target.form[1].value;
+    const endDate = e.target.form[2].value;
     let success = (data) => {
           this.props.router.push("/results");
       let location = data.results[0].geometry.location;
@@ -36,9 +36,8 @@ class SearchForm extends React.Component {
     e.preventDefault();
     let searchParams = {
       location: e.currentTarget.form[0].value,
-      distance: e.currentTarget.form[1].value,
-      start_date: e.currentTarget.form[2].value,
-      end_date: e.currentTarget.form[3].value,
+      start_date: e.currentTarget.form[1].value,
+      end_date: e.currentTarget.form[2].value,
     };
     this.props.updateSearchParams(searchParams);
   }

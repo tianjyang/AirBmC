@@ -114,6 +114,9 @@ div.search_form_container {
 
 form.search_form {
 	margin: auto;
+	display:flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
 input.search_field {
@@ -284,10 +287,10 @@ li.dropdown-content {
 	width: 150px;
 	display:inline-block;
 	box-sizing: border-box;
-	margin:0px 5px;
 }
 .date_container {
 	width:320px;
-	display: block;
+	display: flex;
+	justify-content: space-between;
 	margin: 0px auto;
 }

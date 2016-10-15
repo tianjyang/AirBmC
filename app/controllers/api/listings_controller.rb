@@ -3,7 +3,7 @@ class Api::ListingsController < ApplicationController
     location = params[:location]
     lat = location[:lat].to_f || 37.7576793
     long = location[:lng].to_f || -122.5076393
-    distance = !params[:distance].empty? ? params[:distance].to_f : 10
+    distance = 10
     start_date = params[:start_date]
     if start_date.nil? || start_date.empty?
       start_date = "1900/1/1"

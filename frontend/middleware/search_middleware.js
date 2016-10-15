@@ -18,8 +18,8 @@ const SearchMiddleware = (store) => (next) => (action) => {
 
     case SEARCH_CONSTANTS.SEARCH_BY_BOUNDS:
       searchListingsByBound(action.searchParams,success,errorCallback);
-
       break;
+
     default:
       return next(action);
 

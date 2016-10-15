@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Results from './results';
-import { findListings, updateSearchParams } from '../../actions/search_actions';
+import { findListings, updateSearchParams, filterListings, resetFilters } from '../../actions/search_actions';
 import { highlightMarker } from '../../actions/show_actions';
 
 

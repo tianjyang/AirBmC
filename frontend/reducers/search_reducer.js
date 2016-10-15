@@ -9,6 +9,16 @@ const searchReducer = (state = {}, action) => {
         action.receivedListings[key].filtered = false;
       });
       return merge({},action.receivedListings);
+    // case SEARCH_CONSTANTS.FILTER_LISTINGS:
+    //   let matchingCars = state.matchingCars;
+    //   let keys1 = Object.keys(matchingCars);
+    //   let numSeatFilter = parseInt(state.searchParams.num_seats)
+    //   let currentCar = null;
+    //   keys1.forEach((key)=>{
+    //     currentCar = matchingCars[key];
+    //     if (currentCar.num_seats > 10)
+    //   });
+
     default:
     return state;
   }
