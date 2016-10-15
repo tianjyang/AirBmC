@@ -15,6 +15,7 @@ class Results extends React.Component {
   }
 
   componentDidMount () {
+    let thisContext = this;
     let resultComponent = this;
     $(window).scroll( () => {
       let pos = $("body").scrollTop();
@@ -35,10 +36,25 @@ class Results extends React.Component {
         $("#max_price_1").html("$" + ui.values[1]);
         resultComponent.addPriceRangeToState(ui.values[0],ui.values[1]);
       }
+
+
     });
 
     $(".ui-slider-handle").each((index,element)=>{
       $(element).append(`<p id='max_price_${index}' class="price_bubble">$$</p>`);
+    });
+
+    $("#results_start_date").datepicker({
+      dateFormat: "yy-mm-dd",
+      onClose: function(val,_this){
+        thisContext.props.updateSearchParams({start_date: val})
+      }
+    });
+    $("#results_end_date").datepicker({
+      dateFormat: "yy-mm-dd",
+      onClose: function(val,_this){
+        thisContext.props.updateSearchParams({end_date: val})
+      }
     });
   }
 
@@ -110,25 +126,11 @@ class Results extends React.Component {
     this.props.filterListings(this.props.searchParams);
   }
 
+  logChange () {
+    console.log("logging some change");
+  }
 
   render() {
-
-    // <input className="results_filter_field" type="text"
-    //   style={{"width":"400px"}}
-    //   name="search[location]" placeholder="Where are you?"
-    //   defaultValue={this.props.searchParams.location}
-    //   onChange={this.handleChange}/>
-
-    // <select className="dropdown_filter">
-    //   <option value="2">2 seats</option>
-    //   <option value="3">3 seats</option>
-    //   <option value="4">4 seats</option>
-    //   <option value="5">5 seats</option>
-    //   <option value="6">6 seats</option>
-    //   <option value="7">7 seats</option>
-    //   <option value="8">8 seats</option>
-    // </select>
-
     let listingsArray = objToArray(this.props.listings);
     return(
       <div className="results_container">
@@ -139,15 +141,16 @@ class Results extends React.Component {
             <input
               className="results_filter_field date"
               type="text"
-              onChange={this.handleChange}
               placeholder="Start Date"
-              defaultValue={this.props.searchParams.start_date}/>
+              defaultValue={this.props.searchParams.start_date}
+              id="results_start_date"
+              onChange={this.logChange}/>
             <input
               className="results_filter_field date"
               type="text"
-              onChange={this.handleChange}
               placeholder="End Date"
-              defaultValue={this.props.searchParams.end_date}/>
+              defaultValue={this.props.searchParams.end_date}
+              id="results_end_date"/>
 
             <select className="results_filter_field dropdown_filter"
               onChange={this.filterResults}
