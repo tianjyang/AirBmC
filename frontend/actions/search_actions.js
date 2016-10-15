@@ -41,4 +41,6 @@ export {SEARCH_CONSTANTS,
   findListings,
   receiveListings,
   updateSearchParams,
-  searchByBounds};
+  searchByBounds,
+  filterListings,
+  resetFilters};

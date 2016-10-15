@@ -6,18 +6,24 @@ const searchReducer = (state = {}, action) => {
     case SEARCH_CONSTANTS.RECEIVE_LISTINGS:
       let keys = Object.keys(action.receivedListings);
       keys.forEach((key)=>{
-        action.receivedListings[key].filtered = false;
+        action.receivedListings[key].meetsFilters = true;
       });
       return merge({},action.receivedListings);
-    // case SEARCH_CONSTANTS.FILTER_LISTINGS:
-    //   let matchingCars = state.matchingCars;
-    //   let keys1 = Object.keys(matchingCars);
-    //   let numSeatFilter = parseInt(state.searchParams.num_seats)
-    //   let currentCar = null;
-    //   keys1.forEach((key)=>{
-    //     currentCar = matchingCars[key];
-    //     if (currentCar.num_seats > 10)
-    //   });
+    case SEARCH_CONSTANTS.FILTER_LISTINGS:
+      let matchingCars = state;
+      let carKeys = Object.keys(matchingCars);
+      let numSeat = parseInt(action.searchParams.num_seats)||0;
+      let minPrice = parseInt(action.searchParams.min_price)||0;
+      let maxPrice = parseInt(action.searchParams.max_price)||Infinity;
+      let currentCar,seatCheck,minPriceCheck,maxPriceCheck;
+      carKeys.forEach((key)=>{
+        currentCar = matchingCars[key];
+        seatCheck = (currentCar.num_seats >= numSeat);
+        minPriceCheck = (currentCar.price_per_day >= minPrice);
+        maxPriceCheck = (currentCar.price_per_day <= maxPrice);
+        currentCar.meetsFilters = (seatCheck && minPriceCheck && maxPriceCheck)
+      });
+      return merge({},matchingCars);
 
     default:
     return state;

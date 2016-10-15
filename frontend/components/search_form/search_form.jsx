@@ -15,7 +15,7 @@ class SearchForm extends React.Component {
     const startDate = e.target.form[1].value;
     const endDate = e.target.form[2].value;
     let success = (data) => {
-          this.props.router.push("/results");
+      let formattedLocation = data.results[0].formatted_address;
       let location = data.results[0].geometry.location;
       let searchParams = {
         location: location,
@@ -23,7 +23,13 @@ class SearchForm extends React.Component {
         start_date: startDate,
         end_date: endDate,
       };
+
+      let prettyLocation = {
+        formatted_location: formattedLocation
+      };
       this.props.onSearchClick(searchParams);
+      this.props.updateSearchParams(prettyLocation);
+      this.props.router.push("/results");
     };
     let query = {};
     query.address = this.props.searchParams.location || "San Francisco";

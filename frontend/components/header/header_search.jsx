@@ -7,6 +7,11 @@ class HeaderSearch extends React.Component {
     this.submitSearchLocation = this.submitSearchLocation.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.searchTimer = null;
+    this.preventDefault = this.preventDefault.bind(this);
+  }
+
+  preventDefault(event){
+    event.preventDefault();
   }
 
   submitSearchLocation (e) {
@@ -14,6 +19,7 @@ class HeaderSearch extends React.Component {
     let success = (data) => {
           this.props.hashHistory.push("/results");
       let location = data.results[0].geometry.location;
+      let formattedLocation = data.results[0].formatted_address;
       let searchParams = {
         location: location,
         distance: "",
@@ -21,6 +27,10 @@ class HeaderSearch extends React.Component {
         end_date: "",
       };
       this.props.onSearchClick(searchParams);
+      let prettyLocation = {
+        formatted_location: formattedLocation
+      };
+      this.props.updateSearchParams(prettyLocation);
     };
 
     let query = {
@@ -52,7 +62,6 @@ class HeaderSearch extends React.Component {
         this.searchTimer = null;
         },1000);
     }
-
   }
 
 
@@ -82,7 +91,8 @@ class HeaderSearch extends React.Component {
     };
 
     return(
-      <form style={formStyle}>
+      <form style={formStyle}
+        onSubmit={this.preventDefault}>
         <i className="material-icons" style={iconStyle}>search</i>
         <input type="text"
           onChange={this.handleChange}

@@ -17,6 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
   onSearchClick: (searchParams) => dispatch(findListings(searchParams)),
   updateSearchParams: (searchParams) => dispatch(updateSearchParams(searchParams)),
   highlightMarker: (id) => dispatch(highlightMarker(id)),
+  filterListings: (searchParams) => dispatch(filterListings(searchParams)),
 });
 
 export default connect(

@@ -15,6 +15,7 @@ class Results extends React.Component {
   }
 
   componentDidMount () {
+    let resultComponent = this;
     $(window).scroll( () => {
       let pos = $("body").scrollTop();
       if ( pos >= 55 ) {
@@ -30,31 +31,31 @@ class Results extends React.Component {
       max: 500,
       values: [ 10, 500 ],
       slide: function( event, ui ) {
-        console.log(ui.values[0],ui.values[1]);
         $("#max_price_0").html("$" + ui.values[0]);
         $("#max_price_1").html("$" + ui.values[1]);
+        resultComponent.addPriceRangeToState(ui.values[0],ui.values[1]);
       }
     });
 
     $(".ui-slider-handle").each((index,element)=>{
-      console.log("idx: ",index," element: ",element);
       $(element).append(`<p id='max_price_${index}' class="price_bubble">$$</p>`);
     });
   }
 
+  componentWillReceiveProps(){
+  }
 
   componentWillUnmount () {
     $(window).off("scroll");
   }
 
   handleClick (e) {
-    const criteria = e.target.form[1].value;
     let success = (data) => {
       let location = data.results[0].geometry.location;
       let searchParams = {
         location: location,
-        start_date: e.target.form[1].value,
-        end_date: e.target.form[2].value,
+        start_date: e.target.form[0].value,
+        end_date: e.target.form[1].value,
       };
       this.props.onSearchClick(searchParams);
     };
@@ -68,12 +69,11 @@ class Results extends React.Component {
     // e.preventDefault();
     e.persist();
     let searchParams = {
-      location: e.currentTarget.form[0].value,
-      start_date: e.currentTarget.form[1].value,
-      end_date: e.currentTarget.form[2].value,
-      num_seats: e.currentTarget.form[3].value,
-
+      start_date: e.currentTarget.form[0].value,
+      end_date: e.currentTarget.form[1].value,
+      num_seats: e.currentTarget.form[2].value,
     };
+
     this.props.updateSearchParams(searchParams);
     if (this.searchTimer) {
       window.clearTimeout(this.searchTimer);
@@ -93,11 +93,23 @@ class Results extends React.Component {
     let searchParams = {
       location: e.currentTarget.form[0].value,
       start_date: e.currentTarget.form[1].value,
-      end_date: e.currentTarget.form[2].value,
-      num_seats: e.currentTarget.form[3].value,
+      num_seats: parseInt(e.currentTarget.form[2].value),
+      min_price: this.props.searchParams.min_price,
+      max_price: this.props.searchParams.max_price,
     };
     this.props.updateSearchParams(searchParams);
+    this.props.filterListings(searchParams);
   }
+
+  addPriceRangeToState(minPrice,maxPrice) {
+    let priceParams = {
+      min_price: minPrice,
+      max_price: maxPrice,
+    };
+    this.props.updateSearchParams(priceParams);
+    this.props.filterListings(this.props.searchParams);
+  }
+
 
   render() {
 
@@ -121,7 +133,7 @@ class Results extends React.Component {
     return(
       <div className="results_container">
           <h2 style={{"backgroundColor":"#008AC9","paddingLeft":"10px","paddingTop":"10px"}}><span>Your Trip to: </span>
-          <span style={{"color":"white"}}>{this.props.searchParams.location}</span></h2>
+          <span style={{"color":"white"}}>{this.props.searchParams.formatted_location}</span></h2>
           <form className={"results_filter_form"}>
 
             <input
@@ -137,14 +149,16 @@ class Results extends React.Component {
               placeholder="End Date"
               defaultValue={this.props.searchParams.end_date}/>
 
-            <select className="results_filter_field dropdown_filter">
-              <option value="2">2 seats</option>
-              <option value="3">3 seats</option>
-              <option value="4">4 seats</option>
-              <option value="5">5 seats</option>
-              <option value="6">6 seats</option>
-              <option value="7">7 seats</option>
-              <option value="8">8 seats</option>
+            <select className="results_filter_field dropdown_filter"
+              onChange={this.filterResults}
+              defaultValue="8">
+              <option value="2">Seats 2</option>
+              <option value="3">Seats 3</option>
+              <option value="4">Seats 4</option>
+              <option value="5">Seats 5</option>
+              <option value="6">Seats 6</option>
+              <option value="7">Seats 7</option>
+              <option value="8">Seats 8</option>
             </select>
 
 
