@@ -31,14 +31,14 @@ class Results extends React.Component {
       values: [ 10, 500 ],
       slide: function( event, ui ) {
         console.log(ui.values[0],ui.values[1]);
-        $("#max_price_0").html(ui.values[0]);
-        $("#max_price_1").html(ui.values[1]);
+        $("#max_price_0").html("$" + ui.values[0]);
+        $("#max_price_1").html("$" + ui.values[1]);
       }
     });
 
     $(".ui-slider-handle").each((index,element)=>{
       console.log("idx: ",index," element: ",element);
-      $(element).append(`<p id='max_price_${index}'></p>`);
+      $(element).append(`<p id='max_price_${index}' class="price_bubble">$$</p>`);
     });
   }
 

@@ -53,10 +53,6 @@ div.listing-container {
 		position:relative;
 }
 
-div.slider_container {
-  display:flex;
-  justify-content: space-around;
-}
 
 // .results_filter_form {
 //   background-color: white;
@@ -68,7 +64,6 @@ form.results_filter_form {
   justify-content: space-around;
   background-color: #008AC9;
   box-sizing: border-box;
-  border-bottom: 2px solid #2B115A;
   vertical-align: middle;
   height: 75px;
 }
