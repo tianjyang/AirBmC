@@ -85,7 +85,9 @@ class Results extends React.Component {
 
   }
 
-  componentWillReceiveProps(){
+  componentDidUpdate(){
+    
+
   }
 
   componentWillUnmount () {
@@ -105,7 +107,6 @@ class Results extends React.Component {
     let query = {};
     query.address = this.props.searchParams.location;
     GoogleGeocoding(query,success);
-
   }
 
   handleChange (e) {
