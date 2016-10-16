@@ -90,6 +90,14 @@ class HeaderSearch extends React.Component {
       "marginLeft" : "10px"
     };
 
+    let spinnerStyle = {}
+
+    if (this.searchTimer) {
+      spinnerStyle["display"] = "inline-block"
+    } else {
+      spinnerStyle["display"] = "none"
+    }
+
     return(
       <form style={formStyle}
         onSubmit={this.preventDefault}>
@@ -98,6 +106,11 @@ class HeaderSearch extends React.Component {
           onChange={this.handleChange}
           placeholder="Search Location"
           style={inputStyle}/>
+        <div className="sk-three-bounce" style={spinnerStyle}>
+          <div className="sk-child sk-bounce1"></div>
+          <div className="sk-child sk-bounce2"></div>
+          <div className="sk-child sk-bounce3"></div>
+        </div>
       </form>
     );
   }

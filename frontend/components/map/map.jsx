@@ -44,8 +44,8 @@ class Map extends React.Component {
     this.purgeMarkersFromMap();
     let searchParams = {};
     searchParams.bounds = this.map.getBounds().toJSON();
-    searchParams.start_date = this.props.searchParams.start_date || "";
-    searchParams.end_date = this.props.searchParams.end_date || "";
+    searchParams.start_date = this.props.startDate || "";
+    searchParams.end_date = this.props.endDate || "";
     if (this.mapSearch) {
       this.props.searchByBounds(searchParams);
     }
@@ -74,8 +74,13 @@ class Map extends React.Component {
       });
       newMarker.listingId = el.id
       this.markers.push(newMarker);
-      bounds.extend(latlong);
     });
+
+    this.markers.forEach((marker)=>{
+        bounds.extend(marker.position);
+    })
+
+
     if ( this.setBound && matchingListings.length > 0 ) {
       this.map.fitBounds(bounds);
     }

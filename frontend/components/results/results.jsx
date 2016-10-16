@@ -12,6 +12,7 @@ class Results extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.searchTimer = null;
     this.filterResults = this.filterResults.bind(this);
+    this.submitForm = this.submitForm.bind(this)
   }
 
   componentDidMount () {
@@ -47,15 +48,41 @@ class Results extends React.Component {
     $("#results_start_date").datepicker({
       dateFormat: "yy-mm-dd",
       onClose: function(val,_this){
-        thisContext.props.updateSearchParams({start_date: val})
+        thisContext.props.updateSearchParams({start_date: val});
+        thisContext.submitForm();
       }
     });
     $("#results_end_date").datepicker({
       dateFormat: "yy-mm-dd",
       onClose: function(val,_this){
-        thisContext.props.updateSearchParams({end_date: val})
+        thisContext.props.updateSearchParams({end_date: val});
+        thisContext.submitForm();
       }
     });
+  }
+
+  submitForm() {
+    let success = (data) => {
+      let formattedLocation = data.results[0].formatted_address;
+      let location = data.results[0].geometry.location;
+      let searchParams = {
+        location: location,
+        start_date: this.props.searchParams.start_date,
+        end_date: this.props.searchParams.end_date,
+      };
+
+      let prettyLocation = {
+        formatted_location: formattedLocation
+      };
+      this.props.onSearchClick(searchParams);
+      this.props.updateSearchParams(prettyLocation);
+    };
+    let query = {};
+    query.address = this.props.searchParams.location || "San Francisco";
+    GoogleGeocoding(query,success);
+
+
+
   }
 
   componentWillReceiveProps(){

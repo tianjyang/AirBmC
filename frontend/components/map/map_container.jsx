@@ -6,7 +6,8 @@ import { searchByBounds } from '../../actions/search_actions';
 
 const mapStateToProps = (state) => ({
   listings: state.matchingCars,
-  searchParams: state.searchParams
+  startDate: state.searchParams.start_date,
+  enddate: state.searchParams.end_date
 });
 
 const mapDispatchToProps = (dispatch) => ({
