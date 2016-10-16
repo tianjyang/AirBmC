@@ -159,9 +159,13 @@ class Results extends React.Component {
 
   render() {
     let listingsArray = objToArray(this.props.listings);
+    let priceRangeLabel = {
+      "padding":"10px",
+      "backgroundColor":"#008AC9"
+    }
     return(
       <div className="results_container">
-          <h2 style={{"backgroundColor":"#008AC9","paddingLeft":"10px","paddingTop":"10px"}}><span>Your Trip to: </span>
+          <h2 style={{"backgroundColor":"#008AC9","paddingLeft":"10px","paddingTop":"10px"}}><span>Your Trip from: </span>
           <span style={{"color":"white"}}>{this.props.searchParams.formatted_location}</span></h2>
           <form className={"results_filter_form"}>
 
@@ -193,6 +197,7 @@ class Results extends React.Component {
 
 
           </form>
+          <h3 style={priceRangeLabel}>Price Range</h3>
           <div className="slider_container">
             <div id="price-range" style={{"width":"80%"}}></div>
           </div>
