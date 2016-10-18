@@ -1,19 +1,19 @@
-
+@import 'variables';
 
 .price_bubble {
-    background-color: #008ac9;
+    background-color: $primary;
     border: 1px;
     color: white;
     width: 50px;
     text-align: center;
     transform: translate(-15px,25px);
-    border: 2px solid #2B115A;
+    border: 1px solid $primary-darker;
 }
 
 div.slider_container {
-  background-color: #008AC9;
+  // background-color: $primary;
   display:flex;
   justify-content: space-around;
   height:57px;
-  border-bottom: 2px solid #2B115A;
+  border-bottom: 1px solid $primary-darker;
 }

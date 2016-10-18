@@ -1,3 +1,5 @@
+@import 'variables';
+
 div.results_search {
   height:100px;
 }
@@ -25,7 +27,7 @@ div.displayListing {
 	display: inline-block;
 	width: calc(100% - 20px);
 	height: 150px;
-	border-bottom: 1px solid #008AC9;
+	border-bottom: 1px solid $primary;
 	margin-left: 10px;
   margin-bottom: 10px;
 	box-sizing: border-box;
@@ -39,7 +41,7 @@ div.displayListing {
 }
 
 div.displayListing:hover {
-  background-color: #008AC9;
+  background-color: $primary;
   color: white;
 
 }
@@ -53,19 +55,14 @@ div.listing-container {
 		position:relative;
 }
 
-
-// .results_filter_form {
-//   background-color: white;
-// }
-
 form.results_filter_form {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: #008AC9;
+  // background-color: $primary;
   box-sizing: border-box;
   vertical-align: middle;
-  height: 75px;
+  height: 50px;
 }
 //
 input.results_filter_field {

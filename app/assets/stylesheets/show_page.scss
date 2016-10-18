@@ -1,3 +1,5 @@
+@import 'variables';
+
 div.listing-container {
     max-width: 900px;
     margin: 0px auto;
@@ -44,7 +46,7 @@ form.reservation-form {
 	display:inline-block;
 	width: 300px;
 	height: 200px;
-	background: #008AC9;
+	background: $primary;
   vertical-align: top;
   padding: 10px;
   box-sizing: border-box;
@@ -131,7 +133,7 @@ form.reservation-form textarea {
 }
 
 .comment-form {
-  background-color: #008AC9;
+  background-color: $primary;
   padding:0px 10px;
 }
 

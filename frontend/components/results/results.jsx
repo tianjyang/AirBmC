@@ -86,7 +86,7 @@ class Results extends React.Component {
   }
 
   componentDidUpdate(){
-    
+
 
   }
 
@@ -162,11 +162,11 @@ class Results extends React.Component {
     let listingsArray = objToArray(this.props.listings);
     let priceRangeLabel = {
       "padding":"10px",
-      "backgroundColor":"#008AC9"
+      // "backgroundColor":"rgba( 16,116,164,1"
     }
     return(
       <div className="results_container">
-          <h2 style={{"backgroundColor":"#008AC9","paddingLeft":"10px","paddingTop":"10px"}}><span>Your Trip from: </span>
+          <h2 style={{"paddingLeft":"10px","paddingTop":"10px"}}><span>Your Trip from: </span>
           <span style={{"color":"white"}}>{this.props.searchParams.formatted_location}</span></h2>
           <form className={"results_filter_form"}>
 
