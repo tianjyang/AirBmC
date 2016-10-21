@@ -80,9 +80,9 @@ class SearchForm extends React.Component {
                 name="search[location]"
                 onChange={this.handleChange}
                 defaultValue="San Francisco"
-                placeholder="Search Location"/>
+                placeholder="Search Location"
+                style={{"flexGrow":"1"}}/>
 
-              <div className="date_container">
               <input
                 className="search_field date"
                 type="text"
@@ -96,7 +96,6 @@ class SearchForm extends React.Component {
                 id="landing_end_date"
                 onChange={this.handleChange}
                 placeholder="End date"/>
-              </div>
           <span>
             <input className="search_submit" type="submit" onClick={this.handleClick} value="Find Your Car"></input>
           </span>

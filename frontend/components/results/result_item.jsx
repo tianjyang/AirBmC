@@ -23,30 +23,26 @@ class ResultItem extends React.Component {
   }
 
   render() {
+    let bgImage = {
+      "backgroundImage":`url(${this.props.listing.thumb_url})`,
+      "backgroundSize" : "cover",
+      "backgroundPosition" : "center",
+    }
     //iumage tag taken out because it takes a long time to load.
-    // <img src={this.props.listing.image_url} className="listing-thumbnail"/>
+    // <img src={this.props.listing.thumb_url} className="listing-thumbnail"/>
     if (this.props.listing.meetsFilters) {
       return(
         <div className="displayListing"
           onClick={this.handleClick}
           onMouseOver={this.handleMouseOver}
           onMouseLeave={this.handleMouseLeave}>
-          <img src={this.props.listing.thumb_url} className="listing-thumbnail"/>
-          <h2>{(this.props.listing.title)}</h2>
-          <table>
-            <tr>
-              <td>Make and Model: </td>
-              <td>{this.props.listing.make_model}</td>
-            </tr>
-            <tr>
-              <td>Number of Seats:</td>
-              <td>{this.props.listing.num_seats}</td>
-            </tr>
-            <tr>
-              <td>Price Per Day:</td>
-              <td>{this.props.listing.price_per_day}</td>
-            </tr>
-          </table>
+        <div className="listing_background" style={bgImage}>
+          <p>{this.props.listing.title} <br/>
+          {this.props.listing.make_model} &#8729;
+          <i className="material-icons">event_seat</i> {this.props.listing.num_seats} &#8729;
+          <i className="material-icons">monetization_on</i> {this.props.listing.price_per_day} </p>
+        </div>
+        <div className="gradient"></div>
         </div>
       );
     } else {
@@ -55,5 +51,4 @@ class ResultItem extends React.Component {
 
       }
 }
-
 export default ResultItem;

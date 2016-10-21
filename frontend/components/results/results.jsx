@@ -18,14 +18,14 @@ class Results extends React.Component {
   componentDidMount () {
     let thisContext = this;
     let resultComponent = this;
-    $(window).scroll( () => {
-      let pos = $("body").scrollTop();
-      if ( pos >= 55 ) {
-        $(".results_map").css( {"position":"relative","top":pos-57});
-      } else {
-        $(".results_map").css({"position":"relative","top":""});
-      }
-    });
+    // $(window).scroll( () => {
+    //   let pos = $("body").scrollTop();
+    //   if ( pos >= 55 ) {
+    //     $(".results_map").css( {"position":"relative","top":pos-57});
+    //   } else {
+    //     $(".results_map").css({"position":"relative","top":""});
+    //   }
+    // });
 
     $( "#price-range" ).slider({
       range: true,
@@ -165,9 +165,10 @@ class Results extends React.Component {
       // "backgroundColor":"rgba( 16,116,164,1"
     }
     return(
-      <div className="results_container">
-          <h2 style={{"paddingLeft":"10px","paddingTop":"10px"}}><span>Your Trip from: </span>
-          <span style={{"color":"white"}}>{this.props.searchParams.formatted_location}</span></h2>
+      <div>
+        <div className="results_left_side">
+          <h3 style={{"paddingLeft":"10px","paddingTop":"10px"}}><span>Your Trip from: </span>
+          <span className="dancing_script">{this.props.searchParams.formatted_location}</span></h3>
           <form className={"results_filter_form"}>
 
             <input
@@ -186,7 +187,7 @@ class Results extends React.Component {
 
             <select className="results_filter_field dropdown_filter"
               onChange={this.filterResults}
-              defaultValue="8">
+              defaultValue="2">
               <option value="2">Seats 2</option>
               <option value="3">Seats 3</option>
               <option value="4">Seats 4</option>
@@ -212,6 +213,9 @@ class Results extends React.Component {
           }
           </div>
           <br></br>
+        </div>
+
+
           <div className="results_map">
             <ResultsMap highlightedMarker = {this.props.activeMarkerId}/>
           </div>

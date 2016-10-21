@@ -21,9 +21,9 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-style: inherit;
 	color: $primary-darker;
 	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 	vertical-align: middle;
 	text-decoration: none;
-	font-weight:300
 }
 ol, ul {
 	list-style: none;
@@ -71,7 +71,7 @@ div.button_container {
 
 
 div.header-span {
-	width: 900px;
+	width: 100%;
   display: block;
   position: relative;
   margin: auto;
@@ -101,10 +101,9 @@ div.landingPage {
 div.search_form_container {
 	position: relative;
 	background-color: $primary-darker-0p4;
-	border-radius: 10px;
-	width: 400px;
-	height: 150px;
-	margin: auto;
+	width: 100%;
+	height: 100px;
+	margin-top:175px;
 	display:flex;
 	align-items:center;
 	justify-content: center;
@@ -113,18 +112,18 @@ div.search_form_container {
 form.search_form {
 	margin: auto;
 	display:flex;
-	flex-direction: column;
-	justify-content: space-around;
+	flex-direction: row;
+	width:80%;
 }
 
 input.search_field {
 	display: block;
-  margin: 10px auto;
   width: 300px;
   height: 25px;
 	padding-left: 10px;
 	font-size:16px;
-	border: none;
+	border:none;
+	border-right: 1px solid $primary;
 }
 
 input.input_field {
@@ -137,18 +136,17 @@ input.input_field {
 
 input.search_submit {
 	display: block;
-	margin: 10px auto;
 	width: 200px;
-	height: 30px;
-	background-color: #F11A22;
+	height: 28px;
+	background-color: $primary;
 	color:white;
 	border: none;
 	font-size: 16px;
-	-webkit-transition: background-color 0.25s, color 0.25s;
+	-webkit-transition: background-color 0.1s, color 0.25s;
 }
 
 input.search_submit:hover {
-	background-color: darken(#F11A22, 10%);
+	background-color: lighten($primary, 10%);
 }
 
 input.session_button {
@@ -188,12 +186,6 @@ input.guest_button {
 input.float_right {
 	float:right;
 
-}
-
-div.mapContainer-search {
-	display: block;
-	width: 360px;
-	height: 450px;
 }
 
 .hidden {
@@ -284,11 +276,19 @@ li.dropdown-content {
 .search_field.date {
 	width: 150px;
 	display:inline-block;
-	box-sizing: border-box;
 }
 .date_container {
 	width:320px;
 	display: flex;
 	justify-content: space-between;
-	margin: 0px auto;
+}
+
+.header_element {
+	padding:0px 20px;
+	border-left: 1px solid $primary;
+	-webkit-transition: background-color 0.5s;
+}
+
+.header_element:hover {
+	background-color: $primary-lightest
 }

@@ -7,7 +7,14 @@
   // display:block;
 }
 
-#session-modal {
+#login-modal {
+  position:fixed;
+  z-index: 5;
+  display:none;
+  // display:block;
+}
+
+#signup-modal {
   position:fixed;
   z-index: 5;
   display:none;
