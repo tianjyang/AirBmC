@@ -7,7 +7,10 @@ before_action :full_form, only:[:create]
     user = User.find_by_credentials(username,password)
     if user
       sign_in(user)
-      render json: {username: user.username,logged_in: true}
+      render json: {username: user.username,
+        firstname: user.first_name,
+        lastname: user.last_name,
+        logged_in: true}
     else
       errors = ["Invalid credentials"]
       render json: errors,status: 401

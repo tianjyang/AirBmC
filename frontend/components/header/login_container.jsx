@@ -5,7 +5,7 @@ import { createSession, createUser, destroySession, updateUser } from '../../act
 import { requestReservations, destroyReservation } from '../../actions/session_actions';
 const mapStateToProps = (state) => ({
   currentUser: state.session.username,
-  loggedIn: state.session.logged_in,
+  session: state.session,
   errors: state.sessionErrors,
   reservations: state.reservations,
 });

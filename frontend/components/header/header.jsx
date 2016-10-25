@@ -4,8 +4,9 @@ import React from "react";
 import { hashHistory } from 'react-router';
 import HeaderSearchContainer from './header_search_container';
 import BecomeHost from './become_host';
-import Login from './login_container';
+import LogIn from './login_container';
 import SignUp from './signup_container';
+import LogOut from './logout_container';
 
 class Header extends React.Component {
   handleClick(e) {
@@ -21,8 +22,9 @@ class Header extends React.Component {
         <HeaderSearchContainer hashHistory = { hashHistory }/>
         <span style={{"display":"inline-flex","flexDirection":"row","float":"right","lineHeight":"75px"}}>
           <BecomeHost/>
-          <Login/>
+          <LogIn/>
           <SignUp/>
+          <LogOut/>
         </span>
       </div>
     </nav>

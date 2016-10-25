@@ -11,14 +11,24 @@
   position:fixed;
   z-index: 5;
   display:none;
-  // display:block;
 }
 
 #signup-modal {
   position:fixed;
   z-index: 5;
   display:none;
-  // display:block;
+}
+
+#logout-modal {
+  position:fixed;
+  z-index: 5;
+  display:none;
+}
+
+#new-reservation-modal {
+  position:fixed;
+  z-index: 5;
+  display:none;
 }
 
 .modal-background {
@@ -89,11 +99,7 @@
   background-color: rgb(62,232,86);
 }
 
-#new-reservation-modal {
-  position:fixed;
-  z-index: 5;
-  display:none;
-}
+
 
 .reservation-item {
   line-height:normal;

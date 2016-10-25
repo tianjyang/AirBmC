@@ -71,34 +71,38 @@ class SignUp extends React.Component {
       showIfLoggedOut = "";
       showIfLoggedIn = "none";
     }
+    if (!this.props.session.logged_in) {
+      return(
+        <div onClick={this.showModal} className="header_element">
+          Sign Up
+          <div id="signup-modal">
+            <div className={"modal-background"} onClick={this.hideModal}>
+              <div className={"modal-content-fit"} onClick={this.preventPropagation.bind(this)}>
+                <p style={{"lineHeight":"12px","margin":"10px auto"}}>Sign Up With Email</p>
+                <form className={"session_form"}>
+                  <input className={"session_field"} type="text" placeholder="First Name"></input>
+                  <input className={"session_field"} type="text" placeholder="Last Name"></input>
+                  <input className={"session_field"} type="text" placeholder="Username"></input>
+                  <input className={"session_field"} type="text" placeholder="Email"></input>
+                  <input className={"session_field"} type="password" placeholder="New Password"></input>
+                    <span style={{"fontSize":"12px","backgroundColor":"white","lineHeight":"12px","margin":"10px auto"}}>
+                      <input type="checkbox"/> Please send me promotional updates and keep me updated with the latest features!</span>
+                  <div className="button_container">
+                    <input type="submit" style={{"margin":"10px auto"}} onClick={this.makeNewSession} value="Sign Up" className={"submit_button "}></input>
+                  </div>
 
-    return(
-      <div onClick={this.showModal} className="header_element">
-        Sign Up
-        <div id="signup-modal">
-          <div className={"modal-background"} onClick={this.hideModal}>
-            <div className={"modal-content-fit"} onClick={this.preventPropagation.bind(this)}>
-              <p style={{"lineHeight":"12px","margin":"10px auto"}}>Sign Up With Email</p>
-              <form className={"session_form"}>
-                <input className={"session_field"} type="text" placeholder="First Name"></input>
-                <input className={"session_field"} type="text" placeholder="Last Name"></input>
-                <input className={"session_field"} type="text" placeholder="Username"></input>
-                <input className={"session_field"} type="text" placeholder="Email"></input>
-                <input className={"session_field"} type="password" placeholder="New Password"></input>
-                  <span style={{"fontSize":"12px","backgroundColor":"white","lineHeight":"12px","margin":"10px auto"}}>
-                    <input type="checkbox"/> Please send me promotional updates and keep me updated with the latest features!</span>
-                <div className="button_container">
-                  <input type="submit" style={{"margin":"10px auto"}} onClick={this.makeNewSession} value="Sign Up" className={"submit_button "}></input>
-                </div>
-
-                <SessionErrors errors={this.props.errors}/>
-              </form>
+                  <SessionErrors errors={this.props.errors}/>
+                </form>
+              </div>
             </div>
           </div>
+          <ReservationModal reservations={this.props.reservations} hashHistory={this.props.hashHistory}/>
         </div>
-        <ReservationModal reservations={this.props.reservations} hashHistory={this.props.hashHistory}/>
-      </div>
-    );
+      );
+    } else {
+      return null
+    }
+
   }
 
 }

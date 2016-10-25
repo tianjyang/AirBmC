@@ -34,9 +34,6 @@ class LogIn extends React.Component {
       case "Log In":
         this.props.onLoginClick(creds);
         break;
-      case "Sign Up":
-        this.props.onSignUpClick(creds);
-        break;
       case "Guest":
         creds.username = "guest";
         creds.password = "password";
@@ -70,7 +67,7 @@ class LogIn extends React.Component {
 
   render() {
     let showIfLoggedOut, showIfLoggedIn;
-    if ( this.props.loggedIn ){
+    if ( this.props.session.loggedIn ){
       showIfLoggedOut = "none";
       showIfLoggedIn = "";
     } else {
@@ -78,32 +75,36 @@ class LogIn extends React.Component {
       showIfLoggedIn = "none";
     }
 
-    return(
-      <div onClick={this.showModal} className="header_element">
-        Log In
-        <div id="login-modal">
-          <div className={"modal-background"} onClick={this.hideModal}>
-            <div className={"modal-content-fit"} onClick={this.preventPropagation.bind(this)}>
-              <img className="logo" style={{"cursor":"default","backgroundColor":"#008AC9","marginBottom":"10px","border":"2px solid #2B115A"}}
-                src={"http://res.cloudinary.com/drf8botsi/image/upload/c_crop,h_198,w_400,y_80/v1476245154/logo_qgje6h.png"}/>
-              <p style={{"lineHeight":"12px"}}>Login or Sign Up Here!</p>
-              <form className={"session_form"}>
-                <input className={"session_field"} type="text" name="user[username]" placeholder="Username"></input>
-                <input className={"session_field"} type="password" name="user[password]" placeholder="Password"></input>
-                <div className="button_container">
-                  <input type="submit" onClick={this.makeNewSession} value="Log In" className={"session_button "}></input>
-                  <input type="submit" onClick={this.makeNewSession} value="Sign Up" className={"session_button "}></input>
-                  <input type="submit" onClick={this.makeNewSession} value="Guest" className={"session_button "}></input>
-                </div>
+    if (!this.props.session.logged_in) {
+      return(
+        <div onClick={this.showModal} className="header_element">
+          Log In
+          <div id="login-modal">
+            <div className={"modal-background"} onClick={this.hideModal}>
+              <div className={"modal-content-fit"} onClick={this.preventPropagation.bind(this)}>
+                <img className="logo" style={{"cursor":"default","backgroundColor":"#008AC9","marginBottom":"10px","border":"2px solid #2B115A"}}
+                  src={"http://res.cloudinary.com/drf8botsi/image/upload/c_crop,h_198,w_400,y_80/v1476245154/logo_qgje6h.png"}/>
+                <p style={{"lineHeight":"12px"}}>Login or Sign Up Here!</p>
+                <form className={"session_form"}>
+                  <input className={"session_field"} type="text" name="user[username]" placeholder="Username"></input>
+                  <input className={"session_field"} type="password" name="user[password]" placeholder="Password"></input>
+                  <div className="button_container">
+                    <input type="submit" onClick={this.makeNewSession} value="Log In" className={"session_button "}></input>
+                    <input type="submit" onClick={this.makeNewSession} value="Sign Up" className={"session_button "}></input>
+                    <input type="submit" onClick={this.makeNewSession} value="Guest" className={"session_button "}></input>
+                  </div>
 
-                <SessionErrors errors={this.props.errors}/>
-              </form>
+                  <SessionErrors errors={this.props.errors}/>
+                </form>
+              </div>
             </div>
           </div>
+          <ReservationModal reservations={this.props.reservations} hashHistory={this.props.hashHistory}/>
         </div>
-        <ReservationModal reservations={this.props.reservations} hashHistory={this.props.hashHistory}/>
-      </div>
-    );
+      );
+    } else {
+      return null
+    }
   }
 
 }
