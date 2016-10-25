@@ -134,7 +134,7 @@ input.input_field {
 	font-size: 12px
 }
 
-input.search_submit {
+input.submit_button {
 	display: block;
 	width: 200px;
 	height: 28px;
@@ -145,7 +145,7 @@ input.search_submit {
 	-webkit-transition: background-color 0.1s, color 0.25s;
 }
 
-input.search_submit:hover {
+input.submit_button:hover {
 	background-color: lighten($primary, 10%);
 }
 

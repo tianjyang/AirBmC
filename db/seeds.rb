@@ -6,16 +6,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(username: "guest", password: "password")
-User.create!(username: "Wimbledon Crumplehorn", password: "password")
-User.create!(username: "Beetlejuice Clombyclomp", password: "password")
-User.create!(username: "Johnnycash Banglesnatch", password: "password")
-User.create!(username: "Oscarbait Cuckatoo", password: "password")
-User.create!(username: "Buckingham Frumblesnatch", password: "password")
-User.create!(username: "Snorkeldink Crackersprout", password: "password")
-User.create!(username: "Bentobox Crimpysnitch", password: "password")
-User.create!(username: "Barnoldswick Crumplesack", password: "password")
-User.create!(username: "Snozzlebert Kryptonite", password: "password")
+User.create!(username: "guest", password: "password", first_name: "Awesome", last_name: "Guy", email:"awesomeguy@awesome.com")
+User.create!(username: "Wimbledon Crumplehorn", password: "password",
+first_name: "Wimbledon", last_name: "Crumplehorn", email:"wimble@wimble.com")
+User.create!(username: "Beetlejuice Clombyclomp", password: "password",
+first_name: "Bettlejuice", last_name: "Clombyclomp", email:"random@random.com")
+User.create!(username: "Johnnycash Banglesnatch", password: "password",
+first_name: "Johnnycash", last_name: "Banglesnatch", email:"random@random.com")
+User.create!(username: "Oscarbait Cuckatoo", password: "password",
+first_name: "Oscarbait", last_name: "Cuckatoo", email:"random@random.com")
+
+User.create!(username: "Buckingham Frumblesnatch", password: "password",
+first_name: "Buckingham", last_name: "Frumblesnatch", email:"random@random.com")
+User.create!(username: "Snorkeldink Crackersprout", password: "password",
+first_name: "Snorkeldink", last_name: "Crackersprout", email:"random@random.com")
+User.create!(username: "Bentobox Crimpysnitch", password: "password",
+first_name: "Bentobox", last_name: "Crimpysnitch", email:"random@random.com")
+User.create!(username: "Barnoldswick Crumplesack", password: "password",
+first_name: "Barnoldswick", last_name: "Crumplesack", email:"random@random.com")
+User.create!(username: "Snozzlebert Kryptonite", password: "password",
+first_name: "Snozzlebert", last_name: "Kryptonite", email:"random@random.com")
 
 
 

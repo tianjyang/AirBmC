@@ -97,7 +97,7 @@ class SearchForm extends React.Component {
                 onChange={this.handleChange}
                 placeholder="End date"/>
           <span>
-            <input className="search_submit" type="submit" onClick={this.handleClick} value="Find Your Car"></input>
+            <input className="submit_button" type="submit" onClick={this.handleClick} value="Find Your Car"></input>
           </span>
         </form>
         </div>

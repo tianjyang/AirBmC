@@ -23,26 +23,20 @@ class SignUp extends React.Component {
   makeNewSession (e) {
     e.preventDefault();
     let creds = {};
-    if (e.currentTarget.value !== "Log Out") {
-      creds.username = e.currentTarget.form[0].value;
-      creds.password = e.currentTarget.form[1].value;
-      e.currentTarget.form[0].value = "";
-      e.currentTarget.form[1].value = "";
-    }
+    creds.firstname = e.currentTarget.form[0].value;
+    creds.lastname = e.currentTarget.form[1].value;
+    creds.username = e.currentTarget.form[2].value;
+    creds.email = e.currentTarget.form[3].value;
+    creds.password = e.currentTarget.form[4].value;
+    creds.promotions = e.currentTarget.form[5].value;
+    e.currentTarget.form[0].value = "";
+    e.currentTarget.form[1].value = "";
+    e.currentTarget.form[2].value = "";
+    e.currentTarget.form[3].value = "";
+    e.currentTarget.form[4].value = "";
 
-    switch (e.currentTarget.value) {
-      case "Log In":
-        this.props.onLoginClick(creds);
-        break;
-      case "Sign Up":
-        this.props.onSignUpClick(creds);
-        break;
-      case "Guest":
-        creds.username = "guest";
-        creds.password = "password";
-        this.props.onLoginClick(creds);
-        break;
-    }
+
+    this.props.onSignUpClick(creds);
   }
 
   destroySession (e) {
@@ -84,16 +78,17 @@ class SignUp extends React.Component {
         <div id="signup-modal">
           <div className={"modal-background"} onClick={this.hideModal}>
             <div className={"modal-content-fit"} onClick={this.preventPropagation.bind(this)}>
-              <img className="logo" style={{"cursor":"default","backgroundColor":"#008AC9","marginBottom":"10px","border":"2px solid #2B115A"}}
-                src={"http://res.cloudinary.com/drf8botsi/image/upload/c_crop,h_198,w_400,y_80/v1476245154/logo_qgje6h.png"}/>
-              <p style={{"lineHeight":"12px"}}>Sign Up Here!</p>
+              <p style={{"lineHeight":"12px","margin":"10px auto"}}>Sign Up With Email</p>
               <form className={"session_form"}>
-                <input className={"session_field"} type="text" name="user[username]" placeholder="Username"></input>
-                <input className={"session_field"} type="password" name="user[password]" placeholder="Password"></input>
+                <input className={"session_field"} type="text" placeholder="First Name"></input>
+                <input className={"session_field"} type="text" placeholder="Last Name"></input>
+                <input className={"session_field"} type="text" placeholder="Username"></input>
+                <input className={"session_field"} type="text" placeholder="Email"></input>
+                <input className={"session_field"} type="password" placeholder="New Password"></input>
+                  <span style={{"fontSize":"12px","backgroundColor":"white","lineHeight":"12px","margin":"10px auto"}}>
+                    <input type="checkbox"/> Please send me promotional updates and keep me updated with the latest features!</span>
                 <div className="button_container">
-                  <input type="submit" onClick={this.makeNewSession} value="Log In" className={"session_button "}></input>
-                  <input type="submit" onClick={this.makeNewSession} value="Sign Up" className={"session_button "}></input>
-                  <input type="submit" onClick={this.makeNewSession} value="Guest" className={"session_button "}></input>
+                  <input type="submit" style={{"margin":"10px auto"}} onClick={this.makeNewSession} value="Sign Up" className={"submit_button "}></input>
                 </div>
 
                 <SessionErrors errors={this.props.errors}/>

@@ -136,7 +136,8 @@ class Map extends React.Component {
       <div>
         <div id="map" className="mapContainer-search">
         </div>
-        <span style={{"position":"absolute","fontSize":"12px",'top':"50px","left":"10px","backgroundColor":"white","padding":"5px"}}> <input type="checkbox" onClick={this.toggleMapSearch}/> Update search results with map?</span>
+        <span style={{"position":"absolute","fontSize":"12px",'top':"50px","left":"10px","backgroundColor":"white","padding":"5px"}}>
+          <input type="checkbox" onClick={this.toggleMapSearch}/> Update search results with map?</span>
       </div>
           );
   }
