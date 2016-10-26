@@ -25,6 +25,12 @@
   display:none;
 }
 
+#host-modal {
+  position:fixed;
+  z-index: 5;
+  display:none;
+}
+
 #new-reservation-modal {
   position:fixed;
   z-index: 5;

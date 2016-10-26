@@ -14,13 +14,14 @@ div.listing-title {
 	position:absolute;
 	top:10px;
 	left:10px;
-  background-color: rgb(0,138,201);
+  background-color: $primary-darker-0p4;
+  color:white;
   padding: 0px 5px;
   font-weight: bold;
 }
 
 .trapezoid {
-	border-bottom: 25px solid red;
+	border-bottom: 25px solid $primary-darkest;
 	border-left: 25px solid transparent;
 	border-right: 25px solid transparent;
 	height: 2px;
@@ -31,7 +32,7 @@ div.listing-title {
 }
 
 .trapezoid-small {
-	border-bottom: 10px solid red;
+	border-bottom: 10px solid $primary-darkest;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	height: 0px;
@@ -46,7 +47,7 @@ form.reservation-form {
 	display:inline-block;
 	width: 300px;
 	height: 200px;
-	background: $primary;
+	background: $primary-darker-0p4;
   vertical-align: top;
   padding: 10px;
   box-sizing: border-box;
@@ -133,7 +134,7 @@ form.reservation-form textarea {
 }
 
 .comment-form {
-  background-color: $primary;
+  background: $primary-darker-0p4;
   padding:0px 10px;
 }
 
@@ -147,7 +148,7 @@ input.input_field.body {
 
 .select-container {
   background-color: white;
-  display:flex;
+  display:inline-flex;
   justify-content: center;
 }
 

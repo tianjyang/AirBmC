@@ -16,6 +16,9 @@ const SessionMiddleware = (store) => (next) => (action) => {
 
   const errorCallback = (errorMessage) => {
     store.dispatch(updateSessionErrors(errorMessage));
+    window.setTimeout(()=>{
+      store.dispatch(updateSessionErrors([]))
+    },2500)
   };
 
   const addReservationsToState = (reply) => {

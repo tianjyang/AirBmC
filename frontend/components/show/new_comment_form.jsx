@@ -40,7 +40,8 @@ class NewCommentForm extends React.Component {
           </div>
         </label>
         <span>
-          <input type="submit" onClick={this.handleClick} value="Submit" className={"comment-submit"}></input>
+          <input type="submit" onClick={this.handleClick} value="Submit" className={"submit_button"}
+            style={{"width":"110px","marginLeft":"10px","display":"inline-block"}}></input>
       </span>
       </form>
     );
