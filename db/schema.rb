@@ -70,9 +70,9 @@ ActiveRecord::Schema.define(version: 20161025163429) do
     t.string   "session_token",                   null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.string   "first_name",                      null: false
-    t.string   "last_name",                       null: false
-    t.string   "email",                           null: false
+    t.string   "first_name",      default: ""
+    t.string   "last_name",       default: ""
+    t.string   "email",           default: ""
     t.boolean  "promotion",       default: false
   end
 
