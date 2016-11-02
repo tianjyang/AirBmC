@@ -4,7 +4,29 @@
 // @import 'results_page';
 @import 'variables';
 
+.video-bg-container{
+	position:absolute;
+	overflow:hidden;
+	width:100%;
+	height: calc(100vh - 75px);
+}
 
+#video-bg {
+	width:100%;
+	height:110%;
+	// position: fixed;
+	// top: 50%;
+	// left: 50%;
+	// min-width: 100%;
+	// min-height: 100%;
+	// width: auto;
+	// height: auto;
+	// z-index: -100;
+	// -ms-transform: translateX(-50%) translateY(-50%);
+	// -moz-transform: translateX(-50%) translateY(-50%);
+	// -webkit-transform: translateX(-50%) translateY(-50%);
+	// transform: translateX(-50%) translateY(-50%);
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -89,7 +111,7 @@ img.logo {
 
 div.landingPage {
 	min-width: 900px;
-	background-image: url("http://res.cloudinary.com/drf8botsi/image/upload/v1474757400/landscape-1444408765-road-trip_y45b2n.jpg");
+	// background-image: url("http://res.cloudinary.com/drf8botsi/image/upload/v1474757400/landscape-1444408765-road-trip_y45b2n.jpg");
 	background-size: cover;
 	background-clip: border-box;
 	background-repeat: no-repeat;

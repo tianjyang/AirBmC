@@ -2,6 +2,7 @@ import React from 'react';
 import { GoogleGeocoding } from '../../utils/search_ajax_util';
 import { withRouter } from 'react-router';
 import SearchMap from '../map/map';
+// import * as myVimeo from '@vimeo/player';
 
 class SearchForm extends React.Component {
   constructor () {
@@ -35,7 +36,6 @@ class SearchForm extends React.Component {
     query.address = this.props.searchParams.location || "San Francisco";
     GoogleGeocoding(query,success);
     this.handleChange(e);
-
   }
 
   handleChange (e) {
@@ -60,12 +60,18 @@ class SearchForm extends React.Component {
     $("#landing_end_date").datepicker({
       dateFormat: "yy-mm-dd"
     });
+
+    $('iframe').contents().find("head")
+      .append($("<style type='text/css'>  .my-class{display:none;}  </style>"));
   }
 
   render() {
 
     return(
       <div className="landingPage">
+        <div className="video-bg-container">
+          <iframe id="video-bg" src="https://player.vimeo.com/video/120955593?autoplay=1"frameborder="0"></iframe>
+        </div>
         <span className="title-container">
           AirBmC
         </span>
