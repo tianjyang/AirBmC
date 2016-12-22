@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  searchByBounds: (searchParams) => dispatch(searchByBounds(searchParams)),
+  searchByBounds: (searchParams) => dispatch(searchByBounds(searchParams));
 });
 
 export default connect(
